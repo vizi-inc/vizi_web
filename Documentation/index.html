@@ -1,0 +1,867 @@
+<!--   
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio and Blog Theme.
+ * Version: 1.4
+ * Author: @htmlstream
+ * Website: http://htmlstream.com
+-->
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Unify | Documentation...</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+</head>	
+
+<body>
+<div class="container-full">
+	<div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 col-md-4">
+            <div class="page-wrap">
+                <div class="aside" id="sidebar">
+                    <h1>Unify - Responsive Website Template</h1>
+                    <p>Documentation v1.4</p>
+
+                    <hr>
+                    
+                    <ul class="list-unstyled">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#main">Main Structures</a></li>
+                        <li><a href="#nav">Header &amp; Navigation</a></li>
+                        <li><a href="#theme">Theme Configuration</a></li>
+                        <li><a href="#js">JavaScript initialization</a></li>
+                        <li><a href="#fonts">Fonts</a></li>
+                        <li><a href="#credits">Credits</a></li>
+                        <li><a href="#changelog">Change Log</a></li>
+                        <li><a href="#upgrade">Upgrade</a></li>
+                        <li><a href="#end">End of Documentation</a></li>
+                    </ul>                
+                </div>                
+            </div>
+        </div>
+        <!-- End Sidebar -->
+        
+        <div class="content col-lg-9  col-md-8">
+        	<div id="overview" class="margin-bottom-40">
+                <h2>Overview</h2>
+                
+                <hr>
+
+                <p>Unify is an incredibly beautiful and fully responsive Bootstrap 3 Template for any type of creative professionals. Template comes with developer friendly and easy to customizable code. It works on all main web browsers, tablets and phones.</p>
+
+                <p>We hope you will enjoy using Unify template’s easy to navigate and user-friendly layout and yet developer friendly code. Furthermore, a lot of resources have been employed and added many options just to make sure our valued customers will be satisfied with their purchase.</p>
+
+                <p>Current upgraded release is v1.4 and much more new amazing features are coming soon in the next updates. Thank you for using Unify Template.</p><br>
+
+                <ul class="list-unstyled list-style">
+                	<li>Author: <a href="https://twitter.com/htmlstream">@htmlstream</a></li>
+                	<li>Contact: <a href="mailto:support@htmlstream.com">support@htmlstream.com</a></li>
+                    <li>Created on: 24/04/2013</li>
+                    <li>Latest Update on: 06/04/2014</li>
+                </ul>
+            </div><!--/overview-->
+            
+            <div id="main" class="margin-bottom-70">
+                <h2>Main Structures <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+
+                <p>Home pages in Unify Template consist of <code>header</code>, <code>slider</code>, <code>content part</code>, <code>footer</code> and <code>copyright</code> parts. However, inner pages includes <code>breadcrumbs</code> instead of <code>slider</code>.</p><br>
+
+                <div class="block-center margin-bottom-30">
+                	<img class="img-responsive" src="img/unify.jpg" alt="" />
+                </div>
+                
+                <hr class="margin-bottom-30">
+
+				<!--Beginning of Page-->
+                <h3>Beginning of the Page</h3>
+                <p>In order to detect Internet Explorer browser version a specific class implemented to following code at the beginning of all HTML pages</p>
+
+				<pre>
+&lt;!DOCTYPE html&gt;
+&lt;!--[if IE 8]&gt; &lt;html lang=&quot;en&quot; class=&quot;ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt; &lt;html lang=&quot;en&quot; class=&quot;ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if !IE]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot;&gt; &lt;!--&lt;![endif]--&gt;
+                </pre>
+
+                <div class="margin-bottom-40"></div>
+
+				<!--Page Head-->
+                <h3>Page Head <span class="label label-dark">Updated v1.4</span></h3>
+                <p>Page head contains Title, Metadata, Favicon and CSS.</p>
+				<pre>
+&lt;head&gt;
+    &lt;title&gt;Unify | Welcome...&lt;/title&gt;
+
+    &lt;!-- Meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot;&gt;
+    &lt;meta content=&quot;&quot; name=&quot;description&quot;&gt;
+    &lt;meta content=&quot;&quot; name=&quot;author&quot;&gt;
+
+    &lt;!-- Favicon --&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;
+    
+    &lt;!-- CSS Global Compulsory --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/plugins/bootstrap/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/style.css&quot;&gt;
+
+    &lt;!-- CSS Implementing Plugins --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/plugins/line-icons/line-icons.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/plugins/font-awesome/css/font-awesome.css&quot;&gt;
+    
+    &lt;!-- CSS Theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/themes/default.css&quot;&gt;
+&lt;/head&gt;
+                </pre>
+
+                <div class="margin-bottom-40"></div>
+
+                <!--Header-->
+                <h3>Wrapper <span class="label label-dark">New v1.4</span></h3>
+                <p><code>.wrapper</code> class is added on v1.4 to wrap <strong>ALL</strong> body contents. Mainly It consist of header, slider, breadcurmbs, content parts etc.</p>
+                <pre>
+&lt;div class=&quot;wrapper&quot;&gt;
+    ...
+    ...
+&lt;/div&gt;
+                </pre>
+                <p><span class="label label-blue">Note</span> Below codes are part of the wrapper content. It starts from <code>header</code> and ends after <code>copyright</code> part.</p><br>
+
+
+                <!--Header-->
+                <h3>Header <span class="label label-dark">Updated v1.4</span></h3>
+                <pre>
+&lt;!--=== Header ===--&gt;
+&lt;div class=&quot;header&quot;&gt;
+    &lt;-- Topbar --&gt;
+    &lt;div class=&quot;topbar&quot;&gt;
+        ...
+        ...
+    &lt;/div&gt;
+    &lt;--  End Topbar --&gt;
+
+    &lt;-- Navbar --&gt;
+    &lt;div class=&quot;navbar navbar-default&quot; role=&quot;navigation&quot;&gt;
+        ...
+        ...
+    &lt;/div&gt;
+    &lt;-- End Navbar --&gt;
+&lt;/div&gt;
+&lt;!--=== End Header ===--&gt;
+                </pre>
+
+                <!--Content-->
+                <h3>Content <span class="label label-dark">Updated v1.4</span></h3>
+                <p>Container block includes all contents on pages. Moreover, in v1.4 added <code>.content</code> class to the main wrap container to give space (padding) for the content.</p>
+                <pre>
+&lt;!--=== Content Part  ===--&gt;
+&lt;div class=&quot;container content&quot;&gt;
+    ...
+    ...
+&lt;/div&gt;&lt;!--/container--&gt;
+&lt;!--=== End Content Part  ===--&gt;
+                </pre>
+
+				<!--Footer-->
+				<h3>Footer</h3>
+				<pre>
+&lt;!--=== Footer ===--&gt;
+&lt;div class=&quot;footer&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+	    ...
+	    ...
+    &lt;/div&gt;&lt;!--/container--&gt;
+&lt;/div&gt;&lt;!--/footer--&gt;
+&lt;!--=== End Footer ===--&gt;
+                </pre>
+                
+				<pre>
+&lt;!--=== Copyright ===--&gt;
+&lt;div class=&quot;copyright&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+	    ...
+	    ...
+    &lt;/div&gt;&lt;!--/container--&gt;
+&lt;/div&gt;&lt;!--/copyright--&gt;
+&lt;!--=== End Copyright ===--&gt;
+                </pre>
+
+                <div class="margin-bottom-50"></div>
+
+				<!--Javascript and jQuery-->
+                <h3>Javascript and jQuery</h3>
+                <p>Javascript files loaded in the end of page. This will reduce page load time.</p>
+				<pre>
+&lt;!-- JS Global Compulsory --&gt;
+&lt;script src=&quot;assets/plugins/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/plugins/jquery-migrate-1.2.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/plugins/bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- JS Implementing Plugins --&gt;
+&lt;script src=&quot;assets/plugins/back-to-top.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- JS Page Level --&gt;
+&lt;script src=&quot;assets/js/app.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+jQuery(document).ready(function() {
+    App.init();
+});
+&lt;/script&gt;
+
+&lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;assets/js/respond.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+                </pre>
+            </div>
+
+
+            <div class="clearfix margin-bottom-50"></div>
+
+
+			<!-- Header and Navigation -->            
+            <div id="nav" class="margin-bottom-70">
+                <h2>Header &amp; Navigation <span class="label label-dark">Updated v1.4</span><a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+
+                <p>Unify Template includes two header alternatives and fixed(static) header option.</p>
+                <ul>
+                    <li><strong>Default Header</strong> : All pages are use default header</li>
+                    <li><strong>Header Alternative</strong> : You can see the demo example page in <code>page_home6.html</code></li>
+                    <li><strong>Fixed (static)</strong> : Please note fixed header currently works only with <strong>default</strong> header. In order to make the default header to be fixed, you need to add <code>.header-fixed</code> class to <code>body</code> tag. The demo page for fixed header is located in <code>page_home10.html</code></li>
+                </ul>
+
+                <div class="clearfix margin-bottom-30"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><span class="label label-info">Info</span> This is <strong>default</strong> header view</p>
+                        <img class="img-responsive img-bordered" src="img/header1.jpg" alt="Default Header" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <p><span class="label label-info">Info</span> This is <strong>alternative</strong> header view</p>
+                        <img class="img-responsive img-bordered" src="img/header2.jpg" alt="Alternative Header" />
+                    </div>
+                </div>
+            </div>
+            <!-- End Header and Navigation -->            
+
+            <div class="clearfix margin-bottom-50"></div>
+
+
+            <!-- Theme Configuration -->            
+            <div id="theme" class="theme margin-bottom-70">
+                <h2>Theme Configuration <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                
+                <hr>
+
+                <p>Unify Template includes 10 predefined theme colors. All theme CSS files are located in <code>assets/css/themes/..</code></p>
+                
+                <p>To change theme color you should just replace <code>assets/css/themes/<strong>default.css</strong></code> to <code>assets/css/themes/<strong>your_theme.css</strong></code> or you can use ready theme css files <code>blue.css</code>, <code>red.css</code>, <code>orange.css</code> etc. instead of <strong>your_theme.css</strong> <p>
+                <pre>
+&lt;head&gt;
+    &lt;title&gt;Unify | Welcome...&lt;/title&gt;
+
+    &lt;!-- Meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta content=&quot;width=device-width, initial-scale=1.0&quot; name=&quot;viewport&quot; /&gt;
+    &lt;meta content=&quot;&quot; name=&quot;description&quot; /&gt;
+    &lt;meta content=&quot;&quot; name=&quot;author&quot; /&gt;
+
+    &lt;!-- CSS Theme --&gt;
+    <span class="tag-cover">&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/themes/default.css&quot; /&gt;</span>
+&lt;/head&gt;
+                </pre>
+
+                <p class="theme-info"><span class="label label-info">Info</span> If you want to use <strong>default theme</strong> style there's no necessity to link <code>assets/css/themes/default.css</code> you can just remove this line from HTML content. It's already included in main css files such as <code>style.css</code>, <code>app.css</code> etc.</p> <br>
+            </div>
+            <!-- End Theme Configuration -->
+
+            <div class="margin-bottom-25"></div>
+            
+			<!-- JavaScript initialization -->            
+            <div id="js" class="margin-bottom-70">
+                <h2>JavaScript initialization <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+
+                <p>Core javascript initialization implemented in <code>assets/js/app.js</code> thorugh App object as shown below. This approach enables an easy modular implementation to initialize jquery plugins and other application logics.</p>
+				<pre>
+var App = function () {
+    ...
+    ...
+}();
+                </pre>                
+            </div>
+            <!-- End JavaScript initialization -->            
+
+            <div class="clearfix margin-bottom-50"></div>
+            
+			<!-- Fonts -->            
+            <div id="fonts" class="margin-bottom-70">
+                <h2>Fonts <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+                <p>Unify Template uses Open Sans font for headings from Google Web Fonts. You are able to choose more than 600+ fonts from <a target="_blank" href="https://www.google.com/fonts">Google Web Fonts</a>. The font imported in the app.css file <code>assets/css/app.css</code></p>
+				<pre>
+/*Import Google Font*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+                </pre>                
+            </div><!--/end-->
+            <!-- End Fonts -->            
+            
+            <div class="clearfix margin-bottom-40"></div>
+
+            <!-- Credits -->            
+            <div id="credits" class="table-credits margin-bottom-70">
+                <h2>Credits <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="120">Name</th>
+                            <th class="hidden-sm">Description</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Twitter Bootstrap</td>
+                            <td class="hidden-sm">Sleek, intuitive, and powerful front-end framework for faster and easier web development.</td>
+                            <td><a target="_blank" href="http://twitter.github.io/bootstrap">http://twitter.github.io/bootstrap</a></td>
+                        </tr>
+                        <tr>
+                            <td>jQuery</td>
+                            <td class="hidden-sm">jQuery is a fast, small, and feature-rich JavaScript library.</td>
+                            <td><a target="_blank" href="http://jquery.com">http://jquery.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>Font Awesome</td>
+                            <td class="hidden-sm">Font Awesome The iconic font designed for Bootstrap</td>
+                            <td><a target="_blank" href="http://fortawesome.github.io/Font-Awesome">http://fortawesome.github.io/Font-Awesome</a></td>
+                        </tr>
+                        <tr>
+                            <td>Glyphicons Pro</td>
+                            <td class="hidden-sm">Icons are designed primarily for toolbars and navigation bars in OS X Lion, the application for iPhone, iPhone 4, iPad and other Apple devices.</td>
+                            <td><a target="_blank" href="http://glyphicons.com">http://glyphicons.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>Revolution Slider</td>
+                            <td class="hidden-sm">Slider Revolution is a fully developed slide displaying system offering the capability to show images, videos and captions paired with simple, modern and fancy 3D transitions.</td>
+                            <td><a target="_blank" href="http://www.themepunch.com/codecanyon/revolution">http://www.themepunch.com/codecanyon/revolution</a></td>
+                        </tr>
+                        <tr>
+                            <td>Parallax Slider</td>
+                            <td class="hidden-sm">A simple parallax content slider with different animations for each slider element and a background parallax effect.</td>
+                            <td><a target="_blank" href="http://tympanus.net/codrops/2012/03/15/parallax-content-slider-with-css3-and-jquery">http://tympanus.net/codrops/2012/03/15/parallax-content-slider-with-css3-and-jquery</a></td>
+                        </tr>
+                        <tr>
+                            <td>Sequence Slider</td>
+                            <td class="hidden-sm">Sequence Slider is Responsive slider with Advanced CSS3 Transitions. Unify template uses "Sliding Horizontal Parallax" and "Apple Style" sliders.</td>
+                            <td><a target="_blank" href="http://www.sequencejs.com">http://www.sequencejs.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>BxSlider</td>
+                            <td class="hidden-sm">The Responsive jQuery Content Slider.</td>
+                            <td><a target="_blank" href="http://bxslider.com">http://bxslider.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>FlexSlider</td>
+                            <td class="hidden-sm">FlexSlider an awesome, fully responsive jQuery slider toolkit. Unify uses FlexSlider for "Our Clients" carousel.</td>
+                            <td><a target="_blank" href="http://www.woothemes.com/flexslider">http://www.woothemes.com/flexslider</a></td>
+                        </tr>
+                        <tr>
+                            <td>Backstretch</td>
+                            <td class="hidden-sm">A simple jQuery plugin that allows you to add a dynamically-resized, slideshow-capable background image to any page or element.</td>
+                            <td><a target="_blank" href="http://srobbin.com/jquery-plugins/backstretch">http://srobbin.com/jquery-plugins/backstretch</a></td>
+                        </tr>
+                        <tr>
+                            <td>FancyBox</td>
+                            <td class="hidden-sm">FancyBox is a tool for displaying images, html content and multi-media.</td>
+                            <td><a target="_blank" href="http://fancybox.net">http://fancybox.net</a></td>
+                        </tr>
+                        <tr>
+                            <td>Quicksand</td>
+                            <td class="hidden-sm">Quicksand reorder and filter items with a nice shuffling animation. The folder name in Unify Template is portfolioSorting.</td>
+                            <td><a target="_blank" href="https://github.com/razorjack/quicksand">https://github.com/razorjack/quicksand</a></td>
+                        </tr>
+                        <tr>
+                            <td>Countdown</td>
+                            <td class="hidden-sm">jQuery Countdown Plugin</td>
+                            <td><a target="_blank" href="http://keith-wood.name/countdown.html">http://keith-wood.name/countdown.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>GMaps</td>
+                            <td class="hidden-sm">gmaps.js allows you to use the potential of Google Maps in a simple way. No more extensive documentation or large amount of code</td>
+                            <td><a target="_blank" href="http://hpneo.github.io/gmaps">http://hpneo.github.io/gmaps</a></td>
+                        </tr>
+                    </tbody>
+                </table> 
+
+                <div class="clearfix margin-bottom-10"></div>
+
+                <h2>Image and Design credits</h2>                
+                <ul class="list-unstyled margin-bottom-20">
+                    <li>- Google Fonts: <a target="_blank" href="http://www.google.com/fonts">http://www.google.com/fonts</a></li>
+                    <li>- Photo by DAVID ILIFF. License: CC-BY-SA 3.0: <a href="http://bit.ly/ZhuJG1">http://bit.ly/ZhuJG1</a></li>
+                    <li>- Showcase: <a target="_blank" href="http://www.pixeden.com/psd-web-elements/responsive-showcase-psd">http://www.pixeden.com/psd-web-elements/responsive-showcase-psd</a></li>
+                    <li>- Blurred backgrounds: <a target="_blank" href="http://www.cssauthor.com/10-beautiful-collection-of-blurred-backgrounds">http://www.cssauthor.com/10-beautiful-collection-of-blurred-backgrounds</a></li>
+                    <li>- <strong>Unsplash</strong> free hi-resolution photos: <a target="_blank" href="http://unsplash.com">http://unsplash.com</a></li>
+                    <li>- <strong>Picjumbo</strong> totally free photos for your commercial &amp; personal works: <a target="_blank" href="http://picjumbo.com">http://picjumbo.com</a></li>
+                    <li>- <strong>IM FREE</strong> A curated collection of free resources, all for commercial use.: <a target="_blank" href="http://imcreator.com/free">http://imcreator.com/free</a></li>
+                </ul>
+                
+                <p>The following images are used for Unify Template:</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a target="_blank" href="http://www.flickr.com/photos/76029035@N02/6829467731/in/photostream">Image1</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/76029035@N02/6829377121/in/photostream">Image2</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/76029035@N02/6829378917/in/photostream">Image3</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/76029035@N02/6829462937/in/photostream">Image4</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/vinothchandar/4440514696/in/photostream">Image5</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/igorputina/7301645098/in/photostream">Image6</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/76029035@N02/6829478403">Image7</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/56278705@N05/7813906062">Image8</a></li>
+                        </ul>               
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a target="_blank" href="http://www.flickr.com/photos/56278705@N05/7813906062">Image8</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/samstimpson/2348233460">Image9</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/stonechat/2866207528">Image10</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5536417061">Image11</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/igorputina/7301607968">Image12</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/hexadb/7538316530">Image13</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5517016824/in/photostream">Image14</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516423517/in/photostream">Image15</a></li>
+                        </ul>               
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516423089/in/photostream">Image16</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516414821/in/photostream">Image17</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516410097/in/photostream">Image18</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516401107/in/photostream">Image19</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516990726/in/photostream">Image20</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516400193/in/photostream">Image21</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516989744/in/photostream">Image22</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/dellphotos/5516980612/in/photostream">Image23</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a target="_blank" href="http://www.flickr.com/photos/93963757@N05/8550837719/in/photostream">Image24</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/rachephotos/2244619635">Image25</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/jeanpaulit/2944279434">Image26</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/orofacial/8220685636/in/photostream">Image27</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/idhren/7171472960">Image28</a></li>
+                            <li><a target="_blank" href="http://www.flickr.com/photos/kurtbudiarto/7425681370">Image29</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Credits -->            
+            
+            <div class="margin-bottom-40"></div>
+
+			<!--Change Log-->            
+            <div id="changelog" class="changelog margin-bottom-70">
+                <h2>Change Log <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+                <p><label class="label label-danger">Info</label> Please do not forget to backup your files before the upgrade.</p>
+                <br>
+
+                <h4><strong>Version 1.4 – 06 October 2014</strong></h4>
+                <ul class="margin-bottom-40">
+                     <li>NEW: 5 Theme Colors</li>
+                     <li>NEW: Discover Page</li>
+                     <li>NEW: Jobs Page</li>
+                     <li>NEW: Jobs Inner v1 Page </li>
+                     <li>NEW: Jobs Inner v2 Page </li>
+                     <li>NEW: Jobs Inner v3 Page </li>
+                     <li>NEW: About Us Page</li>
+                     <li>NEW: About Me Page</li>
+                     <li>NEW: Responsive Corporate Email</li>
+                     <li>NEW: Responsive Flat Email</li>
+                     <li>NEW: Responsive Modern Email</li>
+                     <li>NEW: Pricing Tabels</li>
+                     <li>NEW: Light Pricing Tabels</li>
+                     <li>NEW: Mega Pricing Tabels</li>
+                     <li>NEW: Search Results Page</li>
+                     <li>NEW: Search Table Results Page</li>
+                     <li>NEW: FAQs Page</li>
+                     <li>NEW: 404 Eror v1 Page</li>
+                     <li>NEW: 404 Eror v2 Page</li>
+                     <li>NEW: Blog Timeline Page</li>
+                     <li>NEW: Boxed Pages</li>
+                     <li>NEW: Parallax Background</li>
+                     <li>NEW: Fixed Header</li>
+                     <li>NEW: Static Footer</li>
+                     <li>NEW: Sub Menu in Dropdown Navigation</li>                     
+                     <li>NEW: Dropcaps</li>
+                     <li>NEW: Bordered Texts</li>
+                     <li>NEW: Tooltips</li>
+                     <li>NEW: Color Texts</li>
+                     <li>NEW: Popovers</li>
+                     <li>NEW: Highlights</li>
+                     <li>NEW: Heading Options</li>
+                     <li>NEW: Deviders</li>
+                     <li>NEW: Blockquote Styles</li>
+                     <li>NEW: Box Shadows</li>
+                     <li>NEW: Testimonials Styles</li>
+                     <li>NEW: 7 New Button Colors</li>
+                     <li>NEW: Icon Button</li>
+                     <li>NEW: Outline Buttons</li>
+                     <li>NEW: Rounded Buttons</li>
+                     <li>NEW: Dropdown Buttons</li>
+                     <li>NEW: Split Dropdowns Button</li>
+                     <li>NEW: Collection of Brand and Social Buttons</li>
+                     <li>NEW: Button Loading &amp; Hover Effects</li>
+                     <li>NEW: Icon Sizes</li>
+                     <li>NEW: 10+ Icon Color Styles</li>
+                     <li>NEW: Rounded Icons</li>
+                     <li>NEW: Circle Icons</li>
+                     <li>NEW: Rounded and Circle Social Icons</li>
+                     <li>NEW: Line Icons</li>
+                     <li>NEW: Unlimited Content Boxes</li>
+                     <li>NEW: Colored Content Boxes</li>
+                     <li>NEW: Tons of Labels &amp; Badges Styles</li>
+                     <li>NEW: Progress Bars</li>
+                     <li>NEW: Image Styles</li>
+                     <li>NEW: Vimeo &amp; Youtube Video Examples</li>
+                     <li>NEW: Soundcloud Music</li>
+                     <li>NEW: 5+ Panels</li>
+                     <li>NEW: Timeline v1</li>
+                     <li>NEW: Timeline v2</li>
+                     <li>NEW: Responsive Carousel Examples</li>
+                     <li>NEW: General Unify Forms</li>
+                     <li>NEW: Datepickers</li>
+                     <li>NEW: Validation Forms</li>
+                     <li>NEW: Masking Forms</li>
+                     <li>NEW: Form Layouts</li>
+                     <li>NEW: Checkout Form</li>
+                     <li>NEW: Review Form</li>
+                     <li>NEW: Order Form</li>
+                     <li>NEW: Form States</li>
+                     <li>NEW: Form Sliders</li>
+                     <li>NEW: Modals</li>
+                     <li>NEW: Google Maps Examples</li>
+                     <li>NEW: Vector Maps</li>
+                     <li>NEW: Animated Pie Charts</li>
+                     <li>NEW: Counters</li>
+                     <li>NEW: Image Breadcrumbs</li>
+                     <li>NEW: Animate CSS</li>
+                     <li>NEW: Sub Menu on Sidebar Navigation</li>
+
+                     <li>IMPROVEMENT: Typography Page</li>
+                     <li>IMPROVEMENT: About Our Team</li>
+                     <li>IMPROVEMENT: Clients Page</li>
+                     <li>IMPROVEMENT: Gallery Page</li>
+                     <li>IMPROVEMENT: Button Sisez</li>
+                     <li>IMPROVEMENT: Disabled State</li>
+                     <li>IMPROVEMENT: Icon Styles</li>
+                     <li>IMPROVEMENT: Bootstrap Forms</li>
+                     <li>IMPROVEMENT: Navigation</li>
+                     <li>IMPROVEMENT: Documentation</li>
+
+                     <li>FIXED: Mobile Navigation</li>
+                     <li>FIXED: Searchbox for Smaller Width Browser</li>
+                     <li>FIXED: FancyBox For Mobile</li>
+                     <li>FIXED: Button Sizes</li>
+                     <li>FIXED: Button Disable States</li>
+                     <li>FIXED: Boxed Layout Issue with FancyBox</li>
+
+                     <li>UPDATED: Bootstrap 3.1.1</li>
+                     <li>UPDATED: Awesome Icons 4.0.3</li>
+                </ul>
+
+                <h4><strong>Version 1.3 – 19 October 2013</strong></h4>
+                <ul class="margin-bottom-40">
+                    <li>NEW: Layer Slider (<strong>value $10</strong>)</li>
+                    <li>NEW: Flatty Home Page</li>
+                    <li>NEW: Portfolio Home Page</li>
+                    <li>NEW: About Us Option Page</li>
+                    <li>NEW: Services Option Page</li>
+                    <li>NEW: Invoice Page</li>
+                    <li>NEW: Funny Boxes</li>
+                    <li>NEW: Meet Our Teamm Page</li>
+                    <li>NEW: Registration Option Page</li>
+                    <li>NEW: Login Option Page</li>
+                    <li>NEW: 3 Column Page</li>
+                    <li>NEW: Blog/Magazine Page</li>
+                    <li>NEW: Blog Medium Page</li>
+                    <li>NEW: Blog Full Width Page</li>
+                    <li>NEW: Blog Item Option</li>
+                    <li>NEW: Contact Option Page</li>
+                    <li>NEW: 404 Error Option Page</li>
+                    <li>NEW: Soring Plugin</li>
+                    <li>NEW: Tweet Blocks</li>
+                    <li>NEW: Tab Styles</li>
+                    <li>NEW: Header Option</li>
+                    <li>NEW: Content Boxes</li>
+                    <li>NEW: Rounded Icon Styles</li>
+                    <li>NEW: Colored Social Icon</li>
+                    <li>NEW: 12 Different Color Panels</li>
+                    <li>NEW: Testimonial Blocks</li>
+                    <li>NEW: Boxed Layout</li>
+                    <li>NEW: Blog Posts</li>
+                    <li>NEW: Blog Quick Links</li>
+                    <li>NEW: Panel Tabs</li>
+                    <li>NEW: Panel Forms</li>
+                    <li>NEW: Responsive Video Class</li>
+                    <li>NEW: Youtube Video Example</li>
+                    <li>NEW: Info Blocks with Icons</li>
+                    <li>NEW: Sidebar Navigation</li>
+                    <li>NEW: Hover Dropdown Menu</li>
+
+                    <li>UPGRADE: <strong>Twitter Bootstrap 3</strong></li>
+                    <li>UPGRADE: jQuery <strong>1.10.2</strong></li>
+                    <li>UPGRADE: Revolution Slider <strong>3.0.8</strong></li>
+                    <li>UPGRADE: Font Awesome <strong>v3.2.1</strong></li>
+                    <li>UPGRADE: Glyphicons Pro Icons</li>
+
+                    <li>IMPROVEMENT: Redesigned All Feature Pages</li>
+                    <li>IMPROVEMENT: Redesigned Vertical Parallax Slider</li>
+                    <li>IMPROVEMENT: Redesigned Service Page</li>
+                    <li>IMPROVEMENT: Navigation (Menu)</li>
+                    <li>IMPROVEMENT: Blog Spacing</li>
+                    <li>IMPROVEMENT: Blog Tags</li>
+                    <li>IMPROVEMENT: Tabs/Accordions</li>
+                    <li>IMPROVEMENT: Parallax Slider Arrows</li>
+
+                    <li>FIXED: Navigation for Mobile Devices</li>
+                    <li>FIXED: Google Map zoom in/out</li>
+                    <li>FIXED: Navigation Toggle Color</li>
+                    <li>FIXED: Pricing Tables Color</li>
+                    <li>FIXED: IE8 Parallax Arrows</li>
+                </ul>
+
+                <div class="clearfix"></div>
+
+                <h4><strong>Version 1.2 – 27 May 2013</strong></h4>
+                <ul class="margin-bottom-40">
+                    <li>NEW: Revolution Slider (<strong>value $12</strong>)</li>
+                    <li>NEW: Coming Soon Page <code>page_coming_soon.html</code></li>
+                    <li>NEW: Glyphicons Pro (<strong>value $59</strong>)</li>
+                    <li>NEW: Four Theme Color Options</li>
+                    <li>NEW: Button Styles <code>feature_button.html</code></li>
+                    <li>NEW: Boxed Contact Page <code>page_contact1.html</code></li>
+                    <li>NEW: Search Page <code>page_search.html</code></li>
+                    <li>NEW: Amazing Alternative Home Page <code>page_home5.html</code></li>
+                    <li>IMPROVEMENT: Documentation</li>
+                    <li>IMPROVEMENT: Paralax Slider (High Resolution)</li>
+                    <li>IMPROVEMENT: HTML/CSS & JS code structures</li>
+                    <li>UPGRADE: Twitter Bootstrap v2.3.2</li>
+                    <li>UPGRADE: Font Awesome v3.1.1</li>
+                    <li>
+                        FIXED: 
+                        <ul>
+                            <li>Header Search Block (for responsive)</li>
+                            <li>Footer Subscribe Form (for IE8)</li>
+                            <li>Accardion and Tabs in Firefox browser (added some default bootstrap classes)</li>
+                        </ul>
+                    </li>
+                </ul>
+                 
+                <div class="clearfix"></div>
+
+                <h4><strong>Version 1.1 – 24 April 2013</strong></h4>
+                <ul>
+                    <li>UPGRADE: Twitter Bootstrap v2.3.1</li>
+                    <li>FIXED: Some page issues in <code>login.html</code> and <code>registration.html</code></li>
+                </ul>
+                <br>
+
+                <h4><strong>Version 1.0 – 23 April 2013</strong></h4>
+                <ul>
+                    <li>Initial release</li>
+                </ul>
+            </div><!--/end-->
+
+            <div class="margin-bottom-50"></div>
+
+            <!-- Update -->            
+            <div id="upgrade" class="upgrade margin-bottom-70">
+                <h2>Upgrade <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+                <p><span class="label label-blue">Info</span> Please do not forget to <strong>backup</strong> your files before the upgrade. If you come across any problem during the upgrade please contact to our support at <a href="mailto:support@htmlstream.com">support@htmlstream.com</a></p><br>
+
+                <!-- v1.4 Upgrade -->
+                <h4>v1.4 Upgrade</h4>
+                <p><span class="label label-red">Important!</span> Now, we have created <code>custom.css</code> to overwrite all your codes, It's located in <code>assets/css/<strong class="color-blue">custom.css</strong></code>. We suggest to write all your css customizations codes into <code>custom.css</code> file. The reason is, when you upgrade Unify to new versions in the future, you will not lose your custom styles.</p><br>
+
+                <ul>
+                    <li>Totaly rewrited almost all <code>feature pages</code> and changed their <code>.html</code> file names.</li>
+                    <li>Redesigned and improved <code>page_clients.html</code> page.</li>
+                    <li>Changed: <code>page_meet_our_team.html</code> to <code>page_about_our_team.html</code></li>
+                    <li>Changed: <code>page_search.html</code> to <code>page_funny_boxes.html</code></li>
+                    <li>Rewrited class names for content boxes and funny boxes. More examples on pages: <code>feature_box_colored.html</code> and <code>feature_box_funny.html</code></li>
+                    <li>Created some new classes to round and circle elements/blocks. You can use these ready classes <code>.rounded</code>, <code>.rounded-x</code>, <code>.rounded-2x</code>, <code>.rounded-3x</code>, <code>.rounded-4x</code> to round any blocks or elements. <code>.rounded-x</code> used to circle elements and It gives 50% border-radius to any element.</li>
+                    <li>Now <code>app.css</code> is built as Unify framework's main stlye. It includes all featres of the Template such as Icons Styles, Buttons, Typography, Content Boxes etc.</li>
+                    <li>Redesigned almost all feature elements.</li>
+                    <li>Totaly changed <code>header</code> structure. Rewrited both <code>header</code> and <code>topbar</code> blocks. Now <code>topbar</code> is a part of <code>header</code> block.</li>
+                    <li><code>header</code> css files are integrated to <code>style.css</code></li>
+                    <li><code>responsive.css</code> is integrated to each css files and It's deleted from css folder. Now, no more required to link <code>responsive.css</code> in html files.</li>
+                    <li>Added <code>.twitter-time</code> class into <code>&lt;span&gt;</code> for sidebar twitter blocks.</li>
+                    <li>Removed <code>dropdown-hover</code> javascript plugin. Now, hover dropdowns work with just css codes.</li>
+                    <li>Removed <code>.btn-buy</code> button from the home pages. Instead used default button.</li>
+                    <li>Removed <strong>icon <i class="fa fa-angle-down color-red"></i></strong> from the navigation dropdown. Now, dropdown arrows were created from the css.</li>
+                </ul>
+
+                <div class="margin-bottom-30"></div> 
+
+                <p>Please Note, latest featres on Unify starting v1.4 may not support with IE8. However, we will do our best to fix them as soon as possible.</p>
+                <p>Moreover, please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, Internet Explorer 8 requires the use of <strong>Respond.js</strong> to enable media query support.</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="col-xs-4">Feature</th>
+                          <th scope="col" class="col-xs-4">Internet Explorer 8</th>
+                          <th scope="col" class="col-xs-4">Internet Explorer 9</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row"><code>border-radius</code></th>
+                          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+                          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><code>box-shadow</code></th>
+                          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+                          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><code>transform</code></th>
+                          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+                          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported, with <code>-ms</code> prefix</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><code>transition</code></th>
+                          <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+                        </tr>
+                      </tbody>
+                      <tbody>
+                        <tr>
+                          <th scope="row"><code>placeholder</code></th>
+                          <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+                <!-- v1.4 Upgrade -->
+
+                <div class="margin-bottom-30 clearfix"></div>
+
+                <!-- v1.3 Upgrade -->
+                <h4>v1.3 Upgrade</h4>
+                <p>Since latest version of Unify upgraded to <strong>Twitter Bootstrap 3</strong> all files comes with a huge JavaScript, HTML and CSS changes. <br> We suggest you to add the codes from previous version into v1.3 and use it as a base template.</p>
+                <p>*Please visit the offecial Bootstrap 3 documentation page for more detalied info <a target="_blank" href="http://getbootstrap.com">http://getbootstrap.com</a></p>
+                <!-- v1.3 Upgrade -->
+
+                <div class="margin-bottom-30 clearfix"></div>
+
+                <!-- v1.2 Upgrade -->
+                <h4>v1.2 Upgrade</h4>
+                <p>Here is breifly explained what we changed in v1.2:</p>
+                <ul class="margin-bottom-40">
+                    <li>
+                        File structures:
+                        <ul>
+                            <li>
+                                Changed HTML file names. For example:
+                                <ul>
+                                    <li><code>faq.html</code> to <code>page_faq.html</code></li>
+                                    <li><code>about.html</code> to <code>page_about.html</code></li>
+                                    <li><code>contact.html</code> to <code>page_contact.html</code></li>
+                                    <li><code>icons.html</code> to <code>feature_icons.html</code></li>
+                                    <li><code>table.html</code> to <code>feature_table</code></li>
+                                    <li>and others...</li>
+                                </ul>
+                            </li>
+                            <li>We added all plugins to plugin folder and now all plugins located in <code>assets/plugins/..</code></li>
+                        </ul>
+                    </li>
+                    <li>Parallax Slider now on autoplay.  Modified file: <code>assets/plugins/parallax-slider/js/jquery.cslider.js</code></li>
+                    <li>Changed <strong>folder</strong> and <strong>file</strong> names from  <code>menu</code> to <code>header</code> in CSS folder <code>assets/css/headers/header1.css</code> and <code>assets/css/headers/header2.css</code></li>
+                    <li>Changed Modernizr JS file name <code>assets/js/modernizr.custom.js</code></li>                    
+                    <li>
+                        Changed top and header ID names to CLASS names and now they are 
+                        <code>&lt;div class="top"&gt;</code> 
+                        and 
+                        <code>&lt;div class="header"&gt;</code>
+                    </li>
+                    <li>Changed Social Icons class names which is in footer and in other pages.</li>
+                    <li>Deleted tag <code>&lt;div id="body"&gt;</code> in all HTML files</li>    
+                    <li>Added favicon icon <code>&lt;link rel="shortcut icon" href="favicon.ico"&gt;</code></li>
+                </ul>
+                <p><span class="label label-info">Info</span> We will improve Unify Documentation in the future updates with more detailed structures. Meanwhile, If you come across any problem during the upgrade please contact to our support at <a href="mailto:support@htmlstream.com">support@htmlstream.com</a></p>
+                <!-- v1.2 Upgrade -->                
+            </div>
+            <!-- End Update -->            
+            
+            <div class="margin-bottom-50"></div>
+
+			<!-- Documentation -->            
+            <div id="end">
+                <h2>End of Documentation <a href="#top">top <i class="fa fa-angle-up"></i></a></h2>
+                <hr>
+                <p>Once again, thank you for purchasing Unify Template.</p>
+            </div><!--/end-->
+            <!-- End of Documentation -->            
+
+        </div><!--/content-->
+        
+    </div><!--/row-->
+</div><!--/container-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/back-to-top.js"></script>
+
+<script>
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+</script>
+
+<!--[if lt IE 9]>
+    <script src="../assets/js/respond.js"></script>
+<![endif]-->
+
+</body>
+</html>	
