@@ -9,12 +9,15 @@
 /*Parallax Slider (Main)
 ------------------------------------*/
 .slider-inner .da-slider {
+  /*padding-left: 30px;*/
    box-shadow: none;
    border-bottom: 2px solid #ddd;
 }
 
 .slider-inner .da-dots {
   z-index: 10;
+  /*comment out to show dots;*/
+  display: none;
 }
 
 @media (max-width: 450px) {
