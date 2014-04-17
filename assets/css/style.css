@@ -15,36 +15,8 @@
 @import url(plugins/box-shadows.css);
 
 
-
-/* VIZI ADDITIONS */
-
 .wrapper{
   font-family: "Nunito";
-}
-
-.left-menu {
-  position: absolute;
-  padding-left: 5px;
-  top: 100px;
-  width: 200px;
-  z-index: 100;
-  color: #eaf9e2;
-}
-
-#three-canvas{
-  position:fixed;
-  width: 100%;
-  height: 100%;
-}
-#logo-header{
-  position: absolute;
-  top: 8px;
-}
-
-.panel{
-  display: none;
-  position: fixed;
-  opacity: 0.8;
 }
 
 /*Boxed Layout
@@ -60,8 +32,6 @@
   margin-right: auto !important;
   background: url(../img/patterns/15.png) repeat;
 }
-
-
 
 /*Header Default
 ------------------------------------*/
