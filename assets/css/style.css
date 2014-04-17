@@ -212,7 +212,7 @@
 
 	.header .navbar-default .navbar-nav > li > a:hover,
 	.header .navbar-default .navbar-nav > .active > a {
-		border-bottom: solid 2px #72c02c;
+		border-bottom: solid 2px #141615;
 	}
 	
 	.header .navbar-default .navbar-nav > li > a,
