@@ -18,6 +18,19 @@
 
 /* VIZI ADDITIONS */
 
+.wrapper{
+  font-family: "Nunito";
+}
+
+.left-menu {
+  position: absolute;
+  padding-left: 5px;
+  top: 100px;
+  width: 200px;
+  z-index: 100;
+  color: #eaf9e2;
+}
+
 #three-canvas{
   position:fixed;
   width: 100%;
@@ -56,7 +69,6 @@
 	z-index: 99;
 	position: relative;
 	border-bottom: solid 2px #eee;
-  font-family: "Nunito";
 }
 
 .header .navbar {
@@ -67,6 +79,9 @@
 .header .navbar-default {
   border: none;
   background: none;
+}
+.header .navbar-brand:hover{
+  color: #141615;
 }
 
 .header .navbar-collapse {
@@ -85,7 +100,8 @@
 }
 
 .navbar-brand #tagline{
-  font-size: 20px;
+  font-size: 16px;
+  color: #bd1127
 
 }
 

@@ -14,11 +14,11 @@ function Navigation(){
 
   this.goToHash = function(){
     var hash = window.location.hash.replace("#", "");
-    if(panel[hash]){
-      showContent(hash);
-      summonFrame();
+    // if(panel[hash]){
+    //   showContent(hash);
+    //   summonFrame();
 
-    }
+    // }
   };
 
   this.init = function(){
