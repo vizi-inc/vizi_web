@@ -39,7 +39,7 @@ function Statue(){
 
 }
 
-function generateFramePosition(mesh){
+function generateFramePosition(){
   var bounds = 50;
   var pos =  {
     x: _.random(-bounds,bounds),
@@ -49,12 +49,12 @@ function generateFramePosition(mesh){
     rotY: 0,
     rotZ: 0
   };
-  // if(Math.random() > 0.4){
-  //   pos.rotX = Math.PI/2;
-  // }
-  // if(Math.random() > 0.4){
-  //   pos.rotY = Math.PI/2;
-  // }
+  if(Math.random() > 0.4){
+    pos.rotX = Math.PI/2;
+  }
+  if(Math.random() > 0.4){
+    pos.rotY = Math.PI/2;
+  }
   return pos;
 }
 
