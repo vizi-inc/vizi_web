@@ -1,6 +1,7 @@
 var oldFrameIndex;
 var animating = false;
 var animationTime = 3000;
+var frameIndex;
 
 function summonFrame() {
   //If we are animating a frame already, don't start animating another one.
@@ -9,7 +10,6 @@ function summonFrame() {
   }
   animating = true;
   //pick a random panel from the statue to fly to camera
-  var frameIndex;
   do{
     frameIndex = _.random(0, frames.length-1);
   }
@@ -47,7 +47,6 @@ function summonFrame() {
   }).start();
   frameTween.onComplete(function(){
     oldFrameIndex = frameIndex;
-    showContent('about', frameIndex);
     animating = false;
   });
 
@@ -85,11 +84,12 @@ function rotateAroundObjectAxis(object, axis, radians) {
 }
 
 
-function showContent(name, frameIndex) {
+function showContent(name) {
   //We want the currently active frame
   var frame = frames[frameIndex];
   frame.add(panel[name]);
-  panel[name].position.x -= 0.07;
+  // panel[name].position.x -= 0.07;
+  panel[name].html.style.opacity = 0;
   panel[name].html.style.display = 'block';
   var opacity = {
     value: 0
@@ -97,9 +97,10 @@ function showContent(name, frameIndex) {
   var opacityTween = new TWEEN.Tween(opacity).
   to({
     value: 1
-  }, 1000).
+  }, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function() {
     panel[name].html.style.opacity = opacity.value;
   }).start();
 }
+

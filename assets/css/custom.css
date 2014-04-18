@@ -34,7 +34,7 @@
 .panel{
   display: none;
   position: fixed;
-  opacity: 0.8;
+  opacity: 0.9
 }
 
 .navbar-default .navbar-toggle{

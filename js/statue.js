@@ -4,7 +4,8 @@ function Statue(){
 
   this.init = function(){
     this.generate();
-    newPanel('about');
+    newPanel('futurego');
+    newPanel('car');
   };
 
   this.generate = function(){
