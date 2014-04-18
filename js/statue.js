@@ -8,7 +8,7 @@ function Statue(){
   };
 
   this.generate = function(){
-    var numSlabs = 11;
+    var numFrames = 5;
     var rFR = MathHelpers.randFloatRange;
     var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
     var material2 = new THREE.MeshBasicMaterial({color: 0x0000ff, transparent:true, opacity: 0.0});
@@ -20,9 +20,9 @@ function Statue(){
     materials.push(material2);
     materials.push(material2);
     var geo;
-    for(var i =0; i < numSlabs; i++){
+    for(var i =0; i < numFrames; i++){
 
-      geo = new THREE.BoxGeometry(_.random(5, 50), _.random(5, 50), _.random(0.1, 2));
+      geo = new THREE.BoxGeometry(10, 10, 1);
       var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       var pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
@@ -40,9 +40,9 @@ function Statue(){
 }
 
 function generateFramePosition(){
-  var bounds = 50;
+  var bounds = 40;
   var pos =  {
-    x: _.random(-bounds,bounds),
+    x: _.random(-bounds/2,bounds),
     y: _.random(-bounds,bounds),
     z: _.random(0,bounds),
     rotX: 0,

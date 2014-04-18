@@ -30,9 +30,9 @@ function summonFrame() {
   var target = new THREE.Object3D();
   target.lookAt(camera.position);
   var finalPosition = {
-    x: camera.position.x / 2 + 10,
+    x: camera.position.x / 2 + 2,
     y: camera.position.y / 2,
-    z: camera.position.z * 0.8,
+    z: camera.position.z * 0.9,
     rotX: target.rotation.x,
     rotY: target.rotation.y,
     rotZ: target.rotation.z
