@@ -5,6 +5,14 @@ viziApp.config(function($routeProvider){
 
   .when('/', {
     templateUrl: 'partials/about.html'
+  })
+
+  .when('/team', {
+    templateUrl: 'partials/team.html'
+  })
+
+  .when('/creations', {
+    templateUrl: 'partials/creations.html'
   });
 
 });

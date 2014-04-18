@@ -1,6 +1,11 @@
+/*black: #141615; */
+/*red: #bd1127 */
+/*yellow: #f9a618; */
+
 .left-menu {
   position: absolute;
   padding-left: 5px;
+  padding-top: 100px;
   top: 100px;
   width: 200px;
   z-index: 100;
@@ -22,3 +27,15 @@
   position: fixed;
   opacity: 0.8;
 }
+
+.navbar-default .navbar-toggle{
+  border: 2px solid #f9a618;
+  border-color: #f9a618;
+  background: #bd1127 ;
+}
+
+.navbar-default .navbar-toggle:hover{
+  border: 2px solid #bd1127;
+  background: #f9a618 ;
+}
+

@@ -50,9 +50,6 @@
   border: none;
   background: none;
 }
-.header .navbar-brand:hover{
-  color: #141615;
-}
 
 .header .navbar-collapse {
   position: relative;
@@ -69,6 +66,9 @@
   font-size: 30px;
 }
 
+.header .navbar-brand:hover{
+  color: #141615;
+}
 .navbar-brand #tagline{
   font-size: 16px;
   color: #bd1127
@@ -97,7 +97,7 @@
 }
 
 .header .navbar-default .navbar-nav > .active > a {
-	color: #72c02c;
+	color: #141615;
 }
 
 /*Dropdown*/
@@ -109,8 +109,7 @@
 .navbar-toggle,
 .navbar-default .navbar-toggle:hover, 
 .navbar-default .navbar-toggle:focus {
-	background: #72c02c;
-	padding: 6px 10px 2px;
+	background: #bd1127;
 }
 
 .navbar-default .navbar-toggle {
@@ -143,15 +142,14 @@
 	}
 
 	.header .navbar-default .navbar-nav > li > a:hover {
-		color: #72c02c;
+		color: #141615;
 	}
 
 	.header .navbar-default .navbar-nav > .active > a,
 	.header .navbar-default .navbar-nav > .active > a:hover,
 	.header .navbar-default .navbar-nav > .active > a:focus {
 		color: #fff;
-		background: #72c02c;
-		/*border-bottom: solid 2px #72c02c;*/
+		background: #141615;
 	}
 
 	.header .dropdown-submenu li a { 

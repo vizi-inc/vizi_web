@@ -2,7 +2,9 @@
   "name": "temp",
   "version": "0.0.0",
   "dependencies": {
-    "threejs": ""
+    "threejs": "",
+    "angular": "1.2.16",
+    "angular-router": ""
   }
 }
 
