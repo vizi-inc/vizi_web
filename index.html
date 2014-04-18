@@ -55,12 +55,8 @@
         <!-- End Navbar -->
     </div>
     <!--=== End Header ===-->  
-
-    <div id="overview" class="left-menu">
-      Vizi {{name}} is using the awesome power of virtual reality to build the visual web - engaging, emotional and entertaining experiences for the desktop, mobile, Internet of Things and immersive virtual reality devices - powered by a breakthrough technology platform and a multidisciplinary team with decades of experience in delivering visual products.
-    </div>
-
-
+    <div id="left-menu">
+      <div ng-view></div>
     <div id="about" class="panel">
       <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.
         This is a test. This is a test. This is a test. This is a test. This is a test. This is a test
@@ -78,6 +74,7 @@
 
 
 <script src= "bower_components/angular/angular.js"></script>
+<script src= "bower_components/angular-route/angular-route.js"></script>
 <script src="js/app.js"></script>
 
 

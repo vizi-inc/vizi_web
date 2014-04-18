@@ -1,6 +1,10 @@
-var app = angular.module('viziApp', []);
+var viziApp = angular.module('viziApp', ['ngRoute']);
 
-app.run(function($rootScope){
-  debugger
-  $rootScope.name = "Eric Levin";
-}); 
+viziApp.config(function($routeProvider){
+  $routeProvider
+
+  .when('/', {
+    templateUrl: 'partials/about.html'
+  });
+
+});
