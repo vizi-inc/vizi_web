@@ -47,6 +47,7 @@ function summonFrame() {
   }).start();
   frameTween.onComplete(function(){
     oldFrameIndex = frameIndex;
+    showContent('about', frameIndex);
     animating = false;
   });
 
@@ -84,7 +85,10 @@ function rotateAroundObjectAxis(object, axis, radians) {
 }
 
 
-function showContent(name) {
+function showContent(name, frameIndex) {
+  //We want the currently active frame
+  var frame = frames[frameIndex];
+  frame.add(panel[name]);
   panel[name].html.style.display = 'block';
   var opacity = {
     value: 0

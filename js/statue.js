@@ -4,11 +4,12 @@ function Statue(){
 
   this.init = function(){
     this.generate();
-    newPanel('about', [10, 10, 10], [0.1,0.1]);
+    newPanel('about');
   };
 
   this.generate = function(){
     var numFrames = 5;
+    var numFakeFrames = 10;
     var rFR = MathHelpers.randFloatRange;
     var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
     var material2 = new THREE.MeshBasicMaterial({color: 0x0000ff, transparent:true, opacity: 0.0});
@@ -19,16 +20,25 @@ function Statue(){
     materials.push(material1);
     materials.push(material2);
     materials.push(material2);
-    var geo;
+    var geo = new THREE.BoxGeometry(10, 10, 1);
+    var mesh, pos;
     for(var i =0; i < numFrames; i++){
 
-      geo = new THREE.BoxGeometry(10, 10, 1);
-      var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
-      var pos = generateFramePosition();
+      mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
+      pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
       mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
       scene.add(mesh);
       frames.push(mesh);
+    }
+
+    for(i = 0; i < numFakeFrames; i++){
+      geo = new THREE.BoxGeometry(_.random(5, 50), _.random(5, 50), _.random(0.1, 1));
+      mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
+      pos = generateFramePosition();
+      mesh.position.set(pos.x, pos.y, pos.z);
+      mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
+      scene.add(mesh);
     }
 
   };
@@ -58,18 +68,13 @@ function generateFramePosition(){
   return pos;
 }
 
-function newPanel(name, pos, size){
-  var scale = 8;
+function newPanel(name){
   panel[name] = new THREE.Object3D();
-  scene.add(panel[name]);
   panel[name].html = document.getElementById(name);
-  panel[name].position.set(pos[0], pos[1], pos[2]);
   panel[name].html.style.overflow = 'scroll';
-  panel[name].html.style.width = size[0] * 100 * scale+'px';
-  panel[name].html.style.height = size[1] * 100 * scale+'px';
-
+  panel[name].html.style.width = '611px';
+  panel[name].html.style.height = '611px';
   panel[name].content = new THREE.CSS3DObject(panel[name].html);
-  // panel[name].content.scale = new THREE.Vector3(0.01/scale, 0.01/scale, 1)
-
+  panel[name].content.scale.multiplyScalar(1/63.5);
   panel[name].add(panel[name].content);
 }
