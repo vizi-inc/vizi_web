@@ -89,6 +89,7 @@ function showContent(name, frameIndex) {
   //We want the currently active frame
   var frame = frames[frameIndex];
   frame.add(panel[name]);
+  panel[name].position.x -= 0.07;
   panel[name].html.style.display = 'block';
   var opacity = {
     value: 0
