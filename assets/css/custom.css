@@ -5,7 +5,7 @@
 .left-menu {
   position: absolute;
   padding-left: 5px;
-  padding-top: 100px;
+  margin-top: 100px;
   top: 100px;
   width: 200px;
   z-index: 100;
