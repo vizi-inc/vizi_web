@@ -14,24 +14,28 @@ function summonFrame() {
     rotZ: frame.rotation.z
   };
 
+  var target = new THREE.Object3D();
+  console.log(target.rotation);
+  target.lookAt(camera.position);
+  console.log(target.rotation);
   var finalPosition = {
     x: camera.position.x / 2,
     y: camera.position.y / 2,
     z: camera.position.z / 2,
-    rotX: frame.rotation.x,
-    rotY: frame.rotation.y,
-    rotZ: frame.rotation.z
+    rotX: target.rotation.x,
+    rotY: target.rotation.y,
+    rotZ: target.rotation.z
   };
 
   var frameTween = new TWEEN.Tween(pos).
-  to(finalPosition, 3000).
+  to(finalPosition, 5000).
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function() {
     frame.position.set(pos.x, pos.y, pos.z);
     frame.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
+    
   }).start();
   frameTween.onComplete(function() {
-    frame.lookAt(camera.position);
     // var xAxis = new THREE.Vector3(0, 1, 0);
     // rotateAroundObjectAxis(frame, xAxis, Math.PI/2);
   });
