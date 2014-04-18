@@ -1,4 +1,4 @@
-var viziApp = angular.module('viziApp', ['ngRoute']);
+var viziApp = angular.module('viziApp', ['ngRoute', 'creations']);
 
 viziApp.config(function($routeProvider){
   $routeProvider
@@ -12,7 +12,8 @@ viziApp.config(function($routeProvider){
   })
 
   .when('/creations', {
-    templateUrl: 'partials/creations.html'
+    templateUrl: 'partials/creations.html',
+    controller: 'creationsController'
   })
 
   .when('/tech', {

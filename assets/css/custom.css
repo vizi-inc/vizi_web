@@ -16,6 +16,11 @@
   color: #eaf9e2;
 }
 
+.left-menu-item{
+  padding-top: 20px;
+  cursor: pointer;
+}
+
 #three-canvas{
   position:fixed;
   width: 100%;

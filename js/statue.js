@@ -15,14 +15,14 @@ function Statue(){
     var materials = [];
     materials.push(material1);
     materials.push(material1);
-    materials.push(material2);
-    materials.push(material2);
     materials.push(material1);
     materials.push(material1);
+    materials.push(material2);
+    materials.push(material2);
     var geo;
     for(var i =0; i < numSlabs; i++){
 
-      geo = new THREE.BoxGeometry(_.random(5, 50), _.random(0.5, 1), _.random(5, 40));
+      geo = new THREE.BoxGeometry(_.random(5, 50), _.random(5, 50), _.random(0.1, 2));
       var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       var pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);

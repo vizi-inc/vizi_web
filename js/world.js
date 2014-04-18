@@ -17,6 +17,7 @@ var world = new World();
 world.init();
 
 function World(){
+  var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS
@@ -34,12 +35,14 @@ function World(){
 
     //CAMERA
     camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 50000);
-    camera.position.set(-150, 140, 100);
-    // camera.position.set(0, 0, 140);
+    // camera.position.set(-150, 140, 100);
+    camera.position.set(0, 0, 140);
     camera.lookAt(0, 0, 0);
 
     //CONTROLS
-    // controls = new THREE.TrackballControls(camera);
+    if(controlsEnabled){
+      controls = new THREE.TrackballControls(camera);
+    }
 
 
 
@@ -60,15 +63,16 @@ function World(){
   };
 
   this.update = function(){
-    // controls.update();
+    if(controlsEnabled){
+      controls.update();
+    }
     TWEEN.update();
-    camera.lookAt(scene.position);
+      camera.lookAt(scene.position);
     this.statue.update();
 
 
   };
 
-  initNavigation();
 }
 
 
