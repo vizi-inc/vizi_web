@@ -29,6 +29,7 @@ function World(){
     renderer.setClearColor(0x9cafb3);
 
     cssRenderer = new THREE.CSS3DRenderer();
+    cssRenderer.domElement.style.position = "fixed";
     canvasElement.appendChild(cssRenderer.domElement);
 
     scene = new THREE.Scene();
