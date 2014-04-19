@@ -17,7 +17,7 @@ var world = new World();
 world.init();
 
 function World(){
-  var controlsEnabled = false;
+  var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS
@@ -34,7 +34,7 @@ function World(){
     scene = new THREE.Scene();
 
     //CAMERA
-    camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 50000);
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 50000);
     // camera.position.set(-150, 140, 100);
     camera.position.set(0, 0, 140);
     camera.lookAt(0, 0, 0);
