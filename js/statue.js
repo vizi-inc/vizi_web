@@ -75,6 +75,7 @@ function newPanel(name){
   panel[name].html.style.overflow = 'scroll';
   panel[name].html.style.width = '611px';
   panel[name].html.style.height = '611px';
+  panel[name].html.style.opacity = 0;
   panel[name].content = new THREE.CSS3DObject(panel[name].html);
   panel[name].content.scale.multiplyScalar(1/63.5);
   panel[name].add(panel[name].content);

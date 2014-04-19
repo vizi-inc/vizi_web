@@ -11,9 +11,7 @@ creationModule.controller('creationsController', function($scope){
 
 
     if(!animating){
-      console.log("HEYYYA")
-      swapFrames();
-      showContent($event.target.id);
+      swapFrames(selectedTabId);
     }
   }
 });

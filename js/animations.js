@@ -3,7 +3,7 @@ var animating = false;
 var animationTime = 3000;
 var frameIndex;
 
-function swapFrames() {
+function swapFrames(name) {
   //If we are animating a frame already, don't start animating another one.
   animating = true;
   //pick a random panel from the statue to fly to camera
@@ -12,16 +12,19 @@ function swapFrames() {
   }
   while(frameIndex === oldFrameIndex);
 
-  var frame = frames[frameIndex];
-  
 
+//******NEW FRAME**********************************
+  var frame = frames[frameIndex];
+  panel[name].html.style.display = 'block';
+  frame.add(panel[name]);
   var pos = {
     x: frame.position.x,
     y: frame.position.y,
     z: frame.position.z,
     rotX: frame.rotation.x,
     rotY: frame.rotation.y,
-    rotZ: frame.rotation.z
+    rotZ: frame.rotation.z,
+    opacity: 0
   };
 
   var target = new THREE.Object3D();
@@ -32,7 +35,8 @@ function swapFrames() {
     z: camera.position.z * 0.9,
     rotX: target.rotation.x,
     rotY: target.rotation.y,
-    rotZ: target.rotation.z
+    rotZ: target.rotation.z,
+    opacity: 1
   };
   var frameTween = new TWEEN.Tween(pos).
   to(finalPosition, animationTime).
@@ -40,7 +44,7 @@ function swapFrames() {
   onUpdate(function() {
     frame.position.set(pos.x, pos.y, pos.z);
     frame.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
-    
+    frame.children[0].html.style.opacity = pos.opacity;
   }).start();
 
   frameTween.onComplete(function(){
@@ -49,6 +53,9 @@ function swapFrames() {
   });
 
 
+
+
+//*********************************OLD FRAME********************************************
   if(oldFrameIndex!==null){
     var oldFrame = frames[oldFrameIndex];
     var oldFramePos = {
@@ -57,22 +64,26 @@ function swapFrames() {
       z: oldFrame.position.z,
       rotX: oldFrame.rotation.x,
       rotY: oldFrame.rotation.y,
-      rotZ: oldFrame.rotation.z
+      rotZ: oldFrame.rotation.z,
+      opacity: 1
     };
 
     var targetPos = generateFramePosition();
+    targetPos.opacity = 0;
     var oldFrameTween = new TWEEN.Tween(oldFramePos).
       to(targetPos, animationTime).
       easing(TWEEN.Easing.Cubic.InOut).
       onUpdate(function(){
+        console.log('num old frame children:', oldFrame.children.length);
         oldFrame.position.set(oldFramePos.x, oldFramePos.y, oldFramePos.z);
         oldFrame.rotation.set(oldFramePos.rotX, oldFramePos.rotY, oldFramePos.rotZ);
+        oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
       }).start();
       //We have to remove old frame!
       oldFrameTween.onComplete(function(){
+        console.log('num old frame children:', oldFrame.children.length);
         //Find out what is happening to my children
-        console.log(frame);
-        oldFrame.remove(oldFrame.children);
+        // oldFrame.remove(oldFrame.children);
       });
   }
 }
