@@ -74,16 +74,14 @@ function swapFrames(name) {
       to(targetPos, animationTime).
       easing(TWEEN.Easing.Cubic.InOut).
       onUpdate(function(){
-        console.log('num old frame children:', oldFrame.children.length);
         oldFrame.position.set(oldFramePos.x, oldFramePos.y, oldFramePos.z);
         oldFrame.rotation.set(oldFramePos.rotX, oldFramePos.rotY, oldFramePos.rotZ);
         oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
       }).start();
       //We have to remove old frame!
       oldFrameTween.onComplete(function(){
-        console.log('num old frame children:', oldFrame.children.length);
         //Find out what is happening to my children
-        // oldFrame.remove(oldFrame.children);
+        oldFrame.remove(oldFrame.children[0]);
       });
   }
 }
