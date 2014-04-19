@@ -1,9 +1,9 @@
-var oldFrameIndex;
+var oldFrameIndex = null;
 var animating = false;
 var animationTime = 3000;
 var frameIndex;
 
-function summonFrame() {
+function swapFrames() {
   //If we are animating a frame already, don't start animating another one.
   if(animating){
     return;
@@ -50,8 +50,10 @@ function summonFrame() {
     animating = false;
   });
 
-  //If we already have a frame up, then put that one back into the statue
-  if(oldFrameIndex){
+
+  console.log('OLD FRAME INDEX: ', oldFrameIndex)
+  if(oldFrameIndex!==null){
+    console.log('yes!');
     var oldFrame = frames[oldFrameIndex];
     var oldFramePos = {
     x: oldFrame.position.x,
@@ -85,22 +87,23 @@ function rotateAroundObjectAxis(object, axis, radians) {
 
 
 function showContent(name) {
-  //We want the currently active frame
-  var frame = frames[frameIndex];
-  frame.add(panel[name]);
-  // panel[name].position.x -= 0.07;
-  panel[name].html.style.opacity = 0;
-  panel[name].html.style.display = 'block';
-  var opacity = {
-    value: 0
-  };
-  var opacityTween = new TWEEN.Tween(opacity).
-  to({
-    value: 1
-  }, animationTime).
-  easing(TWEEN.Easing.Cubic.InOut).
-  onUpdate(function() {
-    panel[name].html.style.opacity = opacity.value;
-  }).start();
+  // //We want the currently active frame
+  // var frame = frames[frameIndex];
+  // frame.add(panel[name]);
+  // // panel[name].position.x -= 0.07;
+  // panel[name].html.style.opacity = 0;
+  // panel[name].html.style.display = 'block';
+  // var opacity = {
+  //   value: 0
+  // };
+  // var opacityTween = new TWEEN.Tween(opacity).
+  // to({
+  //   value: 1
+  // }, animationTime).
+  // easing(TWEEN.Easing.Cubic.InOut).
+  // onUpdate(function() {
+  //   panel[name].html.style.opacity = opacity.value;
+  // }).start();
 }
+
 

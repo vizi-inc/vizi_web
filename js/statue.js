@@ -9,8 +9,8 @@ function Statue(){
   };
 
   this.generate = function(){
-    var numFrames = 5;
-    var numFakeFrames = 10;
+    var numFrames = 2;
+    var numFakeFrames = 0;
     var rFR = MathHelpers.randFloatRange;
     var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
     var material2 = new THREE.MeshBasicMaterial({color: 0x0000ff, transparent:true, opacity: 0.0});
