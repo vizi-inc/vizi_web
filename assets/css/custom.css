@@ -36,7 +36,8 @@
   display: none;
   position: fixed;
   opacity: 0.9;
-  background: #eaf9e2
+  background: #eaf9e2;
+  padding: 20px;
 }
 
 .navbar-default .navbar-toggle{
