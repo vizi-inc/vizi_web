@@ -70,13 +70,13 @@ function generateFramePosition(){
 }
 
 function newPanel(name){
-  panel[name] = new THREE.Object3D();
-  panel[name].html = document.getElementById(name);
-  panel[name].html.style.overflow = 'scroll';
-  panel[name].html.style.width = '611px';
-  panel[name].html.style.height = '611px';
-  panel[name].html.style.opacity = 0;
-  panel[name].content = new THREE.CSS3DObject(panel[name].html);
-  panel[name].content.scale.multiplyScalar(1/63.5);
-  panel[name].add(panel[name].content);
+  panels[name] = new THREE.Object3D();
+  panels[name].html = document.getElementById(name);
+  panels[name].html.style.overflow = 'scroll';
+  panels[name].html.style.width = '611px';
+  panels[name].html.style.height = '611px';
+  panels[name].html.style.opacity = 0;
+  panels[name].content = new THREE.CSS3DObject(panels[name].html);
+  panels[name].content.scale.multiplyScalar(1/63.5);
+  panels[name].add(panels[name].content);
 }

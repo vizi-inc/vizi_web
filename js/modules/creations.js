@@ -1,6 +1,6 @@
-var creationModule = angular.module('creations', []);
+var creationModule = angular.module('frames', []);
 
-creationModule.controller('creationsController', function($scope){
+creationModule.controller('framesController', function($scope){
   $scope.display = function($event){
     var selectedTabId = $event.target.id;
     //Check to make sure we have clicked on a different tab and we are not animating
@@ -8,8 +8,6 @@ creationModule.controller('creationsController', function($scope){
       return;
     }
     this.currentlySelected = selectedTabId;
-    if(!animating){
-      swapFrames(selectedTabId);
-    }
+    swapFrames(selectedTabId);
   }
 });

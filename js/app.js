@@ -1,4 +1,4 @@
-var viziApp = angular.module('viziApp', ['ngRoute', 'creations']);
+var viziApp = angular.module('viziApp', ['ngRoute', 'frames']);
 
 viziApp.config(function($routeProvider){
   $routeProvider
@@ -8,16 +8,23 @@ viziApp.config(function($routeProvider){
   })
 
   .when('/team', {
-    templateUrl: 'partials/team.html'
+    templateUrl: 'partials/team.html',
+    controller: 'framesController'
   })
 
   .when('/creations', {
     templateUrl: 'partials/creations.html',
-    controller: 'creationsController'
+    controller: 'framesController'
   })
 
   .when('/tech', {
-    templateUrl: 'partials/tech.html'
+    templateUrl: 'partials/tech.html',
   });
 
+});
+
+viziApp.controller('rootController', function($rootScope){
+  $rootScope.$on('$locationChangeStart', function(){
+    discardFrame();
+  });
 });

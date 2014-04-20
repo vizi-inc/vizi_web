@@ -3,7 +3,7 @@ var camera;
 var refractCamera;
 var controls;
 var renderer, cssRenderer;
-var panel = [];
+var panels = {};
 var frames = [];
 var navigation;
 var clock = new THREE.Clock();
