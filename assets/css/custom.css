@@ -1,6 +1,7 @@
 /*black: #141615; */
 /*red: #bd1127 */
 /*yellow: #f9a618; */
+/*ivory: #eaf9e2; */
 
 .container{
   margin-left: 50px;
@@ -34,7 +35,8 @@
 .panel{
   display: none;
   position: fixed;
-  opacity: 0.9
+  opacity: 0.9;
+  background: #eaf9e2
 }
 
 .navbar-default .navbar-toggle{

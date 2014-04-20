@@ -6,6 +6,8 @@ function Statue(){
     this.generate();
     newPanel('futurego');
     newPanel('car');
+    newPanel('tony');
+    newPanel('eric');
   };
 
   this.generate = function(){
