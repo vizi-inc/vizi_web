@@ -8,6 +8,7 @@ function Statue(){
     newPanel('car');
     newPanel('tony');
     newPanel('eric');
+    newPanel('tc');
   };
 
   this.generate = function(){

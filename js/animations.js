@@ -2,6 +2,7 @@ var oldFrameIndex = null;
 var animating = false;
 var animationTime = 3000;
 var frameIndex;
+var frameToCameraDistance = 0.8;
 
 function swapFrames(name) {
   //make sure this panel exists
@@ -36,7 +37,7 @@ function swapFrames(name) {
   var finalPosition = {
     x: camera.position.x / 2 + 2,
     y: camera.position.y / 2,
-    z: camera.position.z * 0.9,
+    z: camera.position.z * frameToCameraDistance,
     rotX: target.rotation.x,
     rotY: target.rotation.y,
     rotZ: target.rotation.z,
