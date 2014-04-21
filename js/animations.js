@@ -23,6 +23,7 @@ function swapFrames(name) {
   var frame = frames[frameIndex];
   panels[name].html.style.display = 'block';
   frame.add(panels[name]);
+
   var pos = {
     x: frame.position.x,
     y: frame.position.y,
@@ -33,12 +34,13 @@ function swapFrames(name) {
     opacity: 0
   };
 
-  var target = new THREE.Object3D();
-  target.lookAt(camera.position);
+  var target = camera.clone();
+  // target.lookAt(camera.position);
+  target.translateZ(-40);
   var finalPosition = {
-    x: camera.position.x / 2,
-    y: camera.position.y / 2,
-    z: camera.position.z * frameToCameraDistance,
+    x: target.position.x,
+    y: target.position.y,
+    z: target.position.z,
     rotX: target.rotation.x,
     rotY: target.rotation.y,
     rotZ: target.rotation.z,
