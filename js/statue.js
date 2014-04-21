@@ -1,15 +1,16 @@
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
   var glassWindow;
-  var frameSize = 16;
+  var elementSize = 1024;
+  var frameSize = (10*elementSize)/630;
 
   this.init = function(){
     this.generate();
-    newPanel('futurego');
-    newPanel('razer');
-    newPanel('tony');
-    newPanel('eric');
-    newPanel('tc');
+    this.newPanel('futurego');
+    this.newPanel('razer');
+    this.newPanel('tony');
+    this.newPanel('eric');
+    this.newPanel('tc');
   };
 
   this.generate = function(){
@@ -48,6 +49,19 @@ function Statue(){
 
   };
 
+  this.newPanel = function(name){
+    panels[name] = new THREE.Object3D();
+    panels[name].html = document.getElementById(name);
+    panels[name].html.style.overflow = 'scroll';
+    panels[name].html.style.width = elementSize + 'px';
+    panels[name].html.style.height = elementSize + 'px';
+    panels[name].html.style.opacity = 0;
+    panels[name].content = new THREE.CSS3DObject(panels[name].html);
+    panels[name].content.scale.multiplyScalar(1/63.5);
+    panels[name].add(panels[name].content);
+
+  };
+
   this.update = function(mesh){
  
   };
@@ -71,16 +85,4 @@ function generateFramePosition(){
     pos.rotY = Math.PI/2;
   }
   return pos;
-}
-
-function newPanel(name){
-  panels[name] = new THREE.Object3D();
-  panels[name].html = document.getElementById(name);
-  panels[name].html.style.overflow = 'scroll';
-  panels[name].html.style.width = '1024px';
-  panels[name].html.style.height = '1024px';
-  panels[name].html.style.opacity = 0;
-  panels[name].content = new THREE.CSS3DObject(panels[name].html);
-  panels[name].content.scale.multiplyScalar(1/63.5);
-  panels[name].add(panels[name].content);
 }

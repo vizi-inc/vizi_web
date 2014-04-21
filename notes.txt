@@ -3,3 +3,5 @@ If you load and unload them dynamically, performace stutters as it loads, and al
 
 
 Another issue with iframes we need to discuss is how to deal with the sizing issues
+
+Id like to discuss color scheme- dont know if I like the huge difference in colors between top bar and main 3d page
