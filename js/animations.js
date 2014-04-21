@@ -2,7 +2,7 @@ var oldFrameIndex = null;
 var animating = false;
 var animationTime = 3000;
 var frameIndex;
-var frameToCameraDistance = 0.85;
+var frameToCameraDistance = 0.8;
 var oldName;
 
 function swapFrames(name) {

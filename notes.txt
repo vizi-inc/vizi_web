@@ -1,0 +1,5 @@
+Using iframes might not be best approach- if you load iframes up on initialization, then the performace is slow. 
+If you load and unload them dynamically, performace stutters as it loads, and also thats a lot of info being sent across the wire every time we load them up.
+
+
+Another issue with iframes we need to discuss is how to deal with the sizing issues

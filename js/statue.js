@@ -1,6 +1,7 @@
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
   var glassWindow;
+  var frameSize = 10;
 
   this.init = function(){
     this.generate();
@@ -24,7 +25,7 @@ function Statue(){
     materials.push(material1);
     materials.push(material2);
     materials.push(material2);
-    var geo = new THREE.BoxGeometry(10, 10, 1);
+    var geo = new THREE.BoxGeometry(frameSize, frameSize, 1);
     var mesh, pos;
     for(var i =0; i < numFrames; i++){
 
@@ -76,8 +77,8 @@ function newPanel(name){
   panels[name] = new THREE.Object3D();
   panels[name].html = document.getElementById(name);
   panels[name].html.style.overflow = 'scroll';
-  panels[name].html.style.width = '611px';
-  panels[name].html.style.height = '611px';
+  panels[name].html.style.width = '1024px';
+  panels[name].html.style.height = '1024px';
   panels[name].html.style.opacity = 0;
   panels[name].content = new THREE.CSS3DObject(panels[name].html);
   panels[name].content.scale.multiplyScalar(1/63.5);
