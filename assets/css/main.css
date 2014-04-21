@@ -164,10 +164,10 @@ body {
   position: absolute;
   width: 200px;
   padding-top: 100px;
-  padding-left: 50px;
+  padding-left: 25px;
   z-index: 100;
   color: #eaf9e2;
-  background-color: rgba(156, 170, 179, 0.9);
+  background-color: rgba(156, 173, 179, 0.9);
   height: 100%; }
 
 .left-menu-item {
