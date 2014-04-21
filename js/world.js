@@ -17,7 +17,7 @@ var world = new World();
 world.init();
 
 function World(){
-  var controlsEnabled = false;
+  var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS

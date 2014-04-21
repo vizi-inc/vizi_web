@@ -5,7 +5,7 @@ function Statue(){
   this.init = function(){
     this.generate();
     newPanel('futurego');
-    newPanel('car');
+    newPanel('razer');
     newPanel('tony');
     newPanel('eric');
     newPanel('tc');
