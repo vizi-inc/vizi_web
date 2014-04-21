@@ -179,7 +179,6 @@
   top: 8px; }
 
 .panel {
-  display: none;
   position: fixed;
   opacity: 0.9;
   background: #eaf9e2;

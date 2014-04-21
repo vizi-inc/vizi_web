@@ -3,6 +3,7 @@ var animating = false;
 var animationTime = 3000;
 var frameIndex;
 var frameToCameraDistance = 0.85;
+var oldName;
 
 function swapFrames(name) {
   //make sure this panel exists
@@ -54,6 +55,7 @@ function swapFrames(name) {
 
   frameTween.onComplete(function(){
     oldFrameIndex = frameIndex;
+    oldName = name;
     animating = false;
   });
 
@@ -65,7 +67,10 @@ function discardFrame(){
     return;
   }
 
+
   var oldFrame = frames[oldFrameIndex];
+  var myName = oldName;
+
   var oldFramePos = {
     x: oldFrame.position.x,
     y: oldFrame.position.y,
@@ -88,7 +93,8 @@ var oldFrameTween = new TWEEN.Tween(oldFramePos).
   }).start();
   //We have to remove old frame!
   oldFrameTween.onComplete(function(){
-    //Find out what is happening to my children
+    //If old frame was an iframe, erase its src to keep performance good
+    $(panels[myName].html).find('iframe').attr('src', '');
     oldFrame.remove(oldFrame.children[0]);
   });
 }
