@@ -1,7 +1,7 @@
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
   var glassWindow;
-  var frameSize = 10;
+  var frameSize = 16;
 
   this.init = function(){
     this.generate();

@@ -151,7 +151,8 @@
 /*yellow: #f9a618; */
 /*ivory: #eaf9e2; */
 .wrapper {
-  font-family: "Nunito"; }
+  font-family: "Nunito";
+  overflow: hidden; }
 
 .container {
   margin-left: 50px; }
@@ -179,11 +180,12 @@
   top: 8px; }
 
 .panel {
+  display: none;
   position: fixed;
   opacity: 0.9;
   background: #eaf9e2;
   padding: 20px;
-  font-size: 20px; }
+  font-size: 30px; }
 
 .iframePanel iframe {
   width: 100%;
