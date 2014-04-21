@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "threejs": "",
-    "angular": "1.2.16",
-    "angular-router": ""
+    "angular": "1.2.16"  
   }
 }
 

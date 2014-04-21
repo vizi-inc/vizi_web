@@ -18,6 +18,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         bowercopy: grunt.file.readJSON('bowercopy.json'),
+        sass: {
+          dist:{
+            files: {
+              'assets/css/main.css' : 'assets/sass/main.scss',
+            }
+          }
+        },
         // The actual grunt server settings
         connect: {
             options: {
@@ -56,6 +63,10 @@ module.exports = function(grunt) {
                     '{package,bower}.json'
                 ],
                 tasks: ['jsonlint']
+            },
+            css: {
+              files: '**/*.scss',
+              tasks: ['sass']
             },
             // Live reload
             reload: {
