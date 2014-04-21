@@ -1,3 +1,4 @@
+
 /*
  * Template Name: Unify - Responsive Bootstrap Template
  * Description: Business, Corporate, Portfolio and Blog Theme.
@@ -55,11 +56,11 @@
 }
 
 .header .navbar-brand:hover{
-  color: #141615;
+  color: $underline-color;
 }
 .navbar-brand #tagline{
   font-size: 16px;
-  color: #bd1127
+  color: $header-tabs-color;
 
 }
 
@@ -77,14 +78,14 @@
 }
 
 .header .navbar-default .navbar-nav > li > a {
-  color: #bd1127;
+  color: $header-tabs-color;
   font-size: 15px;
   font-weight:400;
   text-transform: uppercase;
 }
 
 .header .navbar-default .navbar-nav > .active > a {
-  color: #141615;
+  color: $underline-color;
 }
 
 /*Dropdown*/
@@ -96,7 +97,7 @@
 .navbar-toggle,
 .navbar-default .navbar-toggle:hover, 
 .navbar-default .navbar-toggle:focus {
-  background: #bd1127;
+  background: $header-tabs-color;;
   padding: 6px 10px 2px;
 }
 
@@ -130,14 +131,14 @@
   }
 
   .header .navbar-default .navbar-nav > li > a:hover {
-    color: #141615;
+    color: $underline-color;
   }
 
   .header .navbar-default .navbar-nav > .active > a,
   .header .navbar-default .navbar-nav > .active > a:hover,
   .header .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
-    background: #141615;
+    background: $underline-color;
   }
 
   .header .dropdown-submenu li a { 
@@ -168,7 +169,7 @@
 
   .header .navbar-default .navbar-nav > li > a:hover,
   .header .navbar-default .navbar-nav > .active > a {
-    border-bottom: solid 2px #141615;
+    border-bottom: solid 2px $underline-color;
   }
   
   .header .navbar-default .navbar-nav > li > a,

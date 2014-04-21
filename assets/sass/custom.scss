@@ -3,10 +3,7 @@
 /*yellow: #f9a618; */
 /*ivory: #eaf9e2; */
 
-$left-menu-color: #eaf9e2;
-$logo-color: #f9a618;
-$header-tabs-color: #bd1127;
-$underline-color: #141615;
+
 
 .wrapper{
   font-family: "Nunito";
@@ -23,7 +20,7 @@ $underline-color: #141615;
   top: 100px;
   width: 200px;
   z-index: 100;
-  color: #eaf9e2;
+  color: $left-menu-color;
 }
 
 .left-menu-item{
@@ -45,7 +42,7 @@ $underline-color: #141615;
   display: none;
   position: fixed;
   opacity: 0.9;
-  background: #eaf9e2;
+  background: $left-menu-color;
   padding: 20px;
   font-size: 20px;
 }
@@ -56,13 +53,13 @@ $underline-color: #141615;
 }
 
 .navbar-default .navbar-toggle{
-  border: 2px solid #f9a618;
-  border-color: #f9a618;
-  background: #bd1127 ;
+  border: 2px solid $logo-color;
+  border-color: $logo-color;
+  background: $header-tabs-color;
 }
 
 .navbar-default .navbar-toggle:hover{
-  border: 2px solid #bd1127;
-  background: #f9a618 ;
+  border: 2px solid $header-tabs-color;
+  background: $logo-color;
 }
 
