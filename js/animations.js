@@ -36,7 +36,7 @@ function swapFrames(name) {
   var target = new THREE.Object3D();
   target.lookAt(camera.position);
   var finalPosition = {
-    x: camera.position.x / 2 + 2,
+    x: camera.position.x / 2,
     y: camera.position.y / 2,
     z: camera.position.z * frameToCameraDistance,
     rotX: target.rotation.x,
@@ -50,7 +50,9 @@ function swapFrames(name) {
   onUpdate(function() {
     frame.position.set(pos.x, pos.y, pos.z);
     frame.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
-    frame.children[0].html.style.opacity = pos.opacity;
+    if(frame.children[0]){
+      frame.children[0].html.style.opacity = pos.opacity;
+    }
   }).start();
 
   frameTween.onComplete(function(){
@@ -66,6 +68,7 @@ function discardFrame(){
   if(oldFrameIndex === null){
     return;
   }
+  
 
 
   var oldFrame = frames[oldFrameIndex];
@@ -89,7 +92,9 @@ var oldFrameTween = new TWEEN.Tween(oldFramePos).
   onUpdate(function(){
     oldFrame.position.set(oldFramePos.x, oldFramePos.y, oldFramePos.z);
     oldFrame.rotation.set(oldFramePos.rotX, oldFramePos.rotY, oldFramePos.rotZ);
-    oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
+    if(oldFrame.children[0]){
+      oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
+    }
   }).start();
   //We have to remove old frame!
   oldFrameTween.onComplete(function(){
