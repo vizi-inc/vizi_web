@@ -1,3 +1,9 @@
+var panels = {};
+var menuItems = {};
+var frames = [];
+var fakeFrames = [];
+var flatFrames = [];
+
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
   var glassWindow;
@@ -42,6 +48,9 @@ function Statue(){
       mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
       scene.add(mesh);
       frames.push(mesh);
+      if(pos.rotX === Math.PI/2){
+        flatFrames.push(mesh);
+      }
     }
 
     for(i = 0; i < numFakeFrames; i++){
@@ -51,6 +60,10 @@ function Statue(){
       mesh.position.set(pos.x, pos.y, pos.z);
       mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
       scene.add(mesh);
+      if(pos.rotX === Math.PI/2){
+        flatFrames.push(mesh);
+      }
+
     }
 
   };
@@ -80,18 +93,43 @@ function Statue(){
     menuItems[name].content.scale.multiplyScalar(1/30.5);
     menuItems[name].add(menuItems[name].content);
 
-    var pos= generateFramePosition();
-    menuItems[name].position.set(pos.x, pos.y, pos.z);
-    menuItems[name].rotation.set(pos.rotX, pos.rotY, pos.rotZ);
+    var backName = name + 'r';
+
+    menuItems[backName] = new THREE.Object3D();
+    html = document.createElement('div');
+    html.innerText = name;
+    html.className = 'statueText';
+    menuItems[backName].html = html;
+    menuItems[backName].content = new THREE.CSS3DObject(menuItems[backName].html);
+    menuItems[backName].content.scale.multiplyScalar(1/30.5);
+    menuItems[backName].add(menuItems[backName].content);
+
+
+    var anchor = chooseTextAnchor();
+    menuItems[name].position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
+    menuItems[backName].position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
+    menuItems[backName].rotation.y = Math.PI;
 
     scene.add(menuItems[name]);
+    scene.add(menuItems[backName]);
   };
 
 
   this.update = function(mesh){
- 
+    // menuItems.team.position.z += 0.01;
   };
 
+}
+
+function chooseTextAnchor(){
+  //pick a frame to temporarily anchor text to
+  var frame;
+  do{
+    frame = _.sample(flatFrames);
+  }
+  while(frame.alreadyChosen);
+  frame.alreadyChosen = true;
+  return frame;
 }
 
 function generateFramePosition(){
@@ -104,12 +142,12 @@ function generateFramePosition(){
     rotY: 0,
     rotZ: 0
   };
-  if(Math.random() > 0.4){
+  if(Math.random() > 0.2){
     pos.rotX = Math.PI/2;
   }
-  if(Math.random() > 0.4){
-    pos.rotY = Math.PI/2;
-  }
+  // if(Math.random() > 0.4){
+  //   pos.rotY = Math.PI/2;
+  // }
   return pos;
 }
 

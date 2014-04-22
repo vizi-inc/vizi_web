@@ -172,7 +172,11 @@ body {
 
 .statueText {
   color: #bd1127;
-  font-size: 200px; }
+  font-size: 100px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
 
 .left-menu-item {
   padding-top: 20px;

@@ -3,9 +3,7 @@ var camera;
 var refractCamera;
 var controls;
 var renderer, cssRenderer;
-var panels = {};
-var menuItems = {};
-var frames = [];
+
 var navigation;
 var clock = new THREE.Clock();
 
@@ -45,7 +43,7 @@ function World(){
 
     //CONTROLS
     if(controlsEnabled){
-      controls = new THREE.TrackballControls(camera);
+      controls = new THREE.OrbitControls(camera);
     }
 
 

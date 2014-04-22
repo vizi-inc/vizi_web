@@ -31,7 +31,11 @@ body{
 
 .statueText{
   color: $header-tabs-color;
-  font-size: 200px;
+  font-size:100px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 
 
