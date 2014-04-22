@@ -170,6 +170,10 @@ body {
   background-color: rgba(156, 173, 179, 0.9);
   height: 100%; }
 
+.statueText {
+  color: #bd1127;
+  font-size: 200px; }
+
 .left-menu-item {
   padding-top: 20px;
   cursor: pointer; }

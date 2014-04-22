@@ -73,11 +73,16 @@ function Statue(){
   this.newMenuItem = function(name){
     menuItems[name] = new THREE.Object3D();
     var html = document.createElement('div');
-    html.innerText = 'shnur'
+    html.innerText = name;
+    html.className = 'statueText';
     menuItems[name].html = html;
     menuItems[name].content = new THREE.CSS3DObject(menuItems[name].html);
-    // menuItems[name].content.scale.multiplyScalar(1/63.5);
+    menuItems[name].content.scale.multiplyScalar(1/30.5);
     menuItems[name].add(menuItems[name].content);
+
+    var pos= generateFramePosition();
+    menuItems[name].position.set(pos.x, pos.y, pos.z);
+    menuItems[name].rotation.set(pos.rotX, pos.rotY, pos.rotZ);
 
     scene.add(menuItems[name]);
   };
