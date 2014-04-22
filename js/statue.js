@@ -26,7 +26,7 @@ function Statue(){
     //let these items be added to dom before attaching click handlers
     setTimeout(function(){
       $('.statueText').on('click', function(){
-        console.log('shnur');
+        enterSecondLevel();
       });
     }, 100);
 
