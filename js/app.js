@@ -12,7 +12,7 @@ viziApp.config(function($routeProvider){
     controller: 'framesController'
   })
 
-  .when('/creations', {
+  .when('/projects', {
     templateUrl: 'partials/creations.html',
     controller: 'framesController'
   })

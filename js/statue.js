@@ -23,6 +23,13 @@ function Statue(){
     this.newMenuItem('tech');
     this.newMenuItem('projects');
     this.newMenuItem('contact');
+    //let these items be added to dom before attaching click handlers
+    setTimeout(function(){
+      $('.statueText').on('click', function(){
+        console.log('shnur');
+      });
+    }, 100);
+
   };
 
   this.generate = function(){
@@ -99,6 +106,7 @@ function Statue(){
     html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
+
     menuItems[backName].html = html;
     menuItems[backName].content = new THREE.CSS3DObject(menuItems[backName].html);
     menuItems[backName].content.scale.multiplyScalar(1/30.5);

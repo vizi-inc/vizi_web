@@ -176,7 +176,8 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden; }
+  -ms-backface-visibility: hidden;
+  cursor: pointer; }
 
 .left-menu-item {
   padding-top: 20px;
