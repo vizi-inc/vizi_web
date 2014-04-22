@@ -41,7 +41,7 @@ function enterSecondLevel(){
   };
 
   var finalTextPos = {
-    x: menuText.position.x + 100,
+    x: menuText.position.x + 10,
     y: menuText.position.y,
     z: menuText.position.z
   };

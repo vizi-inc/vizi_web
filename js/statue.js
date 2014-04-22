@@ -91,35 +91,31 @@ function Statue(){
   };
 
   this.newMenuItem = function(name){
+
     topMenuItems[name] = new THREE.Object3D();
     var html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
     topMenuItems[name].html = html;
-    topMenuItems[name].content = new THREE.CSS3DObject(topMenuItems[name].html);
-    topMenuItems[name].content.scale.multiplyScalar(1/30.5);
-    topMenuItems[name].add(topMenuItems[name].content);
+    topMenuItems[name].frontContent = new THREE.CSS3DObject(topMenuItems[name].html);
+    topMenuItems[name].frontContent.scale.multiplyScalar(1/30.5);
+    topMenuItems[name].add(topMenuItems[name].frontContent);
 
-    var backName = name + 'r';
-
-    topMenuItems[backName] = new THREE.Object3D();
     html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
 
-    topMenuItems[backName].html = html;
-    topMenuItems[backName].content = new THREE.CSS3DObject(topMenuItems[backName].html);
-    topMenuItems[backName].content.scale.multiplyScalar(1/30.5);
-    topMenuItems[backName].add(topMenuItems[backName].content);
+    topMenuItems[name].backContent =  new THREE.CSS3DObject(html);
+    topMenuItems[name].backContent.scale.multiplyScalar(1/30.5);
+    topMenuItems[name].add(topMenuItems[name].backContent);
 
 
     var anchor = chooseTextAnchor();
-    topMenuItems[name].position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    topMenuItems[backName].position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    topMenuItems[backName].rotation.y = Math.PI;
+    topMenuItems[name].frontContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
+    topMenuItems[name].backContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
+    topMenuItems[name].backContent.rotation.y = Math.PI;
 
     scene.add(topMenuItems[name]);
-    scene.add(topMenuItems[backName]);
   };
 
 
