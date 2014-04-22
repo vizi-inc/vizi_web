@@ -24,11 +24,14 @@ viziApp.config(function($routeProvider){
 });
 
 viziApp.controller('rootController', function($rootScope, $location){
-  $rootScope.$on('$routeChangeSuccess', function(){
+  $rootScope.$on('$locationChangeStart', function(){
     discardFrame();
     console.log($location.path());
-    if(!$location.path() === '/'){
+    if($location.path() !== '/'){
       enterSecondLevel();
+    }
+    else{
+      enterFirstLevel();
     }
     oldFrameIndex = null;  
     

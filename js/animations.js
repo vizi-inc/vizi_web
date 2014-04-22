@@ -5,8 +5,80 @@ var frameIndex;
 var frameToCameraDistance = 0.8;
 var oldName;
 
+var textAnimating = false;
+var currentMenuState = {
+  firstLevel: true,
+  secondLevel: false
+};
+
+
 //Here we want to rotate camera and pull first level menu text out, tween second level menu text in
+
+function enterFirstLevel(){
+  //We don't want to tween if we're already at first level
+  if(textAnimating || currentMenuState.firstLevel){
+    return;
+  }
+  textAnimating = true;
+  console.log('ENTER');
+  var theta = -Math.PI/2;
+  var x = camera.position.x;
+  var z = camera.position.z;
+
+  //ROTATE CAMERA
+  var currentPos = {
+    x: x, 
+    y: camera.position.y,
+    z: z
+  };
+
+  var finalPos = {
+    x: x * Math.cos(theta) + z * Math.sin(theta),
+    y: camera.position.y,
+    z: z * Math.cos(theta) - x * Math.sin(theta)
+  };
+
+
+
+  var camTween = new TWEEN.Tween(currentPos).
+  to(finalPos, animationTime).
+  easing(TWEEN.Easing.Cubic.InOut).
+  onUpdate(function(){
+    camera.position.set(currentPos.x, currentPos.y, currentPos.z);
+  }).start();
+  camTween.onComplete(function(){
+    textAnimating = false;
+  });
+
+  var menuText = topMenuItems.team;
+  //We need to pick new anchors for text, since we very likely rearranged our statue during second level menu playing
+  var anchor = chooseTextAnchor();
+    // topMenuItems[name].frontContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
+    // topMenuItems[name].backContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
+    // topMenuItems[name].backContent.rotation.y = Math.PI;
+  var frontCurrentPos = {
+    x: menuText.position.x,
+    y: menuText.position.y,
+    z: menuText.position.z
+  };
+  var frontFinalPos = {
+    x: anchor.position.x,
+    y: anchor.position.y,
+    z:anchor.position.z - anchor.geometry.height/2
+  };
+
+  var textTween = new TWEEN.Tween(frontCurrentPos).
+  to(frontFinalPos, animationTime).
+  easing(TWEEN.Easing.Cubic.InOut).
+  onUpdate(function(){
+    menuText.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
+  }).start();
+}
 function enterSecondLevel(){
+  //If we're already at second level, dont do anything
+  if(currentMenuState.secondLevel){
+    return;
+  }
   var theta = Math.PI/2;
   var x = camera.position.x;
   var z = camera.position.z;
@@ -14,9 +86,9 @@ function enterSecondLevel(){
 
   //ROTATE CAMERA
   var currentPos = {
-    x: camera.position.x,
+    x: x,
     y: camera.position.y,
-    z: camera.position.z
+    z: z
   };
 
   var finalPos = {
@@ -42,7 +114,7 @@ function enterSecondLevel(){
     };
     var direction = Math.random() < 0.5 ? 1 : -1;
     var finalTextPos = {
-      x: (menuText.position.x + 200) * direction,
+      x: (menuText.position.x + 250) * direction,
       y: menuText.position.y,
       z: menuText.position.z
     };
