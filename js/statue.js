@@ -93,7 +93,7 @@ function Statue(){
   this.newMenuItem = function(name){
 
     topMenuItems[name] = new THREE.Object3D();
-    var html = document.createElement('div');
+    var html = document.createElement('a');
     html.innerText = name;
     html.className = 'statueText';
     topMenuItems[name].html = html;
@@ -101,7 +101,7 @@ function Statue(){
     topMenuItems[name].frontContent.scale.multiplyScalar(1/30.5);
     topMenuItems[name].add(topMenuItems[name].frontContent);
 
-    html = document.createElement('div');
+    html = document.createElement('a');
     html.innerText = name;
     html.className = 'statueText';
 

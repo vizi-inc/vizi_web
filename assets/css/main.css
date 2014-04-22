@@ -150,6 +150,9 @@
 /*red: #bd1127 */
 /*yellow: #f9a618; */
 /*ivory: #eaf9e2; */
+a {
+  text-decoration: none; }
+
 body {
   overflow: hidden; }
 
@@ -170,14 +173,19 @@ body {
   background-color: rgba(156, 173, 179, 0.9);
   height: 100%; }
 
-.statueText {
+#three-canvas .statueText {
   color: #bd1127;
-  font-size: 100px;
+  padding-bottom: 100px;
+  font-size: 90px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none; }
+  #three-canvas .statueText:hover {
+    color: #141615; }
 
 .left-menu-item {
   padding-top: 20px;

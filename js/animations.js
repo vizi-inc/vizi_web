@@ -33,23 +33,25 @@ function enterSecondLevel(){
   }).start();
 
   //PULLY OUT TEXT
-  var menuText = topMenuItems.team;
-  var currentTextPos = {
-    x: menuText.position.x,
-    y: menuText.position.y,
-    z: menuText.position.z
-  };
 
-  var finalTextPos = {
-    x: menuText.position.x + 10,
-    y: menuText.position.y,
-    z: menuText.position.z
-  };
-  var textTween = new TWEEN.Tween(currentTextPos).
-  to(finalTextPos, animationTime).
-  onUpdate(function(){
-    menuText.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
-  }).start();
+  _.each(topMenuItems, function(menuText){
+    var currentTextPos = {
+      x: menuText.position.x,
+      y: menuText.position.y,
+      z: menuText.position.z
+    };
+    var direction = Math.random() < 0.5 ? 1 : -1;
+    var finalTextPos = {
+      x: (menuText.position.x + 200) * direction,
+      y: menuText.position.y,
+      z: menuText.position.z
+    };
+    var textTween = new TWEEN.Tween(currentTextPos).
+    to(finalTextPos, animationTime).
+    onUpdate(function(){
+      menuText.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
+    }).start();
+  });
 
 }
 function swapFrames(name) {

@@ -5,6 +5,9 @@
 
 $left-menu-width: 200px;
 
+a{
+  text-decoration: none;
+}
 body{
   overflow: hidden;
 }
@@ -29,14 +32,23 @@ body{
   height: 100%;
 }
 
-.statueText{
-  color: $header-tabs-color;
-  font-size:100px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  cursor: pointer;
+#three-canvas{
+  
+  .statueText{
+    color: $header-tabs-color;
+    padding-bottom: 100px;
+    font-size:90px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover{
+      color: $underline-color;
+    }
+  }
 }
 
 
