@@ -53,7 +53,7 @@ function Statue(){
   this.newPanel = function(name){
     panels[name] = new THREE.Object3D();
     panels[name].html = document.getElementById(name);
-    panels[name].html.style.overflow = 'scroll';
+    panels[name].html.style.overflow = 'hidden';
     panels[name].html.style.width = elementSize + 'px';
     panels[name].html.style.height = elementSize + 'px';
     panels[name].html.style.opacity = 0;

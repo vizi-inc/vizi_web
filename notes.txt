@@ -8,3 +8,25 @@ Id like to discuss color scheme- dont know if I like the huge difference in colo
 
 
 http://bettercontactform.com/contact/form/builder
+
+Top Bar
+TEAM TECH PROJECTS CONTACT
+(contact can just be mailto: , or form if we have time)
+
+Take out iframes, have them link to full demo in another tab
+
+Animated GIF of the demo would be nice, but screen shot OK
+
+Text labels for top-level items should be on pulleys
+
+Clicking on a top level item should rotate the statue in some way, ideally with the category pane facing the user
+
+
+
+http://stackoverflow.com/questions/17398134/three-svgrenderer-save-text-of-image/17415624#17415624
+You should be able to access the SVG DOM with renderer.domElement
+
+To convert that to XML string (if that is what you mean by "svg text"):
+
+var XMLS = new XMLSerializer(); 
+var svgfile = XMLS.serializeToString(renderer.domElement); 
