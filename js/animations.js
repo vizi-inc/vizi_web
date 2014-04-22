@@ -7,10 +7,12 @@ var oldName;
 
 //Here we want to rotate camera and pull first level menu text out, tween second level menu text in
 function enterSecondLevel(){
-  var theta = Math.PI/3;
+  var theta = Math.PI/2;
   var x = camera.position.x;
   var z = camera.position.z;
-  //rotate camera
+  
+
+  //ROTATE CAMERA
   var currentPos = {
     x: camera.position.x,
     y: camera.position.y,
@@ -28,6 +30,25 @@ function enterSecondLevel(){
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function(){
     camera.position.set(currentPos.x, currentPos.y, currentPos.z);
+  }).start();
+
+  //PULLY OUT TEXT
+  var menuText = topMenuItems.team;
+  var currentTextPos = {
+    x: menuText.position.x,
+    y: menuText.position.y,
+    z: menuText.position.z
+  };
+
+  var finalTextPos = {
+    x: menuText.position.x + 100,
+    y: menuText.position.y,
+    z: menuText.position.z
+  };
+  var textTween = new TWEEN.Tween(currentTextPos).
+  to(finalTextPos, animationTime).
+  onUpdate(function(){
+    menuText.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
   }).start();
 
 }

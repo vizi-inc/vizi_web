@@ -1,5 +1,5 @@
 var panels = {};
-var menuItems = {};
+var topMenuItems = {};
 var frames = [];
 var fakeFrames = [];
 var flatFrames = [];
@@ -91,40 +91,40 @@ function Statue(){
   };
 
   this.newMenuItem = function(name){
-    menuItems[name] = new THREE.Object3D();
+    topMenuItems[name] = new THREE.Object3D();
     var html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
-    menuItems[name].html = html;
-    menuItems[name].content = new THREE.CSS3DObject(menuItems[name].html);
-    menuItems[name].content.scale.multiplyScalar(1/30.5);
-    menuItems[name].add(menuItems[name].content);
+    topMenuItems[name].html = html;
+    topMenuItems[name].content = new THREE.CSS3DObject(topMenuItems[name].html);
+    topMenuItems[name].content.scale.multiplyScalar(1/30.5);
+    topMenuItems[name].add(topMenuItems[name].content);
 
     var backName = name + 'r';
 
-    menuItems[backName] = new THREE.Object3D();
+    topMenuItems[backName] = new THREE.Object3D();
     html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
 
-    menuItems[backName].html = html;
-    menuItems[backName].content = new THREE.CSS3DObject(menuItems[backName].html);
-    menuItems[backName].content.scale.multiplyScalar(1/30.5);
-    menuItems[backName].add(menuItems[backName].content);
+    topMenuItems[backName].html = html;
+    topMenuItems[backName].content = new THREE.CSS3DObject(topMenuItems[backName].html);
+    topMenuItems[backName].content.scale.multiplyScalar(1/30.5);
+    topMenuItems[backName].add(topMenuItems[backName].content);
 
 
     var anchor = chooseTextAnchor();
-    menuItems[name].position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    menuItems[backName].position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    menuItems[backName].rotation.y = Math.PI;
+    topMenuItems[name].position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
+    topMenuItems[backName].position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
+    topMenuItems[backName].rotation.y = Math.PI;
 
-    scene.add(menuItems[name]);
-    scene.add(menuItems[backName]);
+    scene.add(topMenuItems[name]);
+    scene.add(topMenuItems[backName]);
   };
 
 
   this.update = function(mesh){
-    // menuItems.team.position.z += 0.01;
+    // topMenuItems.team.position.z += 0.01;
   };
 
 }
