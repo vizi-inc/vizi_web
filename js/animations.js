@@ -1,6 +1,6 @@
 var oldFrameIndex = null;
 var animating = false;
-var animationTime = 3000;
+var animationTime = 1500;
 var frameIndex;
 var frameToCameraDistance = 0.8;
 var oldName;

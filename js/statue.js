@@ -9,6 +9,7 @@ function Statue(){
     this.newPanel('futurego');
     this.newPanel('razer');
     this.newPanel('tony');
+    this.newPanel('dave');
     this.newPanel('eric');
     this.newPanel('tc');
   };

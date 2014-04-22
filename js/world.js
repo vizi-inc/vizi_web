@@ -65,7 +65,7 @@ function World(){
       controls.update();
     }
     TWEEN.update();
-      camera.lookAt(scene.position);
+    camera.lookAt(scene.position);
     this.statue.update();
 
 
