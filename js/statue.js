@@ -96,6 +96,7 @@ function Statue(){
     var html = document.createElement('a');
     html.innerText = name;
     html.className = 'statueText';
+    html.href = '#/' + name;
     topMenuItems[name].html = html;
     topMenuItems[name].frontContent = new THREE.CSS3DObject(topMenuItems[name].html);
     topMenuItems[name].frontContent.scale.multiplyScalar(1/30.5);
@@ -104,6 +105,7 @@ function Statue(){
     html = document.createElement('a');
     html.innerText = name;
     html.className = 'statueText';
+    html.href = '#/' + name;
 
     topMenuItems[name].backContent =  new THREE.CSS3DObject(html);
     topMenuItems[name].backContent.scale.multiplyScalar(1/30.5);

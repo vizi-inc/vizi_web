@@ -6,21 +6,17 @@ var frameToCameraDistance = 0.8;
 var oldName;
 
 var textAnimating = false;
-var currentMenuState = {
-  firstLevel: true,
-  secondLevel: false
-};
+var currentMenuState = 'level1';
 
 
 //Here we want to rotate camera and pull first level menu text out, tween second level menu text in
 
 function enterFirstLevel(){
   //We don't want to tween if we're already at first level
-  if(textAnimating || currentMenuState.firstLevel){
+  if(textAnimating || currentMenuState === 'level1'){
     return;
   }
   textAnimating = true;
-  console.log('ENTER');
   var theta = -Math.PI/2;
   var x = camera.position.x;
   var z = camera.position.z;
@@ -48,6 +44,7 @@ function enterFirstLevel(){
   }).start();
   camTween.onComplete(function(){
     textAnimating = false;
+    currentMenuState = 'level1';
   });
 
   var menuText = topMenuItems.team;
@@ -76,9 +73,10 @@ function enterFirstLevel(){
 }
 function enterSecondLevel(){
   //If we're already at second level, dont do anything
-  if(currentMenuState.secondLevel){
+  if(currentMenuState === 'level2'){
     return;
   }
+  currentMenuState = 'level2';
   var theta = Math.PI/2;
   var x = camera.position.x;
   var z = camera.position.z;
