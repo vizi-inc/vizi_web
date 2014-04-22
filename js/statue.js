@@ -12,6 +12,11 @@ function Statue(){
     this.newPanel('dave');
     this.newPanel('eric');
     this.newPanel('tc');
+
+    this.newMenuItem('team');
+    this.newMenuItem('tech');
+    this.newMenuItem('projects');
+    this.newMenuItem('contact');
   };
 
   this.generate = function(){
@@ -61,7 +66,22 @@ function Statue(){
     panels[name].content.scale.multiplyScalar(1/63.5);
     panels[name].add(panels[name].content);
 
+    //Now add a menu item for this panel
+
   };
+
+  this.newMenuItem = function(name){
+    menuItems[name] = new THREE.Object3D();
+    var html = document.createElement('div');
+    html.innerText = 'shnur'
+    menuItems[name].html = html;
+    menuItems[name].content = new THREE.CSS3DObject(menuItems[name].html);
+    // menuItems[name].content.scale.multiplyScalar(1/63.5);
+    menuItems[name].add(menuItems[name].content);
+
+    scene.add(menuItems[name]);
+  };
+
 
   this.update = function(mesh){
  
@@ -87,3 +107,4 @@ function generateFramePosition(){
   }
   return pos;
 }
+
