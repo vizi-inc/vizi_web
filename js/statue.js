@@ -35,7 +35,7 @@ function Statue(){
   };
 
   this.generate = function(){
-    var numFrames = 5;
+    var numFrames = 10;
     var numFakeFrames = 5;
     var rFR = MathHelpers.randFloatRange;
     var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
@@ -116,6 +116,7 @@ function updateStatue(path){
     path = 'header';
   }
   //Now tween in the text items for the current route we are at.
+  itemsOut();
   itemsIn(path);
 
 }

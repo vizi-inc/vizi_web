@@ -1,5 +1,5 @@
 var textAnimating = false;
-var oldCategory;
+var oldCategory = null;
 
 
 function itemsIn(category){
@@ -11,16 +11,22 @@ function itemsIn(category){
     console.warn('There are no items for category ', category);
     return;
   }
-  oldCategory = category;
   var i = 0;
   _.each(items, function(item){
     var anchor = frames[i];
     i++;
     itemIn(item, frames[i]);
   });
+  
+  oldCategory = category;
 }
 
 function itemsOut(){
+  if(!oldCategory){
+    console.log('WE DONT HAVE AN OLD CATEGORY');
+    return;
+  }
+  var items = text3DMenu.menu[oldCategory];
   _.each(items, function(item){
     itemOut(item);
   });
