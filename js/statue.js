@@ -119,7 +119,7 @@ function Statue(){
     topMenuItems[name].add(topMenuItems[name].backContainer);
 
 
-    window.anchor = chooseTextAnchor();
+    var anchor = chooseTextAnchor();
     topMenuItems[name].frontContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
     topMenuItems[name].backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
     topMenuItems[name].backContainer.rotation.y = Math.PI;
