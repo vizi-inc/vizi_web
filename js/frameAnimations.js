@@ -71,11 +71,11 @@ function discardFrame(){
   if(oldFrameIndex === null){
     return;
   }
+  console.log("H<MM");
   
   var oldFrame = frames[oldFrameIndex];
-  var myName = oldName;
 
-  var oldFramePos = {
+  var curPos = {
     x: oldFrame.position.x,
     y: oldFrame.position.y,
     z: oldFrame.position.z,
@@ -91,16 +91,14 @@ targetPos.rotY = 0;
 targetPos.rotZ = 0;
 
 targetPos.opacity = 0;
-var oldFrameTween = new TWEEN.Tween(oldFramePos).
+var oldFrameTween = new TWEEN.Tween(curPos).
   to(targetPos, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function(){
-    oldFrame.position.set(oldFramePos.x, oldFramePos.y, oldFramePos.z);
-    oldFrame.rotation.x = oldFramePos.rotX;
-    oldFrame.rotation.y = oldFramePos.rotZ;
-    oldFrame.rotation.z = oldFramePos.rotY;
+    oldFrame.position.set(curPos.x, curPos.y, curPos.z);
+    oldFrame.rotation.set(curPos.rotX, curPos.rotY, curPos.rotZ);
     if(oldFrame.children[0]){
-      oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
+      oldFrame.children[0].html.style.opacity = curPos.opacity;
     }
   }).start();
   //We have to remove old frame!
