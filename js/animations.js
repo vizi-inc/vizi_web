@@ -133,6 +133,8 @@ function enterSecondLevel(){
   });
 
 }
+
+
 function swapFrames(name) {
   //make sure this panel exists
   if (!Object.prototype.hasOwnProperty.call(panels, name)){

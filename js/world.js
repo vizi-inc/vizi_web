@@ -51,6 +51,12 @@ function World(){
     //STATUE
     this.statue = new Statue();
     this.statue.init();
+    $('#three-canvas').on('click', function(){
+      discardFrame();
+    });
+    $('.panel').on('click', function(){
+      return false;
+    });
   };
 
 
