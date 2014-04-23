@@ -4,9 +4,17 @@ function Menu3D(){
     'team': {},
     'projects': {}
   };
+
+  this.init = function(){
+    this.createMenuItem('team', 'header');
+    this.createMenuItem('tech', 'header');
+    this.createMenuItem('projects', 'header');
+    this.createMenuItem('contact', 'header');
+  };
+
+  //we need to add in top level items for header
   this.createMenuItem = function(name, category){
     var item = this.menu[category][name] = new THREE.Object3D();
-
 
     var html = document.createElement('a');
     html.innerText = name;
@@ -41,25 +49,4 @@ function Menu3D(){
   };
 }
 
-function chooseTextAnchor(){
-  //pick a frame to temporarily anchor text to
-  var frame;
-  var i = 0;
-  do{
-    frame = _.sample(frames);
-    i++;
-    if( i > 100){
-      console.error('Could not find a fresh anchor and ABORTING!!');
-      return;
-    }
-  }
-  while(frame.alreadyChosen);
-  frame.alreadyChosen = true;
-  return frame;
-}
 
-function eraseAnchors(){
-  _.each(frames, function(frame){
-    frame.alreadyChosen = false;
-  });
-}

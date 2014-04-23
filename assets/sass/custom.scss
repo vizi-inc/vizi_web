@@ -70,7 +70,7 @@ body{
 
 .panel{
   display: none;
-  position: fixed;
+  position: absolute;
   opacity: 0.9;
   background: $left-menu-color;
   padding: 20px;

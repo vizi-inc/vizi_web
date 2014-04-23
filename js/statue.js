@@ -13,6 +13,7 @@ function Statue(){
   this.init = function(){
     this.generate();
     text3DMenu = new Menu3D();
+    text3DMenu.init();
 
     //category
     this.newPanel('futurgo', 'projects');
@@ -114,6 +115,8 @@ function updateStatue(path){
   if(path === ''){
     path = 'header';
   }
+  //Now tween in the text items for the current route we are at.
+  itemsIn(path);
 
 }
 
