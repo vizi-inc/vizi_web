@@ -12,10 +12,12 @@ var currentMenuState = 'level1';
 //Here we want to rotate camera and pull first level menu text out, tween second level menu text in
 
 function enterFirstLevel(){
+  console.log('current menu state', currentMenuState);
   //We don't want to tween if we're already at first level
   if(textAnimating || currentMenuState === 'level1'){
     return;
   }
+  console.log('entering first level');
   textAnimating = true;
   var theta = -Math.PI/2;
   var x = camera.position.x;
@@ -45,6 +47,7 @@ function enterFirstLevel(){
   camTween.onComplete(function(){
     textAnimating = false;
     currentMenuState = 'level1';
+    eraseAnchors();
   });
 
   var menuText = topMenuItems.team;
@@ -64,18 +67,20 @@ function enterFirstLevel(){
     z:anchor.position.z - anchor.geometry.height/2
   };
 
-  var textTween = new TWEEN.Tween(frontCurrentPos).
-  to(frontFinalPos, animationTime).
-  easing(TWEEN.Easing.Cubic.InOut).
-  onUpdate(function(){
-    menuText.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
-  }).start();
+  // var textTween = new TWEEN.Tween(frontCurrentPos).
+  // to(frontFinalPos, animationTime).
+  // easing(TWEEN.Easing.Cubic.InOut).
+  // onUpdate(function(){
+  //   menuText.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
+  // }).start();
 }
 function enterSecondLevel(){
   //If we're already at second level, dont do anything
+  console.log('entering second level');
   if(currentMenuState === 'level2'){
     return;
   }
+  console.log('winner');
   currentMenuState = 'level2';
   var theta = Math.PI/2;
   var x = camera.position.x;
@@ -206,13 +211,19 @@ function discardFrame(){
   };
 
 var targetPos = generateFramePosition();
+targetPos.rotX = Math.PI/2;
+targetPos.rotY = 0;
+targetPos.rotZ = 0;
+
 targetPos.opacity = 0;
 var oldFrameTween = new TWEEN.Tween(oldFramePos).
   to(targetPos, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function(){
     oldFrame.position.set(oldFramePos.x, oldFramePos.y, oldFramePos.z);
-    oldFrame.rotation.set(oldFramePos.rotX, oldFramePos.rotY, oldFramePos.rotZ);
+    oldFrame.rotation.x = oldFramePos.rotX;
+    oldFrame.rotation.y = oldFramePos.rotZ;
+    oldFrame.rotation.z = oldFramePos.rotY;
     if(oldFrame.children[0]){
       oldFrame.children[0].html.style.opacity = oldFramePos.opacity;
     }

@@ -2,7 +2,6 @@ var panels = {};
 var topMenuItems = {};
 var frames = [];
 var fakeFrames = [];
-var flatFrames = [];
 
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
@@ -48,30 +47,28 @@ function Statue(){
     var geo = new THREE.BoxGeometry(frameSize, frameSize, 1);
     var mesh, pos;
     for(var i =0; i < numFrames; i++){
-
+      //REAL FRAMES (CONTENT CAN BE ADDED HERE)
       mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
-      mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
+      //We want all frames flat for text anchoring on front and back sides
+      mesh.rotation.x = Math.PI/2;
       scene.add(mesh);
       frames.push(mesh);
-      if(pos.rotX === Math.PI/2){
-        flatFrames.push(mesh);
-      }
     }
 
+    //FAKE FRAMES (NO CONTENT)
     for(i = 0; i < numFakeFrames; i++){
       geo = new THREE.BoxGeometry(_.random(5, 50), _.random(5, 50), _.random(0.1, 1));
       mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
-      mesh.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
-      scene.add(mesh);
-      if(pos.rotX === Math.PI/2){
-        flatFrames.push(mesh);
+      if(Math.random() > 0.6){
+        mesh.rotation.x = Math.PI/2;
       }
-
+      scene.add(mesh);
     }
+
 
   };
 
@@ -131,11 +128,17 @@ function chooseTextAnchor(){
   //pick a frame to temporarily anchor text to
   var frame;
   do{
-    frame = _.sample(flatFrames);
+    frame = _.sample(frames);
   }
   while(frame.alreadyChosen);
   frame.alreadyChosen = true;
   return frame;
+}
+
+function eraseAnchors(){
+  _.each(frames, function(frame){
+    frame.alreadyChosen = false;
+  });
 }
 
 function generateFramePosition(){
@@ -143,17 +146,9 @@ function generateFramePosition(){
   var pos =  {
     x: _.random(-bounds/2,bounds),
     y: _.random(-bounds,bounds),
-    z: _.random(0,bounds),
-    rotX: 0,
-    rotY: 0,
-    rotZ: 0
+    z: _.random(0,bounds)
   };
-  if(Math.random() > 0.2){
-    pos.rotX = Math.PI/2;
-  }
-  // if(Math.random() > 0.4){
-  //   pos.rotY = Math.PI/2;
-  // }
+
   return pos;
 }
 
