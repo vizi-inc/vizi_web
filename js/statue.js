@@ -83,7 +83,7 @@ function Statue(){
     panels[name].html.style.height = elementSize + 'px';
     panels[name].html.style.opacity = 0;
     panels[name].content = new THREE.CSS3DObject(panels[name].html);
-    panels[name].content.scale.multiplyScalar(1/63.5);
+    // panels[name].content.scale.multiplyScalar(1/63.5);
     panels[name].add(panels[name].content);
 
     //generate the menu item associated with this
