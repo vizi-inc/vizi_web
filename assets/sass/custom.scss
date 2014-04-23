@@ -33,7 +33,7 @@ body{
 }
 
 #three-canvas{
-  
+
   .statueText{
     color: $header-tabs-color;
     font-size:90px;
@@ -73,7 +73,11 @@ body{
   opacity: 0.9;
   background: $left-menu-color;
   padding: 20px;
-  font-size: 50px;
+  font-size: 40px;
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .iframePanel iframe{

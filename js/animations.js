@@ -53,9 +53,7 @@ function enterFirstLevel(){
   var menuText = topMenuItems.team;
   //We need to pick new anchors for text, since we very likely rearranged our statue during second level menu playing
   var anchor = chooseTextAnchor();
-    // topMenuItems[name].frontContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    // topMenuItems[name].backContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    // topMenuItems[name].backContent.rotation.y = Math.PI;
+  anchor.material = new THREE.MeshBasicMaterial();
   var frontCurrentPos = {
     x: menuText.position.x,
     y: menuText.position.y,
@@ -64,15 +62,21 @@ function enterFirstLevel(){
   var frontFinalPos = {
     x: anchor.position.x,
     y: anchor.position.y,
-    z:anchor.position.z - anchor.geometry.height/2
+    z:anchor.position.z
   };
 
-  // var textTween = new TWEEN.Tween(frontCurrentPos).
-  // to(frontFinalPos, animationTime).
-  // easing(TWEEN.Easing.Cubic.InOut).
-  // onUpdate(function(){
-  //   menuText.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
-  // }).start();
+  var textTween = new TWEEN.Tween(frontCurrentPos).
+    to(frontFinalPos, animationTime).
+    easing(TWEEN.Easing.Cubic.InOut).
+    onUpdate(function(){
+      menuText.position.x = frontCurrentPos.x;
+      menuText.position.y = frontCurrentPos.y;
+      menuText.position.z = frontCurrentPos.z ;
+  }).start();
+  textTween.onComplete(function(){
+    window.playWithMe = menuText;
+    window.anchor = anchor;
+  });
 }
 function enterSecondLevel(){
   //If we're already at second level, dont do anything
@@ -132,6 +136,7 @@ function enterSecondLevel(){
 function swapFrames(name) {
   //make sure this panel exists
   if (!Object.prototype.hasOwnProperty.call(panels, name)){
+    console.log("This panel doesn't exist!");
     return;
   }
   //If we are animating a frame already, don't start animating another one.

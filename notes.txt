@@ -1,10 +1,3 @@
-Using iframes might not be best approach- if you load iframes up on initialization, then the performace is slow. 
-If you load and unload them dynamically, performace stutters as it loads, and also thats a lot of info being sent across the wire every time we load them up.
-
-
-Another issue with iframes we need to discuss is how to deal with the sizing issues
-
-Id like to discuss color scheme- dont know if I like the huge difference in colors between top bar and main 3d page
 
 
 http://bettercontactform.com/contact/form/builder
@@ -19,7 +12,6 @@ Animated GIF of the demo would be nice, but screen shot OK
 
 Text labels for top-level items should be on pulleys
 
-Clicking on a top level item should rotate the statue in some way, ideally with the category pane facing the user
 
 
 

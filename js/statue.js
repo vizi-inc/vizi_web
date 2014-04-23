@@ -15,6 +15,7 @@ function Statue(){
     this.newPanel('razer');
     this.newPanel('tony');
     this.newPanel('dave');
+    this.newPanel('dusan');
     this.newPanel('eric');
     this.newPanel('tc');
 
@@ -94,19 +95,22 @@ function Statue(){
     html.innerText = name;
     html.className = 'statueText';
     html.href = '#/' + name;
-    topMenuItems[name].html = html;
-    topMenuItems[name].frontContent = new THREE.CSS3DObject(topMenuItems[name].html);
+    topMenuItems[name].frontContainer = new THREE.Object3D();
+    topMenuItems[name].frontContent = new THREE.CSS3DObject(html);
     topMenuItems[name].frontContent.scale.multiplyScalar(1/30.5);
-    topMenuItems[name].add(topMenuItems[name].frontContent);
+    topMenuItems[name].frontContainer.add(topMenuItems[name].frontContent);
+    topMenuItems[name].add(topMenuItems[name].frontContainer);
 
-    html = document.createElement('a');
-    html.innerText = name;
-    html.className = 'statueText';
-    html.href = '#/' + name;
+    var htmls = document.createElement('a');
+    htmls.innerText = name;
+    htmls.className = 'statueText';
+    htmls.href = '#/' + name;
 
-    topMenuItems[name].backContent =  new THREE.CSS3DObject(html);
+    topMenuItems[name].backContainer = new THREE.Object3D();
+    topMenuItems[name].backContent =  new THREE.CSS3DObject(htmls);
     topMenuItems[name].backContent.scale.multiplyScalar(1/30.5);
-    topMenuItems[name].add(topMenuItems[name].backContent);
+    topMenuItems[name].backContainer.add(topMenuItems[name].backContent);
+    topMenuItems[name].add(topMenuItems[name].backContainer);
 
 
     var anchor = chooseTextAnchor();
