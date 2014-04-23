@@ -16,14 +16,10 @@ function swapFrames(name) {
   //If we are animating a frame already, don't start animating another one.
   animating = true;
   //pick a random panel from the statue to fly to camera
-  do{
-    frameIndex = _.random(0, frames.length-1);
-  }
-  while(frameIndex === oldFrameIndex);
+  var frame = nameFrameHash[name];
 
 
 //******NEW FRAME**********************************
-  var frame = frames[frameIndex];
   panels[name].html.style.display = 'block';
   frame.add(panels[name]);
 
@@ -61,10 +57,10 @@ function swapFrames(name) {
   }).start();
 
   frameTween.onComplete(function(){
-    oldFrameIndex = frameIndex;
-    oldName = name;
+    
     animating = false;
     //set active frame to red
+    oldFrameIndex = frames.indexOf(frame);
     frames[oldFrameIndex].material = new THREE.MeshBasicMaterial({color:0xff0000});
   });
 

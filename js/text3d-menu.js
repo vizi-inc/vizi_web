@@ -19,6 +19,7 @@ function Menu3D(){
     var html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
+    $(html).data('name', name);
     item.frontContainer = new THREE.Object3D();
     item.frontContent = new THREE.CSS3DObject(html);
     item.frontContent.scale.multiplyScalar(1/30.5);
@@ -27,6 +28,7 @@ function Menu3D(){
 
     html = document.createElement('div');
     html.innerText = name;
+    $(html).data('name', name);
     html.className = 'statueText';
 
     item.backContainer = new THREE.Object3D();

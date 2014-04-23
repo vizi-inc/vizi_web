@@ -1,6 +1,6 @@
 var textAnimating = false;
 var oldCategory = null;
-var frameNameHash = {};
+var nameFrameHash = {};
 
 
 function itemsIn(category){
@@ -26,14 +26,17 @@ function itemsIn(category){
 
   //We need to link the menu item to the frame it is currently anchored to
   function resetCallbacks(item, frame){
+    var name = $(item.frontContent.element).data('name');
     //first remove previous callbacks
     $(item.frontContent.element).off();
     $(item.backContent.element).off();
 
     //now add a callback to pull up frame this menu item is anchored o
     $(item.frontContent.element).on('click', function(){
+      swapFrames(name);
     });
     $(item.backContent.element).on('click', function(){
+      swapFrames(name);
     });
   }
 }
@@ -75,9 +78,9 @@ function itemIn(item, anchor){
       item.backContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z - anchor.geometry.height);
     }).start();
       
-    //make sure we keep pur hash up to date with which frame our menu text is anchored to.
+    //make sure we keep put hash up to date with which frame our menu text is anchored to.
     textTween.onComplete(function(){
-      frameNameHash[$(item.frontContent.element).data('name')] = anchor;
+      nameFrameHash[$(item.frontContent.element).data('name')] = anchor;
     });
 }
 
