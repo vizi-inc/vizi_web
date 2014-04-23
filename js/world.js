@@ -73,7 +73,6 @@ function World(){
     }
     TWEEN.update();
     camera.lookAt(scene.position);
-    this.statue.update();
 
 
   };

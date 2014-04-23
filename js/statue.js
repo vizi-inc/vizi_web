@@ -2,6 +2,7 @@ var panels = {};
 var topMenuItems = {};
 var frames = [];
 var fakeFrames = [];
+var text3DMenu;
 
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
@@ -11,31 +12,24 @@ function Statue(){
 
   this.init = function(){
     this.generate();
-    this.newPanel('futurgo');
-    this.newPanel('razer');
-    this.newPanel('tcho');
-    this.newPanel('castle');
-    this.newPanel('heart');
-    this.newPanel('garden');
-    this.newPanel('holiday');
+    text3DMenu = new Menu3D();
+
+    //category
+    this.newPanel('futurgo', 'projects');
+    this.newPanel('razer', 'projects');
+    this.newPanel('tcho', 'projects');
+    this.newPanel('castle', 'projects');
+    this.newPanel('heart', 'projects');
+    this.newPanel('garden', 'projects');
+    this.newPanel('holiday', 'projects');
 
 
-    this.newPanel('tony');
-    this.newPanel('dave');
-    this.newPanel('dusan');
-    this.newPanel('eric');
-    this.newPanel('tc');
+    this.newPanel('tony', 'team');
+    this.newPanel('dave', 'team');
+    this.newPanel('dusan', 'team');
+    this.newPanel('eric', 'team');
+    this.newPanel('tc', 'team');
 
-    this.newMenuItem('team');
-    // this.newMenuItem('tech');
-    // this.newMenuItem('projects');
-    // this.newMenuItem('contact');
-    //let these items be added to dom before attaching click handlers
-    setTimeout(function(){
-      $('.statueText').on('click', function(){
-        enterSecondLevel();
-      });
-    }, 100);
 
   };
 
@@ -80,7 +74,7 @@ function Statue(){
 
   };
 
-  this.newPanel = function(name){
+  this.newPanel = function(name, category){
     panels[name] = new THREE.Object3D();
     panels[name].html = document.getElementById(name);
     panels[name].html.style.overflow = 'hidden';
@@ -91,47 +85,11 @@ function Statue(){
     panels[name].content.scale.multiplyScalar(1/63.5);
     panels[name].add(panels[name].content);
 
+    //generate the menu item associated with this
+    text3DMenu.createMenuItem(name, category);
+
 
   };
-
-  this.newMenuItem = function(name){
-
-    topMenuItems[name] = new THREE.Object3D();
-    var html = document.createElement('a');
-    html.innerText = name;
-    html.className = 'statueText';
-    html.href = '#/' + name;
-    topMenuItems[name].frontContainer = new THREE.Object3D();
-    topMenuItems[name].frontContent = new THREE.CSS3DObject(html);
-    topMenuItems[name].frontContent.scale.multiplyScalar(1/30.5);
-    topMenuItems[name].frontContainer.add(topMenuItems[name].frontContent);
-    topMenuItems[name].add(topMenuItems[name].frontContainer);
-
-    var htmls = document.createElement('a');
-    htmls.innerText = name;
-    htmls.className = 'statueText';
-    htmls.href = '#/' + name;
-
-    topMenuItems[name].backContainer = new THREE.Object3D();
-    topMenuItems[name].backContent =  new THREE.CSS3DObject(htmls);
-    topMenuItems[name].backContent.scale.multiplyScalar(1/30.5);
-    topMenuItems[name].backContainer.add(topMenuItems[name].backContent);
-    topMenuItems[name].add(topMenuItems[name].backContainer);
-
-
-    var anchor = chooseTextAnchor();
-    topMenuItems[name].frontContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    topMenuItems[name].backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    topMenuItems[name].backContainer.rotation.y = Math.PI;
-
-    scene.add(topMenuItems[name]);
-  };
-
-
-  this.update = function(mesh){
-    // topMenuItems.team.position.z += 0.01;
-  };
-
 }
 
 function chooseTextAnchor(){
