@@ -110,7 +110,6 @@ var oldFrameTween = new TWEEN.Tween(oldFramePos).
   //We have to remove old frame!
   oldFrameTween.onComplete(function(){
     //If old frame was an iframe, erase its src to keep performance good
-    $(panels[myName].html).find('iframe').attr('src', '');
     oldFrame.remove(oldFrame.children[0]);
   });
 }

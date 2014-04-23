@@ -28,7 +28,9 @@ viziApp.config(function($routeProvider){
 
 viziApp.controller('rootController', function($rootScope, $location){
   $rootScope.$on('$locationChangeStart', function(){
+    //find out what route we just navigated to and let our statue know so it can handle text fly in and 
+    //camera rotation
+    updateStatue($location.path().replace(/\//,""));
 
-    //Make sure we set oldFrameIndex to null since now we don't have any active frames!
   });
 });

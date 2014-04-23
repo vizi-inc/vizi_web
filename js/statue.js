@@ -104,3 +104,16 @@ function generateFramePosition(){
   return pos;
 }
 
+//Here we handle camera rotation and text tweening
+function updateStatue(path){
+  //First we need to tween back any active panels
+  discardFrame();
+  //our little 3d router
+  console.log(path);
+  //We are on main page and want header text displayed
+  if(path === ''){
+    path = 'header';
+  }
+
+}
+

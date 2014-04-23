@@ -49,7 +49,7 @@ function chooseTextAnchor(){
     frame = _.sample(frames);
     i++;
     if( i > 100){
-      console.error('Could not find a fresh anchor and ABORTING!!')
+      console.error('Could not find a fresh anchor and ABORTING!!');
       return;
     }
   }
