@@ -43,7 +43,7 @@ function Menu3D(){
     // item.backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
     // item.backContainer.rotation.y = Math.PI;
     var direction = Math.random() > 0.5 ? 1 : -1;
-    item.position.x = 200 * direction;
+    item.frontContainer.position.x = 200 * direction;
 
     scene.add(item);
   };

@@ -2,16 +2,20 @@ var textAnimating = false;
 
 
 function itemsIn(category){
-  //Before we tween items in, we need to clear the old anchors
-  eraseAnchors();
+  console.log('items in!');
+
   //get the menu items for the current category we are in 
   var items = text3DMenu.menu[category];
+  if(!items){
+    console.warn('There are no items for category ', category);
+    return;
+  }
+  var i = 0;
   _.each(items, function(item){
-    //give this item an anchor
-    item.anchor = chooseAnchor();
-    itemIn(item);
+    var anchor = frames[i];
+    i++;
+    itemIn(item, frames[i]);
   });
-
 }
 
 function itemsOut(){
@@ -19,7 +23,25 @@ function itemsOut(){
 }
 
 
-//Here we want to rotate camera and pull first level menu text out, tween second level menu text in
+function itemIn(item, anchor){
+  anchor.material = new THREE.MeshBasicMaterial();
+   var currentTextPos = {
+      x: item.frontContainer.position.x,
+      y: item.frontContainer.position.y,
+      z: item.frontContainer.position.z
+    };
+    var direction = Math.random() < 0.5 ? 1 : -1;
+    var finalTextPos = {
+      x: anchor.position.x,
+      y: anchor.position.y,
+      z: anchor.position.z + anchor.geometry.height/2
+    };
+    var textTween = new TWEEN.Tween(currentTextPos).
+    to(finalTextPos, animationTime).
+    onUpdate(function(){
+      item.frontContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
+    }).start();
+}
 
 function itemOut(item){
   //We need to pick new anchors for text, since we very likely rearranged our statue during second level menu playing
@@ -42,30 +64,3 @@ function itemOut(item){
   }).start();
 }
 
-function itemIn(item){
-   var currentTextPos = {
-      x: item.frontContainer.position.x,
-      y: item.frontContainer.position.y,
-      z: item.frontContainer.position.z
-    };
-    var direction = Math.random() < 0.5 ? 1 : -1;
-    var finalTextPos = {
-      x: (item.frontContainer.position.x + 250) * direction,
-      y: item.frontContainer.position.y,
-      z: item.frontContainer.position.z
-    };
-    var textTween = new TWEEN.Tween(currentTextPos).
-    to(finalTextPos, animationTime).
-    onUpdate(function(){
-      item.frontContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
-    }).start();
-}
-
-function chooseAnchor(){
-  
-}
-function eraseAnchors(){
-  _.each(frames, function(frame){
-    frame.alreadyChosen = false;
-  });
-}
