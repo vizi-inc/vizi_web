@@ -27,9 +27,9 @@ function Statue(){
     this.newPanel('tc');
 
     this.newMenuItem('team');
-    this.newMenuItem('tech');
-    this.newMenuItem('projects');
-    this.newMenuItem('contact');
+    // this.newMenuItem('tech');
+    // this.newMenuItem('projects');
+    // this.newMenuItem('contact');
     //let these items be added to dom before attaching click handlers
     setTimeout(function(){
       $('.statueText').on('click', function(){
@@ -119,10 +119,10 @@ function Statue(){
     topMenuItems[name].add(topMenuItems[name].backContainer);
 
 
-    var anchor = chooseTextAnchor();
-    topMenuItems[name].frontContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    topMenuItems[name].backContent.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    topMenuItems[name].backContent.rotation.y = Math.PI;
+    window.anchor = chooseTextAnchor();
+    topMenuItems[name].frontContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
+    topMenuItems[name].backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
+    topMenuItems[name].backContainer.rotation.y = Math.PI;
 
     scene.add(topMenuItems[name]);
   };
