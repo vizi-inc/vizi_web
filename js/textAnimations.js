@@ -36,10 +36,14 @@ function itemIn(item, anchor){
       y: anchor.position.y,
       z: anchor.position.z + anchor.geometry.height/2
     };
+
+    //rotate back container 180 degrees on yaxis so it faces backward
+    item.backContainer.rotation.y = Math.PI;
     var textTween = new TWEEN.Tween(currentTextPos).
     to(finalTextPos, animationTime).
     onUpdate(function(){
       item.frontContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
+      item.backContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z - anchor.geometry.height);
     }).start();
 }
 
@@ -61,6 +65,7 @@ function itemOut(item){
     easing(TWEEN.Easing.Cubic.InOut).
     onUpdate(function(){
       item.frontContainer.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
+      item.backContainer.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
   }).start();
 }
 

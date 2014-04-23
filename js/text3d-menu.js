@@ -37,13 +37,9 @@ function Menu3D(){
     item.backContainer.add(item.backContent);
     item.add(item.backContainer);
 
-
-    // var anchor = chooseTextAnchor();
-    // item.frontContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
-    // item.backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
-    // item.backContainer.rotation.y = Math.PI;
     var direction = Math.random() > 0.5 ? 1 : -1;
     item.frontContainer.position.x = 200 * direction;
+    item.backContainer.position.x = 200 * direction;
 
     scene.add(item);
   };
