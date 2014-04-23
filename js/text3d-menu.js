@@ -33,7 +33,7 @@ function Menu3D(){
 
     item.backContainer = new THREE.Object3D();
     item.backContent =  new THREE.CSS3DObject(htmls);
-    // item.backContent.scale.multiplyScalar(1/30.5);
+    item.backContent.scale.multiplyScalar(1/30.5);
     item.backContainer.add(item.backContent);
     item.add(item.backContainer);
 
