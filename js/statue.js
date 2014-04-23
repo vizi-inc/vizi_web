@@ -11,8 +11,15 @@ function Statue(){
 
   this.init = function(){
     this.generate();
-    this.newPanel('futurego');
+    this.newPanel('futurgo');
     this.newPanel('razer');
+    this.newPanel('tcho');
+    this.newPanel('castle');
+    this.newPanel('heart');
+    // this.newPanel('garden');
+    // this.newPanel('holiday');
+
+
     this.newPanel('tony');
     this.newPanel('dave');
     this.newPanel('dusan');
@@ -84,7 +91,6 @@ function Statue(){
     panels[name].content.scale.multiplyScalar(1/63.5);
     panels[name].add(panels[name].content);
 
-    //Now add a menu item for this panel
 
   };
 

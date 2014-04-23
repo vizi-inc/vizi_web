@@ -6,7 +6,11 @@
 $left-menu-width: 200px;
 
 a{
-  text-decoration: none;
+  text-decoration: none !important;
+  color:$header-tabs-color;
+  &:hover{
+    color: $underline-color;
+  }
 }
 body{
   overflow: hidden;
@@ -35,7 +39,6 @@ body{
 #three-canvas{
 
   .statueText{
-    color: $header-tabs-color;
     font-size:90px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -44,9 +47,6 @@ body{
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
-    &:hover{
-      color: $underline-color;
-    }
   }
 }
 
@@ -73,10 +73,13 @@ body{
   opacity: 0.9;
   background: $left-menu-color;
   padding: 20px;
-  font-size: 40px;
+  font-size: 34px;
   img{
-    height: 100%;
+    height: 70%;
     width: 100%;
+  }
+  a{
+    text-align: center;
   }
 }
 

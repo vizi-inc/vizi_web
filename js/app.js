@@ -19,6 +19,9 @@ viziApp.config(function($routeProvider){
 
   .when('/tech', {
     templateUrl: 'partials/tech.html',
+  })
+  .when('/contact', {
+    templateUrl: 'partials/contact.html',
   });
 
 });
