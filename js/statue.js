@@ -16,22 +16,15 @@ function Statue(){
     text3DMenu.init();
 
     //category
-    this.newPanel('futurgo', 'projects');
-    this.newPanel('razer', 'projects');
-    this.newPanel('tcho', 'projects');
-    this.newPanel('castle', 'projects');
-    this.newPanel('heart', 'projects');
-    this.newPanel('garden', 'projects');
-    this.newPanel('holiday', 'projects');
-
+    this.newPanel('environments', 'projects');
+    this.newPanel('products', 'projects');
+    this.newPanel('interfaces', 'projects');
 
     this.newPanel('tony', 'team');
     this.newPanel('dave', 'team');
     this.newPanel('dusan', 'team');
     this.newPanel('eric', 'team');
     this.newPanel('tc', 'team');
-
-
   };
 
   this.generate = function(){
@@ -109,6 +102,8 @@ function generateFramePosition(){
 function updateStatue(path){
   //First we need to tween back any active panels
   discardFrame();
+  //We need are discarding frames, so set oldFrameIndex to null
+  oldFrameIndex = null;
   //our little 3d router
   console.log(path);
   //We are on main page and want header text displayed
@@ -116,6 +111,7 @@ function updateStatue(path){
     path = 'header';
   }
   //Now tween in the text items for the current route we are at.
+  rotateCamera(1);
   itemsOut();
   itemsIn(path);
 

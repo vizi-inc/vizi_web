@@ -1,5 +1,5 @@
 function rotateCamera(direction){
-  var theta = Math.PI/2 * direction;
+  var theta = Math.PI/3 * direction;
   var x = camera.position.x;
   var z = camera.position.z;
 

@@ -13,12 +13,27 @@ function itemsIn(category){
   }
   var i = 0;
   _.each(items, function(item){
-    var anchor = frames[i];
+    var frame = frames[i];
+    var anchor = frame;
+    itemIn(item, frame);
     i++;
-    itemIn(item, frames[i]);
+    resetCallbacks(item, frame);
+
   });
   
   oldCategory = category;
+
+  //We need to link the menu item to the frame it is currently anchored to
+  function resetCallbacks(item, frame){
+    //first remove previous callbacks
+    $(item.frontContent.element).off();
+    $(item.backContent.element).off();
+
+    //now add a callback to pull up frame this menu item is anchored o
+    $(item.frontContent.element).on('click', function(){
+      console.log('shnur');
+    });
+  }
 }
 
 function itemsOut(){

@@ -64,6 +64,8 @@ function swapFrames(name) {
     oldFrameIndex = frameIndex;
     oldName = name;
     animating = false;
+    //set active frame to red
+    frames[oldFrameIndex].material = new THREE.MeshBasicMaterial({color:0xff0000});
   });
 
   discardFrame();
@@ -74,8 +76,6 @@ function discardFrame(){
     return;
   }
   
-
-
   var oldFrame = frames[oldFrameIndex];
   var myName = oldName;
 
@@ -110,6 +110,7 @@ var oldFrameTween = new TWEEN.Tween(oldFramePos).
   //We have to remove old frame!
   oldFrameTween.onComplete(function(){
     //If old frame was an iframe, erase its src to keep performance good
+    oldFrame.material.color.set(0xffffff);
     oldFrame.remove(oldFrame.children[0]);
   });
 }
