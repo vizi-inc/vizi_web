@@ -1,4 +1,5 @@
-function rotateCamera(direction){
+function rotateCamera(){
+  var direction = Math.random() > 0.5 ? 1 : -1;
   var theta = Math.PI/3 * direction;
   var x = camera.position.x;
   var z = camera.position.z;

@@ -196,11 +196,6 @@ body {
   padding-top: 20px;
   cursor: pointer; }
 
-#three-canvas {
-  position: fixed;
-  width: 100%;
-  height: 100%; }
-
 #logo-header {
   position: absolute;
   top: 8px; }
@@ -217,10 +212,6 @@ body {
     width: 100%; }
   .panel a {
     text-align: center; }
-
-.iframePanel iframe {
-  width: 100%;
-  height: 100%; }
 
 .navbar-default .navbar-toggle {
   border: 2px solid #f9a618;

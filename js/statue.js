@@ -103,7 +103,6 @@ function updateStatue(path){
   //First we need to tween back any active panels
   discardFrame();
   //We need are discarding frames, so set oldFrameIndex to null
-  oldFrameIndex = null;
   //our little 3d router
   console.log(path);
   //We are on main page and want header text displayed

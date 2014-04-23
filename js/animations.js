@@ -1,4 +1,3 @@
-var oldFrameIndex = null;
 var animating = false;
 var animationTime = 1500;
 var frameIndex;

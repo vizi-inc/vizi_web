@@ -1,9 +1,8 @@
-var oldFrameIndex = null;
-var animating = false;
 var animationTime = 1500;
-var frameIndex;
 var frameToCameraDistance = 0.8;
 var oldName;
+var activeFrame= null;
+var animating = false;
 
 
 
@@ -13,11 +12,21 @@ function swapFrames(name) {
     console.log("This panel doesn't exist!");
     return;
   }
+
+  if(animating === true){
+    console.log("WE ARE ALREADY ANIMATING. GO AWAY!");
+    return;
+  }
+
   //If we are animating a frame already, don't start animating another one.
-  animating = true;
   //pick a random panel from the statue to fly to camera
   var frame = nameFrameHash[name];
+  if(!frame){
+    console.warn("THERE IS NO FRAME WITH THAT NAME");
+    return;
+  }
 
+  animating = true;
 
 //******NEW FRAME**********************************
   panels[name].html.style.display = 'block';
@@ -59,29 +68,32 @@ function swapFrames(name) {
   frameTween.onComplete(function(){
     
     animating = false;
-    //set active frame to red
-    oldFrameIndex = frames.indexOf(frame);
-    frames[oldFrameIndex].material = new THREE.MeshBasicMaterial({color:0xff0000});
+    setTimeout(function(){
+      //Give the previously active frame a chance to set itself to null, then reset it to this frame
+      activeFrame = frame;
+      activeFrame.material.color.set(0xff0000);
+
+    }, 100);
+
   });
 
   discardFrame();
 }
 
 function discardFrame(){
-  if(oldFrameIndex === null){
+  
+  if(!activeFrame){
     return;
   }
-  console.log("H<MM");
-  
-  var oldFrame = frames[oldFrameIndex];
+  console.log('DISCARD FRAME');
 
   var curPos = {
-    x: oldFrame.position.x,
-    y: oldFrame.position.y,
-    z: oldFrame.position.z,
-    rotX: oldFrame.rotation.x,
-    rotY: oldFrame.rotation.y,
-    rotZ: oldFrame.rotation.z,
+    x: activeFrame.position.x,
+    y: activeFrame.position.y,
+    z: activeFrame.position.z,
+    rotX: activeFrame.rotation.x,
+    rotY: activeFrame.rotation.y,
+    rotZ: activeFrame.rotation.z,
     opacity: 1
   };
 
@@ -91,21 +103,31 @@ targetPos.rotY = 0;
 targetPos.rotZ = 0;
 
 targetPos.opacity = 0;
-var oldFrameTween = new TWEEN.Tween(curPos).
+console.log(targetPos);
+var frameTween = new TWEEN.Tween(curPos).
   to(targetPos, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
   onUpdate(function(){
-    oldFrame.position.set(curPos.x, curPos.y, curPos.z);
-    oldFrame.rotation.set(curPos.rotX, curPos.rotY, curPos.rotZ);
-    if(oldFrame.children[0]){
-      oldFrame.children[0].html.style.opacity = curPos.opacity;
+    if(!activeFrame){
+      return;
+    }
+    activeFrame.position.set(curPos.x, curPos.y, curPos.z);
+    activeFrame.rotation.set(curPos.rotX, curPos.rotY, curPos.rotZ);
+    if(activeFrame.children[0]){
+      activeFrame.children[0].html.style.opacity = curPos.opacity;
     }
   }).start();
   //We have to remove old frame!
-  oldFrameTween.onComplete(function(){
-    //If old frame was an iframe, erase its src to keep performance good
-    oldFrame.material.color.set(0xffffff);
-    oldFrame.remove(oldFrame.children[0]);
+  frameTween.onComplete(function(){
+    if(!activeFrame){
+      return;
+    }
+    if(activeFrame.children.length > 0){
+      activeFrame.remove(activeFrame.children[0]);
+    }
+    activeFrame.material.color.set(0xffffff);
+    //Set this to null immediately upon finishing, well let the new frame set itself to active after this
+    activeFrame = null;
   });
 }
 
@@ -119,26 +141,4 @@ function rotateAroundObjectAxis(object, axis, radians) {
   object.rotation.setFromRotationMatrix(object.matrix);
 
 }
-
-
-function showContent(name) {
-  //We want the currently active frame
-  var frame = frames[frameIndex];
-  frame.add(panels[name]);
-  panels[name].position.x -= 0.07;
-  panels[name].html.style.opacity = 0;
-  panels[name].html.style.display = 'block';
-  var opacity = {
-    value: 0
-  };
-  var opacityTween = new TWEEN.Tween(opacity).
-  to({
-    value: 1
-  }, animationTime).
-  easing(TWEEN.Easing.Cubic.InOut).
-  onUpdate(function() {
-    panels[name].html.style.opacity = opacity.value;
-  }).start();
-}
-
 
