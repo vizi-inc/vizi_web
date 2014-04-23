@@ -177,18 +177,20 @@ body {
   height: 100%;
   font-size: 12px; }
 
-#three-canvas .statueText {
-  font-size: 90px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #bd1127; }
-  #three-canvas .statueText:hover {
-    color: #141615; }
+#three-canvas {
+  margin-left: 200px; }
+  #three-canvas .statueText {
+    font-size: 90px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #bd1127; }
+    #three-canvas .statueText:hover {
+      color: #141615; }
 
 .left-menu-item {
   padding-top: 20px;
