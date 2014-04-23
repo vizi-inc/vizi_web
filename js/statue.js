@@ -16,8 +16,8 @@ function Statue(){
     this.newPanel('tcho');
     this.newPanel('castle');
     this.newPanel('heart');
-    // this.newPanel('garden');
-    // this.newPanel('holiday');
+    this.newPanel('garden');
+    this.newPanel('holiday');
 
 
     this.newPanel('tony');

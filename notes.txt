@@ -12,6 +12,8 @@ Animated GIF of the demo would be nice, but screen shot OK
 
 Text labels for top-level items should be on pulleys
 
+How to deal with projects overflowing the left menu?
+
 
 
 

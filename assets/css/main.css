@@ -205,9 +205,9 @@ body {
   opacity: 0.9;
   background: #eaf9e2;
   padding: 20px;
-  font-size: 34px; }
+  font-size: 38px; }
   .panel img {
-    height: 70%;
+    height: 50%;
     width: 100%; }
   .panel a {
     text-align: center; }
