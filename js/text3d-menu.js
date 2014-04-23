@@ -34,7 +34,32 @@ function Menu3D(){
     // item.frontContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z + anchor.geometry.height/2);
     // item.backContainer.position.set(anchor.position.x, anchor.position.y, anchor.position.z - anchor.geometry.height/2);
     // item.backContainer.rotation.y = Math.PI;
+    var direction = Math.random() > 0.5 ? 1 : -1;
+    item.position.x = 200 * direction;
 
     scene.add(item);
   };
+}
+
+function chooseTextAnchor(){
+  //pick a frame to temporarily anchor text to
+  var frame;
+  var i = 0;
+  do{
+    frame = _.sample(frames);
+    i++;
+    if( i > 100){
+      console.error('Could not find a fresh anchor and ABORTING!!')
+      return;
+    }
+  }
+  while(frame.alreadyChosen);
+  frame.alreadyChosen = true;
+  return frame;
+}
+
+function eraseAnchors(){
+  _.each(frames, function(frame){
+    frame.alreadyChosen = false;
+  });
 }

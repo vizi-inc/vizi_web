@@ -92,22 +92,6 @@ function Statue(){
   };
 }
 
-function chooseTextAnchor(){
-  //pick a frame to temporarily anchor text to
-  var frame;
-  do{
-    frame = _.sample(frames);
-  }
-  while(frame.alreadyChosen);
-  frame.alreadyChosen = true;
-  return frame;
-}
-
-function eraseAnchors(){
-  _.each(frames, function(frame){
-    frame.alreadyChosen = false;
-  });
-}
 
 function generateFramePosition(){
   var bounds = 40;
