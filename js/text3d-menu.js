@@ -16,23 +16,21 @@ function Menu3D(){
   this.createMenuItem = function(name, category){
     var item = this.menu[category][name] = new THREE.Object3D();
 
-    var html = document.createElement('a');
+    var html = document.createElement('div');
     html.innerText = name;
     html.className = 'statueText';
-    html.href = '#/' + name;
     item.frontContainer = new THREE.Object3D();
     item.frontContent = new THREE.CSS3DObject(html);
     item.frontContent.scale.multiplyScalar(1/30.5);
     item.frontContainer.add(item.frontContent);
     item.add(item.frontContainer);
 
-    var htmls = document.createElement('a');
-    htmls.innerText = name;
-    htmls.className = 'statueText';
-    htmls.href = '#/' + name;
+    html = document.createElement('div');
+    html.innerText = name;
+    html.className = 'statueText';
 
     item.backContainer = new THREE.Object3D();
-    item.backContent =  new THREE.CSS3DObject(htmls);
+    item.backContent =  new THREE.CSS3DObject(html);
     item.backContent.scale.multiplyScalar(1/30.5);
     item.backContainer.add(item.backContent);
     item.add(item.backContainer);

@@ -185,7 +185,10 @@ body {
   -ms-backface-visibility: hidden;
   cursor: pointer;
   text-transform: uppercase;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #bd1127; }
+  #three-canvas .statueText:hover {
+    color: #141615; }
 
 .left-menu-item {
   padding-top: 20px;

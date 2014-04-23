@@ -1,4 +1,5 @@
 var textAnimating = false;
+var oldCategory;
 
 
 function itemsIn(category){
@@ -10,6 +11,7 @@ function itemsIn(category){
     console.warn('There are no items for category ', category);
     return;
   }
+  oldCategory = category;
   var i = 0;
   _.each(items, function(item){
     var anchor = frames[i];
@@ -19,6 +21,10 @@ function itemsIn(category){
 }
 
 function itemsOut(){
+  _.each(items, function(item){
+    itemOut(item);
+  });
+
 
 }
 
@@ -54,10 +60,11 @@ function itemOut(item){
     y: item.frontContainer.position.y,
     z: item.frontContainer.position.z
   };
+  var direction = Math.random() > 0.5 ? 1 : -1;
   var frontFinalPos = {
-    x: item.anchor.position.x,
-    y: anchor.position.y,
-    z: anchor.position.z + anchor.geometry.height/2
+    x: item.position.x + (300 * direction),
+    y: item.position.y,
+    z: item.position.z
   };
 
   var textTween = new TWEEN.Tween(frontCurrentPos).

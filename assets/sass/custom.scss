@@ -48,6 +48,11 @@ body{
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
+    color:$header-tabs-color;
+
+    &:hover{
+      color: $underline-color;
+    }
   }
 }
 
