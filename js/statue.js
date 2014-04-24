@@ -101,7 +101,7 @@ function generateFramePosition(){
 //Here we handle camera rotation and text tweening
 function updateStatue(path){
   //First we need to tween back any active panels
-  discardFrame();
+  discardFrame(false);
   //We need are discarding frames, so set oldFrameIndex to null
   //our little 3d router
   console.log(path);

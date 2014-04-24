@@ -1,6 +1,7 @@
 var textAnimating = false;
 var oldCategory = null;
 var nameFrameHash = {};
+var currentCategory;
 
 
 function itemsIn(category) {
@@ -12,6 +13,7 @@ function itemsIn(category) {
     console.warn('There are no items for category ', category);
     return;
   }
+  currentCategory = category;
   var i = 0;
   _.each(items, function(item) {
     var frame = frames[i];
@@ -89,7 +91,7 @@ function itemIn(item, anchor) {
   var direction = Math.random() < 0.5 ? 1 : -1;
   var finalTextPos = {
     x: anchor.position.x,
-    y: anchor.position.y,
+    y: anchor.position.y + 1,
     z: anchor.position.z + anchor.geometry.height / 2
   };
 

@@ -37,7 +37,6 @@ function swapFrames(name) {
   };
 
   var target = camera.clone();
-  // target.lookAt(camera.position);
   target.translateZ(-40);
   var finalPosition = {
     x: target.position.x,

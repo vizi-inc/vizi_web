@@ -53,7 +53,7 @@ function World(){
     this.statue.init();
     $(document).on('click', function(e){
        if($(e.target).parent().is('#three-canvas')){
-         discardFrame();
+         discardFrame(true);
        }
     });
   };

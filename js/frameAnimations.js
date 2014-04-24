@@ -7,6 +7,7 @@ var animating = false;
 
 
 function swapFrames(name) {
+
   //make sure this panel exists
   if (!Object.prototype.hasOwnProperty.call(panels, name)){
     console.log("This panel doesn't exist!");
@@ -77,15 +78,23 @@ function swapFrames(name) {
 
   });
 
-  discardFrame();
+  //If we don't have an active frame, we want to tween out the text
+  if(!activeFrame){
+    itemsOut();
+
+  }
+  discardFrame(false);
 }
 
-function discardFrame(){
+function discardFrame(bringItemsIn){
   
   if(!activeFrame){
     return;
   }
   console.log('DISCARD FRAME');
+
+  //If this wasnt called from a swap, it means we're discarding a frame without getting a new one, so tween in text items
+
 
   var curPos = {
     x: activeFrame.position.x,
@@ -103,7 +112,6 @@ targetPos.rotY = 0;
 targetPos.rotZ = 0;
 
 targetPos.opacity = 0;
-console.log(targetPos);
 var frameTween = new TWEEN.Tween(curPos).
   to(targetPos, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
@@ -121,6 +129,9 @@ var frameTween = new TWEEN.Tween(curPos).
   frameTween.onComplete(function(){
     if(!activeFrame){
       return;
+    }
+    if(bringItemsIn){
+      itemsIn(currentCategory);
     }
     if(activeFrame.children.length > 0){
       activeFrame.remove(activeFrame.children[0]);
