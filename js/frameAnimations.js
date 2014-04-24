@@ -100,8 +100,8 @@ function discardFrame(bringItemsIn){
     return;
   }
   console.log('DISCARD FRAME');
-
-  //If this wasnt called from a swap, it means we're discarding a frame without getting a new one, so tween in text items
+  //Clear settimouts we might have had for projects frames
+  clearTimeout(projectTimeout);
 
 
   var curPos = {
