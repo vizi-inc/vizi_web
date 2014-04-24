@@ -170,6 +170,10 @@ function handleProjectFrame(frame, name){
   onUpdate(function(){
     frame.rotation.y = curRot.rotY;
   }).start();
+  rotateTween.onComplete(function(){
+    var element = frame.children[0].html;
+    $(element).children().replaceWith($('#heart'));
+  });
 
   projectTimeout = setTimeout(function(){
     handleProjectFrame(frame, name);
