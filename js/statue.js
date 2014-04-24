@@ -33,6 +33,7 @@ function Statue(){
     this.newPanel('dusan', 'team');
     this.newPanel('eric', 'team');
     this.newPanel('tc', 'team');
+    this.newPanel('simo', 'team');
 
     console.log(projectsMap);
   };

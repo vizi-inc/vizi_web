@@ -174,6 +174,7 @@ function handleProjectFrame(frame, name){
     var element = frame.children[0].html;
     var currentProjectIndex = projectsMap[name].currentIndex;
     var $oldElement = projectsMap[name].projects.eq(currentProjectIndex);
+    console.log("CURRENT PROJECT INDEX",currentProjectIndex);
     var newElement = projectsMap[name].projects.get(++currentProjectIndex);
     newElement.style.display = 'block';
     $oldElement.replaceWith(newElement);
