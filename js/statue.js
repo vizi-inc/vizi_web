@@ -35,12 +35,11 @@ function Statue(){
     this.newPanel('tc', 'team');
     this.newPanel('simo', 'team');
 
-    console.log(projectsMap);
   };
 
   this.generate = function(){
-    var numFrames = 10;
-    var numFakeFrames = 5;
+    var numFrames = 7;
+    var numFakeFrames = 7;
     var rFR = MathHelpers.randFloatRange;
     var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
     var material2 = new THREE.MeshBasicMaterial({color: 0x0000ff, transparent:true, opacity: 0.0});
@@ -121,7 +120,6 @@ function updateStatue(path){
   discardFrame(false);
   //We need are discarding frames, so set oldFrameIndex to null
   //our little 3d router
-  console.log(path);
   //We are on main page and want header text displayed
   if(path === ''){
     path = 'header';

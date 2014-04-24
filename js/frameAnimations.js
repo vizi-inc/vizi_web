@@ -162,27 +162,37 @@ function rotateAroundObjectAxis(object, axis, radians) {
 
 function handleProjectFrame(frame, name){
   //do a setTimeout to rotate this every x seconds
-  var curRot = {rotY: frame.rotation.y};
-  var targetRot = {rotY: frame.rotation.y + 2 * Math.PI};
+  var curRot = {y: frame.rotation.y};
+  var hasSwapped = false;
+  var targetRot = {y: frame.rotation.y + 2 * Math.PI};
   var rotateTween = new TWEEN.Tween(curRot).
-  to(targetRot, 2000).
+  to(targetRot, projectRotateInterval).
+  repeat(100).
   easing(TWEEN.Easing.Cubic.InOut).
+  yoyo(true).
   onUpdate(function(){
-    frame.rotation.y = curRot.rotY;
+    console.log(hasSwapped);
+    frame.rotation.y = curRot.y;
+    if(Math.abs( (targetRot.y/2 - curRot.y) < 3) && !hasSwapped){
+      // swapElements();
+      hasSwapped = true;
+    }
   }).start();
-  rotateTween.onComplete(function(){
+
+
+  var swapElements = function(){
+    var projCategory = projectsMap[name];
     var element = frame.children[0].html;
-    var currentProjectIndex = projectsMap[name].currentIndex;
-    var $oldElement = projectsMap[name].projects.eq(currentProjectIndex);
-    console.log("CURRENT PROJECT INDEX",currentProjectIndex);
-    var newElement = projectsMap[name].projects.get(++currentProjectIndex);
+    var currentProjectIndex = projCategory.currentIndex++;
+    if(projCategory.currentIndex === projCategory.projects.length){
+      //We have reached the end of our projects, start back at the beginning
+      projCategory.currentIndex = 0;
+    }
+    var $oldElement = projCategory.projects.eq(currentProjectIndex);
+    var newElement = projCategory.projects.get(projCategory.currentIndex);
     newElement.style.display = 'block';
     $oldElement.replaceWith(newElement);
-  });
-
-  projectTimeout = setTimeout(function(){
-    handleProjectFrame(frame, name);
-  }, projectRotateInterval);
+  };
 
 }
 

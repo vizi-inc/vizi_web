@@ -5,7 +5,6 @@ var currentCategory;
 
 
 function itemsIn(category) {
-  console.log('items in!');
 
   //get the menu items for the current category we are in 
   var items = text3DMenu.menu[category];
@@ -29,7 +28,6 @@ function itemsIn(category) {
 
 function itemsOut() {
   if (!oldCategory) {
-    console.log('WE DONT HAVE AN OLD CATEGORY');
     return;
   }
   var items = text3DMenu.menu[oldCategory];
