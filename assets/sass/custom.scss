@@ -74,6 +74,10 @@ body{
   background: $left-menu-color;
   padding: 20px;
   font-size: 38px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
   img{
     height: 50%;
     width: 100%;

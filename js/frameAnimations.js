@@ -3,10 +3,13 @@ var frameToCameraDistance = 0.8;
 var oldName;
 var activeFrame= null;
 var animating = false;
+var projectTimeout;
+var projectRotateInterval = 4000;
 
 
 
 function swapFrames(name) {
+  console.log('CURRENT CATEGORY', currentCategory);
 
   //make sure this panel exists
   if (!Object.prototype.hasOwnProperty.call(panels, name)){
@@ -26,6 +29,7 @@ function swapFrames(name) {
     console.warn("THERE IS NO FRAME WITH THAT NAME");
     return;
   }
+
 
   animating = true;
 
@@ -68,11 +72,15 @@ function swapFrames(name) {
 
   frameTween.onComplete(function(){
     
+    //We want to have special rotating frames for projects, to show individual projects for each project type
+    if(currentCategory == 'projects'){
+      handleProjectFrame(frame, name);
+    }
+
     animating = false;
     setTimeout(function(){
       //Give the previously active frame a chance to set itself to null, then reset it to this frame
       activeFrame = frame;
-      activeFrame.material.color.set(0xff0000);
 
     }, 100);
 
@@ -136,7 +144,6 @@ var frameTween = new TWEEN.Tween(curPos).
     if(activeFrame.children.length > 0){
       activeFrame.remove(activeFrame.children[0]);
     }
-    activeFrame.material.color.set(0xffffff);
     //Set this to null immediately upon finishing, well let the new frame set itself to active after this
     activeFrame = null;
   });
@@ -150,6 +157,23 @@ function rotateAroundObjectAxis(object, axis, radians) {
 
   object.matrix.multiply(rotObjectMatrix);
   object.rotation.setFromRotationMatrix(object.matrix);
+
+}
+
+function handleProjectFrame(frame, name){
+  //do a setTimeout to rotate this every x seconds
+  var curRot = {rotY: frame.rotation.y};
+  var targetRot = {rotY: frame.rotation.y + 2 * Math.PI};
+  var rotateTween = new TWEEN.Tween(curRot).
+  to(targetRot, 2000).
+  easing(TWEEN.Easing.Cubic.InOut).
+  onUpdate(function(){
+    frame.rotation.y = curRot.rotY;
+  }).start();
+
+  projectTimeout = setTimeout(function(){
+    handleProjectFrame(frame, name);
+  }, projectRotateInterval);
 
 }
 

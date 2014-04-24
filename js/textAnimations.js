@@ -82,7 +82,6 @@ function resetCallbacks(item, frame, category) {
 
 
 function itemIn(item, anchor) {
-  anchor.material = new THREE.MeshBasicMaterial();
   var currentTextPos = {
     x: item.frontContainer.position.x,
     y: item.frontContainer.position.y,

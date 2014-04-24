@@ -16,8 +16,8 @@ var world = new World();
 world.init();
 
 function World(){
-  var controlsEnabled = false;
-  // var controlsEnabled = true;
+  // var controlsEnabled = false;
+  var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS
@@ -37,8 +37,8 @@ function World(){
     //CAMERA
     camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 50000);
     // x: -65.09122735816105, y: 87.74918538397172, z: 87.53977716131698
-    // camera.position.set(-65, 88, 99);
-    camera.position.set(0, 0, 140);
+    camera.position.set(-65, 88, 99);
+    // camera.position.set(0, 0, 140);
     camera.lookAt(0, 0, 0);
 
     //CONTROLS

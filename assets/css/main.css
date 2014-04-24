@@ -206,7 +206,11 @@ body {
   opacity: 0.9;
   background: #eaf9e2;
   padding: 20px;
-  font-size: 38px; }
+  font-size: 38px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
   .panel img {
     height: 50%;
     width: 100%; }
