@@ -3,6 +3,14 @@ var topMenuItems = {};
 var frames = [];
 var fakeFrames = [];
 var text3DMenu;
+//each project category will contain an array of jquery elements - each one being an individual project
+var projectsMap = {
+  'environments':{},
+  'products' : {},
+  'interfaces': {}
+};
+
+
 
 function Statue(){
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
@@ -25,6 +33,8 @@ function Statue(){
     this.newPanel('dusan', 'team');
     this.newPanel('eric', 'team');
     this.newPanel('tc', 'team');
+
+    console.log(projectsMap);
   };
 
   this.generate = function(){
@@ -81,6 +91,12 @@ function Statue(){
 
     //generate the menu item associated with this
     text3DMenu.createMenuItem(name, category);
+
+    //For each project subcategory, 
+    if(category === 'projects'){
+      projectsMap[name].projects = $('#' + name).children();
+      projectsMap[name].currentIndex = 0;
+    }
 
 
   };

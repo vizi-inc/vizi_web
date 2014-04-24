@@ -172,7 +172,11 @@ function handleProjectFrame(frame, name){
   }).start();
   rotateTween.onComplete(function(){
     var element = frame.children[0].html;
-    $(element).children().replaceWith($('#heart'));
+    var currentProjectIndex = projectsMap[name].currentIndex;
+    var $oldElement = projectsMap[name].projects.eq(currentProjectIndex);
+    var newElement = projectsMap[name].projects.get(++currentProjectIndex);
+    newElement.style.display = 'block';
+    $oldElement.replaceWith(newElement);
   });
 
   projectTimeout = setTimeout(function(){
