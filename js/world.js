@@ -16,8 +16,8 @@ var world = new World();
 world.init();
 
 function World(){
-  // var controlsEnabled = false;
-  var controlsEnabled = true;
+  var controlsEnabled = false;
+  // var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS
@@ -52,8 +52,13 @@ function World(){
     this.statue = new Statue();
     this.statue.init();
     $(document).on('click', function(e){
-       if($(e.target).parent().is('#three-canvas')){
-         discardFrame(true);
+       if($(e.target).is('.panel') || $('.panel').find($(e.target)).length > 0){
+        console.log(e.target);
+         return;
+       }
+       else{
+          console.log(e.target);
+          discardFrame(true);
        }
     });
   };
