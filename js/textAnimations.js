@@ -41,6 +41,7 @@ function itemsOut() {
 //We need to link the menu item to the frame it is currently anchored to
 function resetCallbacks(item, frame, category) {
   var name = $(item.frontContent.element).data('name');
+
   //first remove previous callbacks
   $(item.frontContent.element).off();
   $(item.backContent.element).off();
@@ -52,7 +53,7 @@ function resetCallbacks(item, frame, category) {
     $(item.frontContent.element).on('click', function() {
       itemsOut();
       rotateCamera();
-      if(text3DMenu.menu[name]){
+      if (text3DMenu.menu[name]) {
         itemsIn(name);
       }
     });
@@ -60,14 +61,20 @@ function resetCallbacks(item, frame, category) {
     $(item.backContent.element).on('click', function() {
       itemsOut();
       rotateCamera();
-      if(text3DMenu.menu[name]){
+      if (text3DMenu.menu[name]) {
         itemsIn(name);
       }
     });
-    //see if the menu item we clicked on has a second level
-    //The name in this case is the category
-    
-  } else {
+  } else if (category === 'projects') {
+    var projCategory = name;
+    var projName = projectsMap[projCategory].projects[projectsMap[projCategory].currentIndex].id;
+    $(item.frontContent.element).on('click', function() {
+      swapFrames(projName, projCategory);
+    });
+    $(item.backContent.element).on('click', function() {
+      swapFrames(projName, projCategory);
+    });
+   } else {
     //now add a callback to pull up frame this menu item is anchored
     $(item.frontContent.element).on('click', function() {
       swapFrames(name);
@@ -101,7 +108,7 @@ function itemIn(item, anchor) {
     item.backContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z - anchor.geometry.height);
   }).start();
 
-  //make sure we keep put hash up to date with which frame our menu text is anchored to.
+  //make sure we keep hash up to date with which frame our menu text is anchored to.
   textTween.onComplete(function() {
     nameFrameHash[$(item.frontContent.element).data('name')] = anchor;
   });

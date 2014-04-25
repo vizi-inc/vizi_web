@@ -1,31 +1,33 @@
 var animationTime = 1500;
 var frameToCameraDistance = 0.8;
 var oldName;
-var activeFrame= null;
+var activeFrame = null;
 var animating = false;
 var projectTimeout;
 var projectRotateInterval = 4000;
 
 
 
-function swapFrames(name) {
+function swapFrames(name, projCategory) {
   console.log('CURRENT CATEGORY', currentCategory);
 
   //make sure this panel exists
-  if (!Object.prototype.hasOwnProperty.call(panels, name)){
+  if (!Object.prototype.hasOwnProperty.call(panels, name)) {
     console.log("This panel doesn't exist!");
     return;
   }
 
-  if(animating === true){
+  if (animating === true) {
     console.log("WE ARE ALREADY ANIMATING. GO AWAY!");
     return;
   }
-
-  //If we are animating a frame already, don't start animating another one.
-  //pick a random panel from the statue to fly to camera
-  var frame = nameFrameHash[name];
-  if(!frame){
+  var frame;
+  if (projCategory) {
+    frame = nameFrameHash[projCategory];
+  } else {
+    frame = nameFrameHash[name];
+  }
+  if (!frame) {
     console.warn("THERE IS NO FRAME WITH THAT NAME");
     return;
   }
@@ -33,7 +35,7 @@ function swapFrames(name) {
 
   animating = true;
 
-//******NEW FRAME**********************************
+  //******NEW FRAME**********************************
   panels[name].html.style.display = 'block';
   frame.add(panels[name]);
 
@@ -65,20 +67,15 @@ function swapFrames(name) {
   onUpdate(function() {
     frame.position.set(pos.x, pos.y, pos.z);
     frame.rotation.set(pos.rotX, pos.rotY, pos.rotZ);
-    if(frame.children[0]){
+    if (frame.children[0]) {
       frame.children[0].html.style.opacity = pos.opacity;
     }
   }).start();
 
-  frameTween.onComplete(function(){
-    
-    //We want to have special rotating frames for projects, to show individual projects for each project type
-    if(currentCategory == 'projects'){
-      handleProjectFrame(frame, name);
-    }
+  frameTween.onComplete(function() {
 
     animating = false;
-    setTimeout(function(){
+    setTimeout(function() {
       //Give the previously active frame a chance to set itself to null, then reset it to this frame
       activeFrame = frame;
 
@@ -87,16 +84,16 @@ function swapFrames(name) {
   });
 
   //If we don't have an active frame, we want to tween out the text
-  if(!activeFrame){
+  if (!activeFrame) {
     itemsOut();
 
   }
   discardFrame(false);
 }
 
-function discardFrame(bringItemsIn){
-  
-  if(!activeFrame){
+function discardFrame(bringItemsIn) {
+
+  if (!activeFrame) {
     return;
   }
   console.log('DISCARD FRAME');
@@ -114,34 +111,34 @@ function discardFrame(bringItemsIn){
     opacity: 1
   };
 
-var targetPos = generateFramePosition();
-targetPos.rotX = Math.PI/2;
-targetPos.rotY = 0;
-targetPos.rotZ = 0;
+  var targetPos = generateFramePosition();
+  targetPos.rotX = Math.PI / 2;
+  targetPos.rotY = 0;
+  targetPos.rotZ = 0;
 
-targetPos.opacity = 0;
-var frameTween = new TWEEN.Tween(curPos).
+  targetPos.opacity = 0;
+  var frameTween = new TWEEN.Tween(curPos).
   to(targetPos, animationTime).
   easing(TWEEN.Easing.Cubic.InOut).
-  onUpdate(function(){
-    if(!activeFrame){
+  onUpdate(function() {
+    if (!activeFrame) {
       return;
     }
     activeFrame.position.set(curPos.x, curPos.y, curPos.z);
     activeFrame.rotation.set(curPos.rotX, curPos.rotY, curPos.rotZ);
-    if(activeFrame.children[0]){
+    if (activeFrame.children[0]) {
       activeFrame.children[0].html.style.opacity = curPos.opacity;
     }
   }).start();
   //We have to remove old frame!
-  frameTween.onComplete(function(){
-    if(!activeFrame){
+  frameTween.onComplete(function() {
+    if (!activeFrame) {
       return;
     }
-    if(bringItemsIn){
+    if (bringItemsIn) {
       itemsIn(currentCategory);
     }
-    if(activeFrame.children.length > 0){
+    if (activeFrame.children.length > 0) {
       activeFrame.remove(activeFrame.children[0]);
     }
     //Set this to null immediately upon finishing, well let the new frame set itself to active after this
@@ -160,34 +157,6 @@ function rotateAroundObjectAxis(object, axis, radians) {
 
 }
 
-function handleProjectFrame(frame, name){
-  var curRot = {y: frame.rotation.y};
-  var hasSwapped = false;
-  var targetRot = {y: frame.rotation.y + 2 * Math.PI};
-  var rotateTween = new TWEEN.Tween(curRot).
-  to(targetRot, projectRotateInterval).
-  repeat(100).
-  easing(TWEEN.Easing.Cubic.InOut).
-  yoyo(true).
-  onUpdate(function(){
-    frame.rotation.y = curRot.y;
-    if(  (Math.abs(targetRot.y/2 - curRot.y) < 3) && !hasSwapped){
-      swapElements();
-      console.log(hasSwapped);
-      hasSwapped = true;
-    }
-  }).start();
 
 
-  var swapElements = function(){
-    var projCategory = projectsMap[name];
-    var currentProjectIndex = projCategory.currentIndex++;
-    if(projCategory.currentIndex === projCategory.projects.length){
-      //We have reached the end of our projects, start back at the beginning
-      projCategory.currentIndex = 0;
-    }
-   
-  };
-
-}
 
