@@ -3,7 +3,6 @@ var frameToCameraDistance = 0.8;
 var oldName;
 var activeFrame = null;
 var animating = false;
-var projectTimeout;
 var projectRotateInterval = 4000;
 
 
@@ -74,7 +73,9 @@ function swapFrames(name, projCategory) {
 
   frameTween.onComplete(function() {
     if(projCategory){
-      handleProjectRotation(frame, projCategory);
+      setTimeout(function(){
+        handleProjectRotation(frame, projCategory);
+      }, projectViewTime);
     }
     animating = false;
     setTimeout(function() {

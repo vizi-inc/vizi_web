@@ -1,23 +1,28 @@
+var projectTimeout;
+var projectViewTime = 7000;
+
 function handleProjectRotation(frame, projCategory){
-  var rotationTime = 3000; 
+  var direction = direction || 1;
+  var rotationTime = 2000; 
   var hasSwapped = false;
   //Set up the tween rotation
+  var startRot = {y: frame.rotation.y};
   var curRot = {y : frame.rotation.y};
-  var targetRot = {y: frame.rotation.y + 2 * Math.PI};
+  var targetRot = {y: frame.rotation.y + (2 * Math.PI)};
   var projTween = new TWEEN.Tween(curRot).
     to(targetRot, rotationTime).
     easing(TWEEN.Easing.Cubic.InOut).
     onUpdate(function(){
       frame.rotation.y = curRot.y;
-      if(Math.abs(targetRot.y/2 - curRot.y) < 3 && !hasSwapped){
+      if(curRot.y > (startRot.y + Math.PI) && !hasSwapped){
         swapPanels();
         hasSwapped = true;
       }
     }).start();
 
-    setTimeout(function(){
+    projectTimeout = setTimeout(function(){
       handleProjectRotation(frame, projCategory);
-    }, 7000)
+    }, projectViewTime);
 
     var swapPanels = function(){
       console.log("WAHHH");
