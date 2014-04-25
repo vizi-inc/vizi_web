@@ -4,6 +4,7 @@ var oldName;
 var activeFrame = null;
 var animating = false;
 var projectRotateInterval = 4000;
+var startPojTimeout;
 
 
 
@@ -73,7 +74,7 @@ function swapFrames(name, projCategory) {
 
   frameTween.onComplete(function() {
     if(projCategory){
-      setTimeout(function(){
+      startProjTimeout = setTimeout(function(){
         handleProjectRotation(frame, projCategory);
       }, projectViewTime);
     }
@@ -101,6 +102,7 @@ function discardFrame(bringItemsIn) {
   }
   console.log('DISCARD FRAME');
   //Clear settimouts we might have had for projects frames
+  clearTimeout(startProjTimeout);
   clearTimeout(projectTimeout);
 
 
