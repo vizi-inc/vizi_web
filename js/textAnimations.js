@@ -4,6 +4,7 @@ var nameFrameHash = {};
 var currentCategory;
 
 
+
 function itemsIn(category) {
 
   //get the menu items for the current category we are in 
@@ -102,7 +103,8 @@ function itemIn(item, anchor) {
   //rotate back container 180 degrees on yaxis so it faces backward
   item.backContainer.rotation.y = Math.PI;
   var textTween = new TWEEN.Tween(currentTextPos).
-  to(finalTextPos, animationTime).
+  to(finalTextPos, animationTime/2).
+  easing(TWEEN.Easing.Quintic.InOut).
   onUpdate(function() {
     item.frontContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z);
     item.backContainer.position.set(currentTextPos.x, currentTextPos.y, currentTextPos.z - anchor.geometry.height);
@@ -121,18 +123,29 @@ function itemOut(item) {
     y: item.frontContainer.position.y,
     z: item.frontContainer.position.z
   };
+  var backCurrentPos = {
+    x: item.backContainer.position.x,
+    y: item.backContainer.position.y,
+    z: item.backContainer.position.z
+  };
   var direction = Math.random() > 0.5 ? 1 : -1;
-  var frontFinalPos = {
-    x: item.position.x + (300 * direction),
+  var finalPos = {
+    x: item.position.x + (finalTextXPos * direction),
     y: item.position.y,
     z: item.position.z
   };
 
-  var textTween = new TWEEN.Tween(frontCurrentPos).
-  to(frontFinalPos, animationTime).
-  easing(TWEEN.Easing.Cubic.InOut).
-  onUpdate(function() {
-    item.frontContainer.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
-    item.backContainer.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
-  }).start();
+  var frontTextTween = new TWEEN.Tween(frontCurrentPos).
+    to(finalPos, animationTime).
+    easing(TWEEN.Easing.Cubic.InOut).
+    onUpdate(function() {
+      item.frontContainer.position.set(frontCurrentPos.x, frontCurrentPos.y, frontCurrentPos.z);
+    }).start();
+
+  var backTextTween = new TWEEN.Tween(backCurrentPos).
+    to(finalPos, animationTime).
+    easing(TWEEN.Easing.Cubic.InOut).
+    onUpdate(function() {
+      item.backContainer.position.set(backCurrentPos.x, backCurrentPos.y, backCurrentPos.z);
+    }).start();
 }

@@ -1,3 +1,5 @@
+var finalTextXPos = 300;
+
 function Menu3D(){
   this.menu = {
     'header': {},
@@ -38,8 +40,8 @@ function Menu3D(){
     item.add(item.backContainer);
 
     var direction = Math.random() > 0.5 ? 1 : -1;
-    item.frontContainer.position.x = 200 * direction;
-    item.backContainer.position.x = 200 * direction;
+    item.frontContainer.position.x = finalTextXPos * direction;
+    item.backContainer.position.x = finalTextXPos * direction;
 
     scene.add(item);
   };

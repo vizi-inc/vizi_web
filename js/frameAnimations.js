@@ -4,7 +4,7 @@ var oldName;
 var activeFrame = null;
 var animating = false;
 var projectRotateInterval = 4000;
-var startPojTimeout;
+var startProjTimeout;
 
 
 
