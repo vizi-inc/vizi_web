@@ -73,7 +73,9 @@ function swapFrames(name, projCategory) {
   }).start();
 
   frameTween.onComplete(function() {
-
+    if(projCategory){
+      handleProjectRotation(frame, projCategory);
+    }
     animating = false;
     setTimeout(function() {
       //Give the previously active frame a chance to set itself to null, then reset it to this frame
