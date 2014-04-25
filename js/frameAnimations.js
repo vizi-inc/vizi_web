@@ -161,7 +161,6 @@ function rotateAroundObjectAxis(object, axis, radians) {
 }
 
 function handleProjectFrame(frame, name){
-  //do a setTimeout to rotate this every x seconds
   var curRot = {y: frame.rotation.y};
   var hasSwapped = false;
   var targetRot = {y: frame.rotation.y + 2 * Math.PI};
@@ -171,10 +170,10 @@ function handleProjectFrame(frame, name){
   easing(TWEEN.Easing.Cubic.InOut).
   yoyo(true).
   onUpdate(function(){
-    console.log(hasSwapped);
     frame.rotation.y = curRot.y;
-    if(Math.abs( (targetRot.y/2 - curRot.y) < 3) && !hasSwapped){
-      // swapElements();
+    if(  (Math.abs(targetRot.y/2 - curRot.y) < 3) && !hasSwapped){
+      swapElements();
+      console.log(hasSwapped);
       hasSwapped = true;
     }
   }).start();
@@ -182,16 +181,12 @@ function handleProjectFrame(frame, name){
 
   var swapElements = function(){
     var projCategory = projectsMap[name];
-    var element = frame.children[0].html;
     var currentProjectIndex = projCategory.currentIndex++;
     if(projCategory.currentIndex === projCategory.projects.length){
       //We have reached the end of our projects, start back at the beginning
       projCategory.currentIndex = 0;
     }
-    var $oldElement = projCategory.projects.eq(currentProjectIndex);
-    var newElement = projCategory.projects.get(projCategory.currentIndex);
-    newElement.style.display = 'block';
-    $oldElement.replaceWith(newElement);
+   
   };
 
 }

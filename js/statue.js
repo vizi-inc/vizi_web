@@ -24,9 +24,22 @@ function Statue(){
     text3DMenu.init();
 
     //category
-    this.newPanel('environments', 'projects');
-    this.newPanel('products', 'projects');
-    this.newPanel('interfaces', 'projects');
+    this.newPanel('tcho', 'projects', 'environments');
+    this.newPanel('castle', 'projects', 'environments');
+    this.newPanel('garden', 'projects', 'environments');
+
+    this.newPanel('heart', 'projects', 'interfaces');
+    this.newPanel('holiday', 'projects', 'interfaces');
+    
+    this.newPanel('futurgo', 'projects', 'products');
+    this.newPanel('razer', 'projects', 'products');
+
+    //create the 3 text items for project categories
+    text3DMenu.createMenuItem('environments', 'projects');
+    text3DMenu.createMenuItem('interfaces', 'projects');
+    text3DMenu.createMenuItem('products', 'projects');
+
+
 
     this.newPanel('tony', 'team');
     this.newPanel('dave', 'team');
@@ -78,7 +91,7 @@ function Statue(){
 
   };
 
-  this.newPanel = function(name, category){
+  this.newPanel = function(name, category, projectType){
     panels[name] = new THREE.Object3D();
     panels[name].html = document.getElementById(name);
     panels[name].html.style.overflow = 'hidden';
@@ -90,15 +103,15 @@ function Statue(){
     panels[name].add(panels[name].content);
 
     //generate the menu item associated with this
-    text3DMenu.createMenuItem(name, category);
+    if(category !== 'projects'){
+      text3DMenu.createMenuItem(name, category);
+    }
 
     //For each project subcategory, 
     if(category === 'projects'){
-      projectsMap[name].projects = $('#' + name).children();
-      projectsMap[name].currentIndex = 0;
+      projectsMap[projectType].projects = $('#' + projectType).children();
+      projectsMap[projectType].currentIndex = 0;
     }
-
-
   };
 }
 
