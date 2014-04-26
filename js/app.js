@@ -26,11 +26,13 @@ viziApp.config(function($routeProvider){
 
 });
 
+
 viziApp.controller('rootController', function($rootScope, $location){
+  var throttledUpdateStatue = _.throttle(updateStatue, 100, {trailing: false});
   $rootScope.$on('$locationChangeStart', function(){
     //find out what route we just navigated to and let our statue know so it can handle text fly in and 
     //camera rotation
-    updateStatue($location.path().replace(/\//,""));
+    throttledUpdateStatue($location.path().replace(/\//,""));
 
   });
 });

@@ -134,6 +134,7 @@ function updateStatue(path){
   //We need are discarding frames, so set oldFrameIndex to null
   //our little 3d router
   //We are on main page and want header text displayed
+  console.log("waah");
   if(path === ''){
     path = 'header';
   }
