@@ -3,22 +3,23 @@ var topMenuItems = {};
 var frames = [];
 var fakeFrames = [];
 var text3DMenu;
+var frameNeighborThreshold = 20;
 //each project category will contain an array of jquery elements - each one being an individual project
 var projectsMap = {
-  'environments':{},
-  'products' : {},
+  'environments': {},
+  'products': {},
   'interfaces': {}
 };
 
 
 
-function Statue(){
+function Statue() {
   var refractCamera = new THREE.CubeCamera(0.1, 5000, 512);
   var glassWindow;
   var elementSize = 1024;
-  var frameSize = (10*elementSize)/630;
+  var frameSize = (10 * elementSize) / 630;
 
-  this.init = function(){
+  this.init = function() {
     this.generate();
     text3DMenu = new Menu3D();
     text3DMenu.init();
@@ -30,7 +31,7 @@ function Statue(){
 
     this.newPanel('heart', 'projects', 'interfaces');
     this.newPanel('holiday', 'projects', 'interfaces');
-    
+
     this.newPanel('futurgo', 'projects', 'products');
     this.newPanel('razer', 'projects', 'products');
 
@@ -50,12 +51,19 @@ function Statue(){
 
   };
 
-  this.generate = function(){
+  this.generate = function() {
     var numFrames = 7;
     var numFakeFrames = 7;
     var rFR = MathHelpers.randFloatRange;
-    var material1 = new THREE.MeshBasicMaterial({color: 0xeaf9e2, side: THREE.DoubleSide});
-    var material2 = new THREE.MeshBasicMaterial({color: 0x0000ff, transparent:true, opacity: 0.0});
+    var material1 = new THREE.MeshBasicMaterial({
+      color: 0xeaf9e2,
+      side: THREE.DoubleSide
+    });
+    var material2 = new THREE.MeshBasicMaterial({
+      color: 0x0000ff,
+      transparent: true,
+      opacity: 0.0
+    });
     var materials = [];
     materials.push(material1);
     materials.push(material1);
@@ -65,25 +73,25 @@ function Statue(){
     materials.push(material2);
     var geo = new THREE.BoxGeometry(frameSize, frameSize, 1);
     var mesh, pos;
-    for(var i =0; i < numFrames; i++){
+    for (var i = 0; i < numFrames; i++) {
       //REAL FRAMES (CONTENT CAN BE ADDED HERE)
       mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
       //We want all frames flat for text anchoring on front and back sides
-      mesh.rotation.x = Math.PI/2;
+      mesh.rotation.x = Math.PI / 2;
       scene.add(mesh);
       frames.push(mesh);
     }
 
     //FAKE FRAMES (NO CONTENT)
-    for(i = 0; i < numFakeFrames; i++){
+    for (i = 0; i < numFakeFrames; i++) {
       geo = new THREE.BoxGeometry(_.random(5, 50), _.random(5, 50), _.random(0.1, 1));
       mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial(materials));
       pos = generateFramePosition();
       mesh.position.set(pos.x, pos.y, pos.z);
-      if(Math.random() > 0.6){
-        mesh.rotation.x = Math.PI/2;
+      if (Math.random() > 0.6) {
+        mesh.rotation.x = Math.PI / 2;
       }
       scene.add(mesh);
     }
@@ -91,7 +99,7 @@ function Statue(){
 
   };
 
-  this.newPanel = function(name, category, projectType){
+  this.newPanel = function(name, category, projectType) {
     panels[name] = new THREE.Object3D();
     panels[name].html = document.getElementById(name);
     panels[name].html.style.overflow = 'hidden';
@@ -99,16 +107,16 @@ function Statue(){
     panels[name].html.style.height = elementSize + 'px';
     panels[name].html.style.opacity = 0;
     panels[name].content = new THREE.CSS3DObject(panels[name].html);
-    panels[name].content.scale.multiplyScalar(1/63.5);
+    panels[name].content.scale.multiplyScalar(1 / 63.5);
     panels[name].add(panels[name].content);
 
     //generate the menu item associated with this
-    if(category !== 'projects'){
+    if (category !== 'projects') {
       text3DMenu.createMenuItem(name, category);
     }
 
     //For each project subcategory, 
-    if(category === 'projects'){
+    if (category === 'projects') {
       projectsMap[projectType].projects = $('#' + projectType).children();
       projectsMap[projectType].currentIndex = 0;
     }
@@ -116,34 +124,52 @@ function Statue(){
 }
 
 
-function generateFramePosition(){
-  var bounds = 40;
-  var pos =  {
-    x: _.random(-bounds/2,bounds),
-    y: _.random(-bounds,bounds),
-    z: _.random(0,bounds)
+function generateFramePosition() {
+  //Make sure we don't get collisions
+  var frameCollision = function(potentialPos) {
+    var collision = false;
+    //go through all the existing frames and make sure this one isn't too close
+    _.each(frames, function(frame) {
+      //get distance of this position to frame position
+      var distance = potentialPos.distanceTo(frame.position);
+      if(distance < frameNeighborThreshold){
+        collision = true;
+      }
+    });
+    return collision;
   };
+  var potentialPos;
+  var bounds = 40;
+  do {
+    potentialPos = new THREE.Vector3(
+      _.random(-bounds / 2, bounds),
+      _.random(-bounds, bounds),
+      _.random(0, bounds)
+    );
+  }
+  while (frameCollision(potentialPos));
 
-  return pos;
+  return potentialPos;
 }
 
+
+
 //Here we handle camera rotation and text tweening
-function updateStatue(path){
+function updateStatue(path) {
   //First we need to tween back any active panels
   discardFrame(false);
   //We need are discarding frames, so set oldFrameIndex to null
   //our little 3d router
   //We are on main page and want header text displayed
-  if(path === ''){
+  if (path === '') {
     path = 'header';
   }
   //Now tween out the old menu items and tween in the text items for the current route we are at.
   rotateCamera(1);
   itemsOut();
   //We don't want to bring items in until others are on their way out
-  setTimeout(function(){
+  setTimeout(function() {
     itemsIn(path);
-  }, animationTime/2);
+  }, animationTime / 2);
 
 }
-
