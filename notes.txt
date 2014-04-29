@@ -2,21 +2,10 @@
 
 http://bettercontactform.com/contact/form/builder
 
-Top Bar
-TEAM TECH PROJECTS CONTACT
-(contact can just be mailto: , or form if we have time)
+Tony: Are you sure you want to change left menu css from padidng-left to left?
 
-Take out iframes, have them link to full demo in another tab
 
-Animated GIF of the demo would be nice, but screen shot OK
-
-Text labels for top-level items should be on pulleys
-
-How to deal with projects overflowing the left menu?
-
-tech panel:
-split out two paragraphs into carasel effect
-Have top level projects be on left panel and world, then within one panel, rotate through the sub category projects
+n one panel, rotate through the sub category projects
 
 
 

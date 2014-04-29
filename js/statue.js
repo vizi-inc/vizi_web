@@ -134,14 +134,16 @@ function updateStatue(path){
   //We need are discarding frames, so set oldFrameIndex to null
   //our little 3d router
   //We are on main page and want header text displayed
-  console.log("waah");
   if(path === ''){
     path = 'header';
   }
-  //Now tween in the text items for the current route we are at.
+  //Now tween out the old menu items and tween in the text items for the current route we are at.
   rotateCamera(1);
   itemsOut();
-  itemsIn(path);
+  //We don't want to bring items in until others are on their way out
+  setTimeout(function(){
+    itemsIn(path);
+  }, animationTime/2);
 
 }
 
