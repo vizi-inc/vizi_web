@@ -3,6 +3,19 @@ function rotateCamera(){
   var theta = Math.PI * 0.5 *  direction;
   var x = camera.position.x;
   var z = camera.position.z;
+  // {_x: -2.414950320276892, _y: 0.4561987430265692, _z: 2.768357218931255,
+  // var camPositions = [
+  //   {
+  //     x: 
+  //     y:
+  //     z: 
+
+  //   },
+  //   {
+
+  //   }
+
+  // ]
 
   var currentPos = {
     x: x, 
