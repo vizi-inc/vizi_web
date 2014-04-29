@@ -51,7 +51,7 @@ function swapFrames(name, projCategory) {
 
   var target = camera.clone();
   // target.lookAt(camera.position);
-  target.translateZ(-40);
+  target.translateZ(-30);
   var finalPosition = {
     x: target.position.x,
     y: target.position.y,
