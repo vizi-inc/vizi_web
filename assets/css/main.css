@@ -171,13 +171,18 @@ body {
   width: 200px;
   padding-top: 100px;
   padding-left: 25px;
-  z-index: 100;
+  height: 100%;
   color: #eaf9e2;
   background-color: rgba(156, 173, 179, 0.9);
-  height: 100%;
-  font-size: 12px; }
+  font-size: 12px;
+  margin: 0; }
+
+.left-menu-group {
+  position: absolute;
+  top: 100px; }
 
 #three-canvas {
+  z-index: 10000;
   position: absolute;
   left: 200px; }
   #three-canvas .statueText {
@@ -226,3 +231,49 @@ body {
 .navbar-default .navbar-toggle:hover {
   border: 2px solid #bd1127;
   background: #f9a618; }
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%); } }
+
+@-moz-keyframes slideOutLeft {
+  to {
+    -moz-transform: translateX(-100%); } }
+
+@-webkit-keyframes slideOutLeft {
+  to {
+    -webkit-transform: translateX(-100%); } }
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%); }
+
+  to {
+    transform: translateX(0); } }
+
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(100%); }
+
+  to {
+    -moz-transform: translateX(0); } }
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(100%); }
+
+  to {
+    -webkit-transform: translateX(0); } }
+
+.left-menu-group.ng-enter {
+  animation: slideInRight 1.5s both ease-in;
+  -webkit-animation: slideInRight 1.5s both ease-in;
+  -moz-animation: slideInRight 1.5s both ease-in;
+  z-index: 8888; }
+
+.left-menu-group.ng-leave {
+  animation: slideOutLeft 1.5s both ease-in;
+  -webkit-animation: slideOutLeft 1.5s both ease-in;
+  -moz-animation: slideOutLeft 1.5s both ease-in;
+  z-index: 9999; }
