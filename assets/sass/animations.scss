@@ -28,7 +28,7 @@ $animation-in-time: 0.7s;
 
 
 
-.left-menu-group.ng-enter{
+.ng-enter{
     animation: slideInRight $animation-in-time both ease-in;
   -webkit-animation: slideInRight $animation-in-time both ease-in;
   -moz-animation: slideInRight $animation-in-time both ease-in;
@@ -36,7 +36,7 @@ $animation-in-time: 0.7s;
 
 }
 
-.left-menu-group.ng-leave {
+.ng-leave {
   animation: slideOutLeft $animation-out-time both ease-in;
   -webkit-animation: slideOutLeft $animation-out-time both ease-in;
   -moz-animation: slideOutLeft $animation-out-time both ease-in;

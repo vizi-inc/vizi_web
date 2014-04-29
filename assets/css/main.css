@@ -272,13 +272,13 @@ body {
   to {
     -webkit-transform: translateX(0); } }
 
-.left-menu-group.ng-enter {
+.ng-enter {
   animation: slideInRight 0.7s both ease-in;
   -webkit-animation: slideInRight 0.7s both ease-in;
   -moz-animation: slideInRight 0.7s both ease-in;
   z-index: 8888; }
 
-.left-menu-group.ng-leave {
+.ng-leave {
   animation: slideOutLeft 0.5s both ease-in;
   -webkit-animation: slideOutLeft 0.5s both ease-in;
   -moz-animation: slideOutLeft 0.5s both ease-in;

@@ -165,7 +165,7 @@ function updateStatue(path) {
     path = 'header';
   }
   //Now tween out the old menu items and tween in the text items for the current route we are at.
-  rotateCamera(1);
+  rotateCamera();
   itemsOut();
   //We don't want to bring items in until others are on their way out
   setTimeout(function() {

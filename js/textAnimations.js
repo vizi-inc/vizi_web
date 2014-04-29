@@ -50,21 +50,24 @@ function resetCallbacks(item, frame, category) {
 
   //If header we want to tween out all header texts and tween in whatever category texts 
   //without bringing up a panel
+  //Also we need to change routes
   if (category === 'header') {
     $(item.frontContent.element).on('click', function() {
-      itemsOut();
-      rotateCamera();
-      if (text3DMenu.menu[name]) {
-        itemsIn(name);
-      }
+      window.location.href = '#' + name;
+      // itemsOut();
+      // rotateCamera();
+      // if (text3DMenu.menu[name]) {
+      //   itemsIn(name);
+      // }
     });
 
     $(item.backContent.element).on('click', function() {
-      itemsOut();
-      rotateCamera();
-      if (text3DMenu.menu[name]) {
-        itemsIn(name);
-      }
+      window.location.href = '#' + name;
+      // itemsOut();
+      // rotateCamera();
+      // if (text3DMenu.menu[name]) {
+      //   itemsIn(name);
+      // }
     });
   } else if (category === 'projects') {
     var projCategory = name;
