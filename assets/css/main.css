@@ -178,8 +178,14 @@ body {
   margin: 0; }
 
 .left-menu-group {
+  padding-right: 50px;
   position: absolute;
-  top: 100px; }
+  top: 100px;
+  width: 200px; }
+
+.tech-menu li {
+  color: #bd1127;
+  font-size: 1.2em; }
 
 #three-canvas {
   z-index: 10000;

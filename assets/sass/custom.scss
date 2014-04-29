@@ -39,8 +39,17 @@ body{
 }
 
 .left-menu-group{
+  padding-right: 50px;
   position: absolute;
   top: 100px;
+  width: $left-menu-width;
+}
+
+.tech-menu{
+  li{
+    color: $header-tabs-color;
+    font-size: 1.2em;
+  }
 }
 
 #three-canvas{

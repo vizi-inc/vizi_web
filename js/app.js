@@ -1,4 +1,4 @@
-var viziApp = angular.module('viziApp', ['ngRoute', 'ngAnimate', 'frames']);
+var viziApp = angular.module('viziApp', ['ngRoute', 'ngAnimate', 'frames', 'ngTouch', 'angular-carousel']);
 
 viziApp.config(function($routeProvider){
   $routeProvider
