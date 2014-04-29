@@ -6,6 +6,7 @@ var renderer, cssRenderer;
 
 var navigation;
 var clock = new THREE.Clock();
+var leftMenuWidth = 200;
 
 //When you click on tab, the text
 //try fonts
@@ -16,8 +17,8 @@ var world = new World();
 world.init();
 
 function World(){
-  var controlsEnabled = false;
-  // var controlsEnabled = true;
+  // var controlsEnabled = false;
+  var controlsEnabled = true;
   this.init = function(){
     
     //RENDERERS
@@ -27,6 +28,7 @@ function World(){
     renderer.domElement.style.position = "fixed";
     canvasElement.appendChild(renderer.domElement);
     renderer.setClearColor(0x9cafb3);
+    // renderer.setClearColor(0xff00b3);
 
     cssRenderer = new THREE.CSS3DRenderer();
     cssRenderer.domElement.style.position = "fixed";
@@ -94,9 +96,9 @@ window.onload = function(){
 
 function onWindowResize(){
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    cssRenderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
+    renderer.setSize( window.innerWidth- leftMenuWidth, window.innerHeight );
+    cssRenderer.setSize(window.innerWidth-leftMenuWidth, window.innerHeight);
+    camera.aspect = (window.innerWidth-leftMenuWidth) / window.innerHeight;
     camera.updateProjectionMatrix();
 }
 

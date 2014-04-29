@@ -178,6 +178,7 @@ body {
   font-size: 12px; }
 
 #three-canvas {
+  position: absolute;
   left: 200px; }
   #three-canvas .statueText {
     font-size: 90px;

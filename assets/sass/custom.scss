@@ -38,6 +38,7 @@ body{
 }
 
 #three-canvas{
+  position: absolute;
   left: $left-menu-width;
 
   .statueText{
