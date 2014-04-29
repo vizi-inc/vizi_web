@@ -1,3 +1,6 @@
+$animation-out-time: 0.5s;
+$animation-in-time: 0.7s;
+
 @keyframes slideOutLeft {
   to {transform: translateX(-100%); }
 }
@@ -26,16 +29,16 @@
 
 
 .left-menu-group.ng-enter{
-    animation: slideInRight $animation-time both ease-in;
-  -webkit-animation: slideInRight $animation-time both ease-in;
-  -moz-animation: slideInRight $animation-time both ease-in;
+    animation: slideInRight $animation-in-time both ease-in;
+  -webkit-animation: slideInRight $animation-in-time both ease-in;
+  -moz-animation: slideInRight $animation-in-time both ease-in;
   z-index: 8888;
 
 }
 
 .left-menu-group.ng-leave {
-  animation: slideOutLeft $animation-time both ease-in;
-  -webkit-animation: slideOutLeft $animation-time both ease-in;
-  -moz-animation: slideOutLeft $animation-time both ease-in;
+  animation: slideOutLeft $animation-out-time both ease-in;
+  -webkit-animation: slideOutLeft $animation-out-time both ease-in;
+  -moz-animation: slideOutLeft $animation-out-time both ease-in;
   z-index: 9999;
 }

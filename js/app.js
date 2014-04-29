@@ -22,6 +22,9 @@ viziApp.config(function($routeProvider){
   })
   .when('/contact', {
     templateUrl: 'partials/contact.html',
+  })
+  .otherwise({
+    redirectTo: '/'
   });
 
 });
