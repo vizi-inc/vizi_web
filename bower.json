@@ -1,0 +1,10 @@
+{
+  "name": "temp",
+  "version": "0.0.0",
+  "dependencies": {
+    "threejs": "",
+    "angular": "1.2.16",
+    "angular-animate": "1.2.16"  
+  }
+}
+

@@ -1,0 +1,44 @@
+$animation-out-time: 0.5s;
+$animation-in-time: 0.7s;
+
+@keyframes slideOutLeft {
+  to {transform: translateX(-100%); }
+}
+
+@-moz-keyframes slideOutLeft {  
+  to    { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+  to    { -webkit-transform: translateX(-100%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from  { transform:translateX(100%); }
+  to    { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+  from  { -moz-transform:translateX(100%); }
+  to    { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+  from  { -webkit-transform:translateX(100%); }
+  to    { -webkit-transform: translateX(0); }
+}
+
+
+
+.ng-enter{
+    animation: slideInRight $animation-in-time both ease-in;
+  -webkit-animation: slideInRight $animation-in-time both ease-in;
+  -moz-animation: slideInRight $animation-in-time both ease-in;
+  z-index: 8888;
+
+}
+
+.ng-leave {
+  animation: slideOutLeft $animation-out-time both ease-in;
+  -webkit-animation: slideOutLeft $animation-out-time both ease-in;
+  -moz-animation: slideOutLeft $animation-out-time both ease-in;
+  z-index: 9999;
+}

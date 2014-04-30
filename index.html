@@ -1,0 +1,191 @@
+<html ng-app="viziApp" ng-controller="rootController">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+   <link href="//fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+
+    <title>Vizi</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="Keywords" content="WebGL, HTML5, Visualization, 3D Printing, Virtual Reality, Oculus, Oculus Ready,Immersive">
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="bower_components/angular-carousel/dist/angular-carousel.css" rel="stylesheet" type="text/css" />
+</head>	
+
+<body>
+<div class="wrapper">
+    <!--=== Header ===-->    
+    <div class="header">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <div>VIZI <span id="tagline">Virtually Anything&trade;</span></div>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#tech">Tech</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div><!--/navbar-collapse-->
+            </div>    
+        </div>            
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header ===-->  
+    <div class="left-menu">
+      <div class="left-menu-group" ng-view></div>
+    </div>
+
+    <div class="team">
+      <div id = 'tony' class = "panel">
+        <p>Tony is an entrepreneur and career CTO/software architect who has developed international standards and protocols, developed noteworthy 3D software applications, and started and sold technology companies. Tony’s passion for innovating is exceeded only by his desire to build great products. His mission now is to bring virtual reality experiences to every person on the planet, running on every device, anywhere, any time. Tony founded Vizi in 2013, and oversees development and operations. 
+        Read more about Tony at <a href="http://www.tonyparisi.com/" target="blank">www.tonyparisi.com</a> and follow him on twitter at @auradeluxe</p>
+      </div>
+      <div id ="dave" class="panel">
+        <p>I have been programming for 35 years, 30 of that paid. My first project was FPS maze game, which I paid $1/hour to make on a public library's Commodore Pet. I’ve always been interested in entertainment, technology, all forms of history and science. I have designed and built 7 different 3D systems consisting of a DB backend and 3D front-end for such as Vivaty, Arrival3d, Playing Mondo, and others. Pro Unity user (full stack, mainly programming) since 2009. In top 10 in Unity 'answers' forum (once as high as #4). As a consulting CTO my clients include Siemens, Euman, Tanzle, others.  I am actively using Hydra, Kinect, Intel, Oculus Rift, zSpace, augmented reality, mobile devices, on a daily basis professionally.
+        <p>I was VR before VR was cool.</p>
+        <a href="http://davearendash.com" target="blank">davearendash.com</a></p>
+      </div>
+
+      <div id = "tc" class="panel">
+        <p>TC Chang is an accomplished artist, working in the computer entertainment industry for over twenty years. A UCLA alumni, TC has art directed numerous titles such as: Aliens Interactive, Godfather 2 and Achron. He has worked for Time Warner Interactive group, Dark Horse Comics, Disney Interactive, Sony Computer Entertainment America and Electronic Arts. TC has been the Creative Director for several technology starts ups: Flatland Online, Ping Systems, Jump City Games and Splash Inc.
+        <a href="http://www.tcchang.com" target="blank">tcchang.com</a></p>
+      </div>
+      <div id ="dusan" class="panel">
+        <p>About the same time when games were adopting 3d technology, my family firm got a 3d studio license (before it became MAX). I started playing around in it, and after modeling skateboards and cars I soon started creating 3d models of buildings. After a few projects, our firm started advertising rendering services as well, and I ended up doing work for other architects. Since then I have been recreating built and proposed projects, such as the facade of the De Young museum and the parametric brick wall developed at the ETH. I’ve tried to incorporate these features into my own designs ever since, and I’ve started learning how to code properly. I am currently mostly focused on real-time graphics.
+        </p>
+         <a href="http://dusanbosnjak.com/about/" target="blank">dusanbosnjak.com/about/</a></p>
+      </div>
+
+      <div id = "simo" class="panel">
+        <p>Simo, from Helsinki, Finland, is a demoscene hobbyist and open-source contributor and is always creating something (like his one-man award-stealing operation, the music visualiser APEXvj.) In the summer of 2012 he went freelance, set-up a company called Odd Circle.
+        </p>
+
+        <p>
+          This indie Creative Coder is one of those who has always bent the limits of what can be done with Flash, and has now moved to a new technology called UNO&Realtime Studio from Outracks Technologies. He was the first developer who had the chance to explore this new toy and has used it on a daily basis ever since to develop WebGL, iOS and Android for various clients and to create his own experimental projects.
+        </p>
+        <p><a href="http://www.simppa.fi" target="blank">simppa.fi</a></p>
+        <p><a href="http://twitter.com/simppafi" target="blank">@simppafi</a><p>
+      </div>
+
+
+      <div id = 'eric' class = "panel">
+        <p>Eric is a creative coder who gets incredibly excited about all the rich interactive experiences just waiting to be brought into existence. While working as a front end engineer by day, Eric was surprised yet delighted to discover many of his evenings coding webgl turning into intense, all night, passionate hackathons. As he fell more deeply in love with his night work, the days became more and more drab, until he realized he had to devote himself towards his creative work 100%, and left his day job behind.
+        Check out his <a href="ericrius1.github.io" target="blank">website</a> and follow him on twitter- @ericrius1</p>
+      </div>
+    </div>
+ 
+
+    <div class = 'projects'>
+      
+      
+      <div id ="environments">
+
+        <div id="tcho" class="panel">
+          <img src="assets/img/tcho.jpg"></img>
+          <p>This <a href="http://vr.fxpal.com/" target="blank">virtual presentation</a> of the <a href="https://www.tcho.com" target="blank">TCHO</a> Chocolate factory was developed in Unity, outfitted with video cameras, and attached to their factory automation monitoring system. Runs on PC/Mac/Web/iOS/Android. It has a 'tourisim' mode (where users learn about the chocolate making process) and 'tech' mode (where the factory workers can monitor the actual factory via this simulation). Project for <a href="https://www.tcho.com" target="blank">FX Palo Alto Laboratory.</a></p>
+        </div> 
+
+        <div id="castle" class="panel">
+          <img src="assets/img/castle.jpg"></img>
+          <p>This castle is a model of Schloss Falkenstein, a designed-but-never-built castle, larger than the actual Neuschwannstein, in Bavaria. Modeled in Unreal circa 2001, converted to X3D in 2002, and rendered in the Oculus Ready Player (which imports X3D).</p>
+          <a href= "http://oculusready.com" target="blank">Oculus Ready</a>
+        </div>
+
+        <div id="garden" class="panel">
+          <img src="assets/img/garden.jpg"></img>
+          <p>Epic Games’ sample garden from the Unreal Developer Kit, made Rift-ready by Dave. Sitting in the warm outdoors. Nice little vacation, great de-stresser! Sound of water, frogs, wind, etc...</p>
+        </div> 
+
+      </div>
+
+      <div id ="products">
+
+        <div id="futurgo" class="panel">
+          <img src="assets/img/futurgo.jpg"></img>
+          <p>This <a href = "http://vizi.gl/engine/tests/futurgo.html" target="blank">“lifestyle transportation device”</a> concept car was created by Tony and TC for Tony’s new O’Reilly Media book, Programming 3D Applications in HTML5 and WebGL. It was developed to illustrate how to create a 3D product shopping experience, integrating a virtual model of a product into an HTML5 page with rollovers, links to drive animations and integrated overlays and backgrounds using CSS3.</p>
+        </div> 
+
+        <div id="razer" class="panel">
+          <img src="assets/img/razer.jpg"></img>
+          <p>A <a href="http://vizi.gl/razer_prototype/razerzone.com/Razer%20Edge%204.htm" target="blank">prototype web experience</a> Vizi developed for the hardware manufacture Razer for their award-winning Edge Pro tablet.  We took the original Edge static web pages and brought them to life with WebGL. The site features 4 different form factors of the Edge Pro, with video playing on the screen and integrated audio.</p>
+        </div>    
+
+      </div>
+      <div id ="interfaces">
+        
+        <div id="heart" class="panel">
+          <img src="assets/img/heart.jpg"></img>
+          <p>Developed for Levi’s <a href="http://www.akqa.com/thought/articles/2013-09-levis-make-our-mark " target="blank">Make our Mark</a> campaign in partnership with <a href="http://www.akqa.com/" target="blank">AKQA</a>, under the direction of Chief Creative Office Rei Inamoto. Tony and Simo used Uno to develop a contemplative piece that integrates an interactive beating heart with user-generated music and images via SoundCloud and Instagram.
+          </p>
+          <p> Check out the <a href = "http://www.simppa.fi/socialheart/polished2/" target="blank"> live demo</a></p>
+        </div>
+ 
+        <div id="holiday" class="panel">
+          <img src="assets/img/holiday.jpg"></img>
+          <p>A virtual reality interface to the Internet of Things. Tony used WebGL and Leap.js to create a 3D interactive interface to the <a href="http://moorescloud.com/" target="blank">Holiday</a> light by MooresCloud. A web page containing a 3D color cube allows the user to quickly select individual or flood fill colors to change a string of 50 programmable LED lights. The cube is controlled via the mouse, keyboard or a Leap Motion controller.
+          </p>
+        </div>  
+      </div>
+
+
+  
+    </div>
+
+<div id="three-canvas"></div>
+
+<!-- JS Global Compulsory -->			
+<script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src= "bower_components/angular/angular.js"></script>
+<script src= "bower_components/angular-route/angular-route.js"></script>
+<script src= "bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src= "bower_components/angular-carousel/dist/angular-carousel.js"></script>
+<script src="js/app.js"></script>
+<script src="js/modules/frames.js"></script>
+
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/vendor/CSS3DRenderer.js"></script>
+<script src="js/vendor/underscore.min.js"></script>
+<script src="js/vendor/tween.min.js"></script>
+<script src="js/vendor/OrbitControls.js"></script>
+<script src="js/lib/MathHelpers.js"></script>
+<script src="js/frameAnimations.js"></script>
+<script src="js/projectAnimations.js"></script>
+<script src="js/text3d-menu.js"></script>
+<script src="js/cameraAnimations.js"></script>
+<script src="js/textAnimations.js"></script>
+<script src="js/statue.js"></script>
+<script src="js/world.js"></script>
+
+</body>
+</html>	

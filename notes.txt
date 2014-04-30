@@ -1,0 +1,19 @@
+
+
+http://bettercontactform.com/contact/form/builder
+
+Tony: Are you sure you want to change left menu css from padidng-left to left?
+
+
+n one panel, rotate through the sub category projects
+
+
+
+
+http://stackoverflow.com/questions/17398134/three-svgrenderer-save-text-of-image/17415624#17415624
+You should be able to access the SVG DOM with renderer.domElement
+
+To convert that to XML string (if that is what you mean by "svg text"):
+
+var XMLS = new XMLSerializer(); 
+var svgfile = XMLS.serializeToString(renderer.domElement); 

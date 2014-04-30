@@ -1,0 +1,285 @@
+/*
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio and Blog Theme.
+ * Version: 1.4
+ * Author: @htmlstream
+ * Website: http://htmlstream.com
+*/
+/*Boxed Layout
+------------------------------------*/
+.wrapper {
+  background: #fff; }
+
+.boxed-layout {
+  padding: 0;
+  box-shadow: 0 0 5px #ccc;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: url(../img/patterns/15.png) repeat; }
+
+/*Header Default
+------------------------------------*/
+.header {
+  z-index: 98;
+  position: relative;
+  border-bottom: solid 2px #eee; }
+
+.header .navbar {
+  margin: 0;
+  min-height: inherit; }
+
+.header .navbar-default {
+  border: none;
+  background: none; }
+
+.header .navbar-collapse {
+  position: relative;
+  /*max-height: inherit;*/ }
+
+/*Brand*/
+.header .navbar-brand {
+  z-index: 1;
+  position: relative;
+  padding: 0 10px 10px;
+  color: #f9a618;
+  padding-top: 10px;
+  font-size: 30px; }
+
+.header .navbar-brand:hover {
+  color: #141615; }
+
+.navbar-brand #tagline {
+  font-size: 16px;
+  color: #bd1127; }
+
+@media (max-width: 992px) {
+  .header .navbar-brand {
+    height: 40px; } }
+/*Navbar*/
+@media (min-width: 992px) {
+  .header .navbar-nav {
+    float: right; } }
+.header .navbar-default .navbar-nav > li > a {
+  color: #bd1127;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase; }
+
+.header .navbar-default .navbar-nav > .active > a {
+  color: #141615; }
+
+/*Dropdown*/
+.header .navbar-right .dropdown-menu {
+  right: inherit; }
+
+/*Navbar Toggle*/
+.navbar-toggle,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background: #bd1127;
+  padding: 6px 10px 2px; }
+
+.navbar-default .navbar-toggle {
+  border-color: #5fb611; }
+
+.navbar-default .navbar-toggle:hover {
+  background: #5fb611; }
+
+.navbar-default .navbar-toggle .fa {
+  color: #fff;
+  font-size: 19px; }
+
+/*Responsive Navbar*/
+@media (max-width: 767px) {
+  .header .navbar-default .navbar-nav > li > a {
+    font-size: 14px;
+    padding: 9px 10px; }
+
+  .header .navbar-default .navbar-nav > li a {
+    /*margin-bottom: 1px;*/
+    border-bottom: solid 1px #eee; }
+
+  .header .navbar-default .navbar-nav > li > a:focus {
+    background: none; }
+
+  .header .navbar-default .navbar-nav > li > a:hover {
+    color: #141615; }
+
+  .header .navbar-default .navbar-nav > .active > a,
+  .header .navbar-default .navbar-nav > .active > a:hover,
+  .header .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #141615; }
+
+  .header .dropdown-submenu li a {
+    font-size: 12px; } }
+@media (min-width: 767px) {
+  /*Navbar Collapse*/
+  .header .navbar-collapse {
+    padding: 0; }
+
+  /*Navbar*/
+  .header .navbar-nav {
+    top: 2px;
+    position: relative; }
+
+  .header .navbar-default .navbar-nav > li > a {
+    padding: 9px 30px 9px 20px; }
+
+  .header .navbar-default .navbar-nav > li > a,
+  .header .navbar-default .navbar-nav > li > a:focus {
+    border-bottom: solid 2px transparent; }
+
+  .header .navbar-default .navbar-nav > li > a:hover,
+  .header .navbar-default .navbar-nav > .active > a {
+    border-bottom: solid 2px #141615; }
+
+  .header .navbar-default .navbar-nav > li > a,
+  .header .navbar-default .navbar-nav > li > a:hover,
+  .header .navbar-default .navbar-nav > li > a:focus,
+  .header .navbar-default .navbar-nav > .active > a,
+  .header .navbar-default .navbar-nav > .active > a:hover,
+  .header .navbar-default .navbar-nav > .active > a:focus {
+    background: none; }
+
+  .header .navbar-default .navbar-nav > .open > a,
+  .header .navbar-default .navbar-nav > .open > a:hover,
+  .header .navbar-default .navbar-nav > .open > a:focus {
+    color: #687074; } }
+/*black: #141615; */
+/*red: #bd1127 */
+/*yellow: #f9a618; */
+/*ivory: #eaf9e2; */
+a {
+  text-decoration: none !important;
+  color: #bd1127; }
+  a:hover {
+    color: #141615; }
+
+body {
+  overflow: hidden; }
+
+.wrapper {
+  font-family: "Nunito";
+  overflow: hidden; }
+
+.container {
+  margin-left: 50px; }
+
+.left-menu {
+  position: absolute;
+  width: 200px;
+  padding-top: 100px;
+  padding-left: 25px;
+  height: 100%;
+  color: #eaf9e2;
+  background-color: rgba(156, 173, 179, 0.9);
+  font-size: 12px;
+  margin: 0; }
+
+.left-menu-group {
+  padding-right: 50px;
+  position: absolute;
+  top: 100px;
+  width: 200px; }
+
+.tech-menu li {
+  color: #bd1127;
+  font-size: 1.2em; }
+
+#three-canvas {
+  z-index: 10000;
+  position: absolute;
+  left: 200px; }
+  #three-canvas .statueText {
+    font-size: 90px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #bd1127; }
+    #three-canvas .statueText:hover {
+      color: #141615; }
+
+.left-menu-item {
+  padding-top: 20px;
+  cursor: pointer; }
+
+#logo-header {
+  position: absolute;
+  top: 8px; }
+
+.panel {
+  display: none;
+  position: absolute;
+  opacity: 0.9;
+  background: #eaf9e2;
+  padding: 20px;
+  font-size: 38px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
+  .panel img {
+    height: 50%;
+    width: 100%; }
+  .panel a {
+    text-align: center; }
+
+.navbar-default .navbar-toggle {
+  border: 2px solid #f9a618;
+  border-color: #f9a618;
+  background: #bd1127; }
+
+.navbar-default .navbar-toggle:hover {
+  border: 2px solid #bd1127;
+  background: #f9a618; }
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%); } }
+
+@-moz-keyframes slideOutLeft {
+  to {
+    -moz-transform: translateX(-100%); } }
+
+@-webkit-keyframes slideOutLeft {
+  to {
+    -webkit-transform: translateX(-100%); } }
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%); }
+
+  to {
+    transform: translateX(0); } }
+
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(100%); }
+
+  to {
+    -moz-transform: translateX(0); } }
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(100%); }
+
+  to {
+    -webkit-transform: translateX(0); } }
+
+.ng-enter {
+  animation: slideInRight 0.7s both ease-in;
+  -webkit-animation: slideInRight 0.7s both ease-in;
+  -moz-animation: slideInRight 0.7s both ease-in;
+  z-index: 8888; }
+
+.ng-leave {
+  animation: slideOutLeft 0.5s both ease-in;
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  z-index: 9999; }

@@ -1,0 +1,192 @@
+
+/*
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio and Blog Theme.
+ * Version: 1.4
+ * Author: @htmlstream
+ * Website: http://htmlstream.com
+*/
+
+
+/*Boxed Layout
+------------------------------------*/
+.wrapper {
+  background: #fff;
+}
+
+.boxed-layout {
+  padding: 0;
+  box-shadow: 0 0 5px #ccc;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: url(../img/patterns/15.png) repeat;
+}
+
+/*Header Default
+------------------------------------*/
+.header {
+  z-index: 98;
+  position: relative;
+  border-bottom: solid 2px #eee;
+}
+
+.header .navbar {
+  margin: 0;
+  min-height: inherit;
+}
+
+.header .navbar-default {
+  border: none;
+  background: none;
+}
+
+.header .navbar-collapse {
+  position: relative;
+  /*max-height: inherit;*/
+}
+
+/*Brand*/
+.header .navbar-brand { 
+  z-index: 1;
+  position: relative;
+  padding: 0 10px 10px;
+  color: #f9a618;
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+.header .navbar-brand:hover{
+  color: $underline-color;
+}
+.navbar-brand #tagline{
+  font-size: 16px;
+  color: $header-tabs-color;
+
+}
+
+@media (max-width: 992px) {
+  .header .navbar-brand { 
+    height: 40px;
+  }
+}
+
+/*Navbar*/
+@media (min-width: 992px) {
+  .header .navbar-nav {
+    float: right;
+  } 
+}
+
+.header .navbar-default .navbar-nav > li > a {
+  color: $header-tabs-color;
+  font-size: 15px;
+  font-weight:400;
+  text-transform: uppercase;
+}
+
+.header .navbar-default .navbar-nav > .active > a {
+  color: $underline-color;
+}
+
+/*Dropdown*/
+.header .navbar-right .dropdown-menu {
+  right: inherit;
+}
+
+/*Navbar Toggle*/
+.navbar-toggle,
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+  background: $header-tabs-color;;
+  padding: 6px 10px 2px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #5fb611;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background: #5fb611;
+}
+
+.navbar-default .navbar-toggle .fa {
+  color: #fff;
+  font-size: 19px;
+}
+
+/*Responsive Navbar*/
+@media (max-width: 767px) {
+  .header .navbar-default .navbar-nav > li > a {
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+
+  .header .navbar-default .navbar-nav > li a {
+    /*margin-bottom: 1px;*/
+    border-bottom: solid 1px #eee;
+  }
+
+  .header .navbar-default .navbar-nav > li > a:focus {
+    background: none;
+  }
+
+  .header .navbar-default .navbar-nav > li > a:hover {
+    color: $underline-color;
+  }
+
+  .header .navbar-default .navbar-nav > .active > a,
+  .header .navbar-default .navbar-nav > .active > a:hover,
+  .header .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: $underline-color;
+  }
+
+  .header .dropdown-submenu li a { 
+    font-size: 12px;
+  } 
+}
+
+@media (min-width: 767px) {
+  /*Navbar Collapse*/
+  .header .navbar-collapse {
+    padding: 0;
+  }
+
+  /*Navbar*/
+  .header .navbar-nav {
+    top: 2px;
+    position: relative;
+  }
+
+  .header .navbar-default .navbar-nav > li > a {
+    padding: 9px 30px 9px 20px;   
+  }
+
+  .header .navbar-default .navbar-nav > li > a,
+  .header .navbar-default .navbar-nav > li > a:focus {  
+    border-bottom: solid 2px transparent;
+  }
+
+  .header .navbar-default .navbar-nav > li > a:hover,
+  .header .navbar-default .navbar-nav > .active > a {
+    border-bottom: solid 2px $underline-color;
+  }
+  
+  .header .navbar-default .navbar-nav > li > a,
+  .header .navbar-default .navbar-nav > li > a:hover,
+  .header .navbar-default .navbar-nav > li > a:focus, 
+  .header .navbar-default .navbar-nav > .active > a, 
+  .header .navbar-default .navbar-nav > .active > a:hover, 
+  .header .navbar-default .navbar-nav > .active > a:focus {
+    background: none;
+  }
+  
+
+  .header .navbar-default .navbar-nav > .open > a,
+  .header .navbar-default .navbar-nav > .open > a:hover,
+  .header .navbar-default .navbar-nav > .open > a:focus {
+    color: #687074;
+  }
+}
+
+  
