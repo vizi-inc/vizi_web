@@ -196,7 +196,6 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;

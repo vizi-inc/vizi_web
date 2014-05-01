@@ -29,7 +29,11 @@ function Menu3D(){
     item.add(item.frontContainer);
 
     html = document.createElement('div');
-    html.innerText = name;
+    if(document.all){
+      html.innerText = name;
+    } else{
+      html.textContent = name;
+    }
     $(html).data('name', name);
     html.className = 'statueText';
 
