@@ -33,7 +33,7 @@ body{
   // z-index: 100;
   height: 100%;
   color: $left-menu-color;
-  background-color: rgba(156, 173, 179, 0.9);
+  background-color: $canvas-background-color;
   font-size: 12px;
   margin: 0;
 }
@@ -62,7 +62,7 @@ body{
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
+    // -ms-backface-visibility: hidden;
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
