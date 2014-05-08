@@ -169,7 +169,7 @@ body {
 .left-menu {
   position: absolute;
   width: 200px;
-  padding-top: 100px;
+  padding-top: 20px;
   padding-left: 25px;
   height: 100%;
   color: #eaf9e2;
@@ -180,7 +180,6 @@ body {
 .left-menu-group {
   padding-right: 50px;
   position: absolute;
-  top: 100px;
   width: 200px; }
 
 .tech-menu li {
