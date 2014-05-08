@@ -61,9 +61,9 @@ function Statue() {
       side: THREE.DoubleSide
     });
     var material2 = new THREE.MeshBasicMaterial({
-      color: 0x0000ff,
+      color: 0xffffff,
       transparent: true,
-      opacity: 0.0
+      opacity: 0.3
     });
     var materials = [];
     materials.push(material1);

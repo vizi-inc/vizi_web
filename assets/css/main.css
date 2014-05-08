@@ -174,7 +174,7 @@ body {
   height: 100%;
   color: #eaf9e2;
   background-color: #9cafb3;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0; }
 
 .left-menu-group {
@@ -192,7 +192,7 @@ body {
   position: absolute;
   left: 200px; }
   #three-canvas .statueText {
-    font-size: 90px;
+    font-size: 140px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;

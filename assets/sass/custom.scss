@@ -33,7 +33,7 @@ body{
   height: 100%;
   color: $left-menu-color;
   background-color: $canvas-background-color;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
 }
 
@@ -57,7 +57,7 @@ body{
   left: $left-menu-width;
 
   .statueText{
-    font-size:90px;
+    font-size:140px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
